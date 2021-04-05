@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string-array name="messages_tip">-->
+<!--        <item>고양이는 귀여워요!</item>-->
+<!--        <item>고양이 키우기는 출시 11개월이 지나서야 100 다운로드를 기록했어요!</item>-->
+<!--        <item>케이크는 아이스크림보다 맛있어요!</item>-->
+<!--        <item>업데이트마다 아이스크림 케이크를 획득해요!</item>-->
+<!--        <item>현자의 돌은 연금술사만 사용할 수 있어요!</item>-->
+<!--        <item>수정구슬은 점술사만 사용할 수 있어요!</item>-->
+<!--        <item>키보드를 인지시키면 고양이가 키보드 위로 올라가요!</item>-->
+<!--        <item>참가권은 게임당 매일 2 장씩 충전돼요!</item>-->
+<!--        <item>어려움 난이도에서 더 맛있는 아이템을 획득할 수 있어요!</item>-->
+<!--    </string-array>-->
+
+    <!-- pajamas -->
+    <string-array name="scripts_pajamas_fight_left">
+        <item>냥 냐 냐 냥!</item>
+        <item>냐냥 냐냐냥!</item>
+        <item>냥.. 냥냐 냐냥 냥냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_translation_left">
+        <item>지금 대체 뭐 하는 거냥!</item>
+        <item>밤중에는 자제해라냥!</item>
+        <item>큿.. 그렇다면 힘으로 막겠다냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_right">
+        <item>냥 냐냥? 냥냥냐!</item>
+        <item>냐냥 냥 냥 냐냐 냥 냐냥!</item>
+        <item>냐냥 냥냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_translation_right">
+        <item>보면 모르냥? 딱지치기다냥!</item>
+        <item>챔피언의 꿈을 위해 그럴 순 없다냥!</item>
+        <item>바라던 바다냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy">
+        <item>냐 냥 냐냥!</item>
+        <item>냐냐냥!</item>
+        <item>냐냥 냥!</item>
+        <item>냐 냐냥 냥?!</item>
+        <item>냐 냥 냐 냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_translation">
+        <item>겨우 이 정도냥!</item>
+        <item>간지럽다냥!</item>
+        <item>전력으로 간다냥!</item>
+        <item>내가 밀리는 거냥?!</item>
+        <item>이건 말도 안 된다냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_player_win">
+        <item>냐.. 냐냥..</item>
+        <item>냥 냥냐냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_player_win_translation">
+        <item>내가.. 졌다냥..</item>
+        <item>이걸 가져가라냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_win">
+        <item>냥 냥 냐냥 냥냥!</item>
+        <item>냐냥 냐냐냥!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_win_translation">
+        <item>너는 내 적수가 못된다냥!</item>
+        <item>집으로 돌아가라냥!</item>
+    </string-array>
+
+    <!-- pleiades -->
+    <string-array name="scripts_pleiades_conversation_alcyone">
+        <item>냥 냐 냐냥~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_alcyone_translation">
+        <item>그럼 불 끈다냥~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_pleione">
+        <item>냐냥~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_pleione_translation">
+        <item>알겠다냥~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_catch">
+        <item>..냐 냐냥?</item>
+    </string-array>
+    <string-array name="scripts_pleiades_catch_translation">
+        <item>..뭐 하냐냥?</item>
+    </string-array>
+
+    <!-- dinosaur -->
+    <string-array name="scripts_dinosaur_chase_dino">
+        <item>냥 냐냥!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_dino_translation">
+        <item>거기 서라냥!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_sunflower">
+        <item>냐 냐냥 냥냥?!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_sunflower_translation">
+        <item>너 같으면 서겠냐냥?!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_ran_away_sunflower">
+        <item>냥..</item>
+        <item>냐냥 냥!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_ran_away_sunflower_translation">
+        <item>크큭..</item>
+        <item>바보 녀석이다냥!</item>
+    </string-array>
+
+</resources>

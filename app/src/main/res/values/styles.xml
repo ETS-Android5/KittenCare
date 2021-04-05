@@ -1,0 +1,104 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- colorAccent -->
+        <item name="colorAccent">@color/color_accent</item>
+
+        <!-- status bar -->
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- action bar -->
+        <item name="windowActionBar">false</item> <!-- no action bar -->
+        <item name="windowNoTitle">true</item> <!-- no action bar -->
+        <item name="colorPrimary">@android:color/white</item> <!-- action bar color -->
+        <item name="elevation">0dp</item> <!-- remove action bar shadow -->
+        <item name="android:actionButtonStyle">@style/ActionButtonStyle</item> <!-- action bar button -->
+        <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
+
+        <!-- text -->
+        <item name="android:textColorPrimary">@color/color_signature_black</item>
+        <item name="android:textColor">@color/color_signature_black</item>
+        <item name="android:textColorHint">@color/color_signature_gray</item>
+        <item name="android:textSize">@dimen/text_size_default</item>
+
+        <!-- window -->
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!-- divider -->
+        <item name="android:listDivider">@color/color_divider</item>
+
+        <!-- ripple effect -->
+        <item name="colorControlHighlight">@color/color_ripple</item>
+
+        <!-- navigation bar -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarTheme">
+        <item name="android:tint">@color/color_signature_black</item> <!-- overflow icon color -->
+        <item name="android:textColor">@android:color/white</item> <!-- menu item long click title color -->
+    </style>
+
+    <style name="AppTheme.SplashTheme">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowBackground">@drawable/background_splash_launch</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.ToolbarTitleTextAppearanceMain">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.ToolbarTextOverlaySub">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="@android:style/Widget.ActionButton">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/color_signature_black</item> <!-- pop up menu title color -->
+    </style>
+
+    <style name="SeekBarStyle" parent="Widget.AppCompat.SeekBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/drawable_progress</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:maxHeight">3dp</item>
+    </style>
+
+    <style name="PopupMenuStyle" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@drawable/background_round_stroke</item>
+    </style>
+
+    <!-- dialog -->
+    <!-- TODO delete? -->
+    <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonStyle">@style/DialogButtonStyle</item>
+        <item name="android:windowTitleStyle">@style/DialogTitleStyle</item>
+
+        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>
+        <item name="buttonBarButtonStyle">@style/DialogButtonStyle</item>
+        <item name="buttonBarNeutralButtonStyle">@style/DialogButtonStyle</item>
+
+        <item name="android:textColor">@color/color_signature_black</item>
+        <item name="android:textColorPrimary">@color/color_signature_black</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+        <item name="colorControlHighlight">@color/color_ripple</item>
+    </style>
+
+    <style name="AppTheme.DialogTheme.Transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/color_accent</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="AppTheme">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

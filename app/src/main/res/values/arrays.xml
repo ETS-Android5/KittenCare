@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- pajamas -->
+    <string-array name="scripts_pajamas_fight_left">
+        <item>Meow meow!</item>
+        <item>Meow meow meow!</item>
+        <item>Meow meow meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_translation_left">
+        <item>What are you doing meow!</item>
+        <item>Keep your head down at night meow!</item>
+        <item>Then I\'ll force you to stop meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_right">
+        <item>Meow meow!</item>
+        <item>Meow meow meow meow!</item>
+        <item>Meow.. meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_fight_translation_right">
+        <item>I\'m slapping ttakji meow!</item>
+        <item>I can\'t do you the favor for the dream of becoming a champion meow!</item>
+        <item>All right meow.. Come on meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy">
+        <item>Meow meow!</item>
+        <item>Meow meow!</item>
+        <item>Meow meow meow!</item>
+        <item>Meow meow!</item>
+        <item>Meow meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_translation">
+        <item>Just this much meow!</item>
+        <item>It tickles me meow!</item>
+        <item>I\'m going with all my might meow!</item>
+        <item>I\'m being pushed meow?!</item>
+        <item>This is ridiculous meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_player_win">
+        <item>Meow.. meow..</item>
+        <item>Meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_player_win_translation">
+        <item>I.. lost meow..</item>
+        <item>Take this meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_win">
+        <item>Meow meow meow!</item>
+        <item>Meow meow!</item>
+    </string-array>
+    <string-array name="scripts_pajamas_enemy_win_translation">
+        <item>You\'re not match for me meow!</item>
+        <item>Go back home meow!</item>
+    </string-array>
+
+    <!-- pleiades -->
+    <string-array name="scripts_pleiades_conversation_alcyone">
+        <item>Meow meow meow~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_alcyone_translation">
+        <item>Then I\'ll turn off the light~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_pleione">
+        <item>Meow~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_conversation_pleione_translation">
+        <item>I got it~</item>
+    </string-array>
+    <string-array name="scripts_pleiades_catch">
+        <item>..Meow meow meow?</item>
+    </string-array>
+    <string-array name="scripts_pleiades_catch_translation">
+        <item>..What are you doing?</item>
+    </string-array>
+
+    <string-array name="scripts_dinosaur_chase_dino">
+        <item>Meow!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_dino_translation">
+        <item>Stop there!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_sunflower">
+        <item>Meow meow meow?!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_chase_sunflower_translation">
+        <item>Would you stop if you were me?!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_ran_away_sunflower">
+        <item>Meow..</item>
+        <item>Meow!</item>
+    </string-array>
+    <string-array name="scripts_dinosaur_ran_away_sunflower_translation">
+        <item>Keu keuk..</item>
+        <item>What a fool!</item>
+    </string-array>
+
+</resources>

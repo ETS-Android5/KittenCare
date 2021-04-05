@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_accent">#FE7C8D</color>
+    <color name="color_signature_black">#4C3C40</color>
+    <color name="color_signature_gray">#B2A6A7</color>
+    <color name="color_signature_brown">#82696e</color>
+    <color name="color_divider">#e5dcdd</color>
+    <color name="color_divider_alpha">#B3e5dcdd</color>
+    <color name="color_ripple">#ebe6e6</color>
+
+    <color name="color_navigation_background">#F9F6F8</color>
+    <color name="color_toast_background">#9b8c8c</color>
+    <color name="color_progress_background">#ffd6dc</color>
+
+    <color name="color_game_floor">#dec0b1</color>
+    <color name="color_game_dark">#33ebe6e6</color>
+    <color name="color_game_sky_high">#E7F3F9</color>
+    <color name="color_game_sky_mid">#eff7fb</color>
+    <color name="color_game_sky_low">#f7fbfd</color>
+    <color name="color_game_sky_high_dark">#EBE7F9</color>
+    <color name="color_game_sky_mid_dark">#F2EFFB</color>
+    <color name="color_game_sky_low_dark">#F8F7FD</color>
+    <color name="color_game_sky_high_wall">#F9E7E7</color>
+    <color name="color_game_sky_mid_wall">#FBEFEF</color>
+    <color name="color_game_sky_low_wall">#FDF7F7</color>
+
+    <color name="color_alchemy_sun">#ffDA7F</color>
+    <color name="color_divination_crystal_ball_outline">#f9f8fd</color>
+</resources>

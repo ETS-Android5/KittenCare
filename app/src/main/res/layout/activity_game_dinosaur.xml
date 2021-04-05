@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/appbar_dinosaur"
+        layout="@layout/include_appbar_sub" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_dinosaur"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        android:background="@drawable/drawable_round_stroke"
+        app:layout_constraintBottom_toTopOf="@id/button_dinosaur"
+        app:layout_constraintTop_toBottomOf="@id/appbar_dinosaur">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/high_line_dinosaur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mid_line_dinosaur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/low_line_dinosaur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/drawable_game_sky_low"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@color/color_game_sky_mid"
+            app:layout_constraintBottom_toTopOf="@id/mid_line_dinosaur"
+            app:layout_constraintTop_toBottomOf="@id/high_line_dinosaur"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/drawable_game_sky_high"
+            app:layout_constraintBottom_toTopOf="@id/high_line_dinosaur"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/floor_pleiades"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/drawable_game_floor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/low_line_dinosaur"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/cloud_dinosaur"
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:layout_marginTop="@dimen/margin_huge"
+            android:src="@drawable/image_game_dinosaur_cloud"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <include
+            android:id="@+id/dino_dinosaur"
+            layout="@layout/include_kitten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/low_line_dinosaur"
+            app:layout_constraintEnd_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/leaf_dinosaur"
+            android:layout_width="@dimen/width_kitten"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_dinosaur_leaf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/low_line_dinosaur"
+            tools:ignore="ContentDescription" />
+
+        <include
+            android:id="@+id/sunflower_dinosaur"
+            layout="@layout/include_kitten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/low_line_dinosaur"
+            app:layout_constraintEnd_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/speaker_dino_dinosaur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_round_stroke"
+            android:paddingHorizontal="@dimen/margin_default"
+            android:paddingVertical="@dimen/margin_small"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/dino_dinosaur"
+            app:layout_constraintEnd_toStartOf="@id/dino_dinosaur" />
+
+        <TextView
+            android:id="@+id/speaker_sunflower_dinosaur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_round_stroke"
+            android:paddingHorizontal="@dimen/margin_default"
+            android:paddingVertical="@dimen/margin_small"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/sunflower_dinosaur"
+            app:layout_constraintEnd_toStartOf="@id/sunflower_dinosaur" />
+
+        <TextView
+            android:id="@+id/speaker_translation_dinosaur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/low_line_dinosaur" />
+
+        <ProgressBar
+            android:id="@+id/progress_background_dinosaur"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_progress_large"
+            android:layout_margin="@dimen/margin_large"
+            android:progressDrawable="@drawable/drawable_game_progress"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <View
+            android:id="@+id/progress_target_dinosaur"
+            android:layout_width="@dimen/margin_dialog_default"
+            android:layout_height="@dimen/height_progress_large"
+            android:layout_margin="@dimen/margin_large"
+            android:background="@color/color_progress_background"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_dinosaur"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_progress_large"
+            android:layout_margin="@dimen/margin_large"
+            android:progressDrawable="@drawable/drawable_game_progress_transparent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_dinosaur"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        android:background="@drawable/background_game_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

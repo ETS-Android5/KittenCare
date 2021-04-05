@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_pajamas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/margin_default"
+    android:layout_marginTop="@dimen/margin_default"
+    android:layout_marginEnd="@dimen/margin_default"
+    android:layout_marginBottom="@dimen/margin_very_large"
+    android:background="@drawable/background_round_stroke"
+    app:layout_constraintBottom_toTopOf="@id/button_pajamas"
+    app:layout_constraintTop_toBottomOf="@id/appbar_pajamas">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/low_line_pajamas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0" />
+
+    <TextView
+        android:id="@+id/speaker_floor_pajamas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/floor_pajamas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/drawable_game_floor_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/low_line_pajamas"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/speaker_translation_pajamas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:visibility="invisible"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/low_line_pajamas" />
+
+    <ProgressBar
+        android:id="@+id/progress_enemy_pajamas"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_progress_large"
+        android:layout_margin="@dimen/margin_large"
+        android:progressDrawable="@drawable/drawable_game_progress"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_player_pajamas"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_progress_large"
+        android:layout_margin="@dimen/margin_large"
+        android:progressDrawable="@drawable/drawable_game_progress"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/hp_enemy_pajamas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_small"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/ttakji_enemy_pajamas"
+        app:layout_constraintStart_toStartOf="@id/ttakji_enemy_pajamas"
+        app:layout_constraintBottom_toBottomOf="@id/ttakji_enemy_pajamas" />
+
+    <ImageView
+        android:id="@+id/ttakji_enemy_pajamas"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:layout_margin="@dimen/margin_huge"
+        android:src="@drawable/image_game_pajamas_ttakji_enemy"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_enemy_pajamas"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/speaker_enemy_pajamas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:background="@drawable/drawable_round"
+        android:paddingHorizontal="@dimen/margin_default"
+        android:paddingVertical="@dimen/margin_small"
+        android:textSize="@dimen/text_size_small"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/ttakji_enemy_pajamas"
+        app:layout_constraintTop_toTopOf="@id/ttakji_enemy_pajamas" />
+
+    <TextView
+        android:id="@+id/hp_player_pajamas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_small"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/ttakji_player_pajamas"
+        app:layout_constraintEnd_toEndOf="@id/ttakji_player_pajamas"
+        app:layout_constraintStart_toStartOf="@id/ttakji_player_pajamas" />
+
+    <ImageView
+        android:id="@+id/ttakji_player_pajamas"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:layout_margin="@dimen/margin_huge"
+        android:src="@drawable/image_game_pajamas_ttakji_player"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/progress_player_pajamas"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/speaker_player_pajamas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:background="@drawable/drawable_round"
+        android:paddingHorizontal="@dimen/margin_default"
+        android:paddingVertical="@dimen/margin_small"
+        android:textSize="@dimen/text_size_small"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/ttakji_player_pajamas"
+        app:layout_constraintStart_toEndOf="@id/ttakji_player_pajamas" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

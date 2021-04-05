@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/margin_default">
+
+    <include
+        android:id="@+id/kitten_left_recycler_game"
+        layout="@layout/include_kitten" />
+
+    <LinearLayout
+        android:id="@+id/layout_recycler_game"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_weight="1"
+        android:background="@drawable/background_round_stroke"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_default">
+
+        <TextView
+            android:id="@+id/title_recycler_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:text="chicken love" />
+
+        <TextView
+            android:id="@+id/contents_recycler_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_recycler_contents"
+            android:textAlignment="center"
+            android:textColor="@color/color_signature_gray"
+            android:textSize="@dimen/text_size_small"
+            tools:text="i love chicken" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/kitten_right_recycler_game"
+        layout="@layout/include_kitten" />
+</LinearLayout>

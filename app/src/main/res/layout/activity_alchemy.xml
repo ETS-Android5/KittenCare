@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/appbar_alchemy"
+        layout="@layout/include_appbar_sub" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_alchemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/bloom_alchemy"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:src="@drawable/icon_bloom"
+        android:padding="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="@id/sun_alchemy"
+        app:layout_constraintEnd_toEndOf="@id/sun_alchemy"
+        app:layout_constraintStart_toStartOf="@id/sun_alchemy"
+        app:layout_constraintTop_toTopOf="@id/sun_alchemy"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/sun_alchemy"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:layout_marginBottom="@dimen/margin_huge"
+        android:src="@drawable/icon_sun"
+        app:layout_constraintBottom_toTopOf="@+id/title_alchemy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/shadow_alchemy"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:padding="@dimen/margin_very_small"
+        android:src="@drawable/icon_sun"
+        app:layout_constraintBottom_toBottomOf="@id/sun_alchemy"
+        app:layout_constraintTop_toTopOf="@id/sun_alchemy"
+        app:layout_constraintEnd_toStartOf="@id/sun_alchemy"
+        app:tint="@android:color/white"
+        tools:ignore="ContentDescription" />
+
+    <include
+        android:id="@+id/kitten_alchemy"
+        layout="@layout/include_kitten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        app:layout_constraintBottom_toTopOf="@+id/title_alchemy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/title_alchemy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/alchemy_title_default"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/line_alchemy" />
+
+    <TextView
+        android:id="@+id/contents_alchemy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/alchemy_contents_default"
+        android:textAlignment="center"
+        android:textColor="@color/color_signature_gray"
+        app:layout_constraintTop_toBottomOf="@id/line_alchemy" />
+
+    <Button
+        android:id="@+id/button_alchemy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_dialog_recycler"
+        android:layout_marginTop="@dimen/margin_very_large"
+        android:layout_marginEnd="@dimen/margin_dialog_recycler"
+        android:background="@drawable/background_round_stroke"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
+        android:text="@string/button_sure"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/contents_alchemy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

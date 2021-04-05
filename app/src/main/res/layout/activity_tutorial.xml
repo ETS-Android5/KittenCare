@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/appbar_tutorial"
+        layout="@layout/include_appbar_sub" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/newsstand_bottom_tutorial"
+        app:layout_constraintTop_toBottomOf="@id/newsstand_top_tutorial" />
+
+    <LinearLayout
+        android:id="@+id/newsstand_top_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/appbar_tutorial">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_1_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_alcyone" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_2_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_pleione" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_3_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_dinosaur" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_4_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_bee" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/newsstand_bottom_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/bottom_tutorial">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_5_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_penguin" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_6_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_sunflower" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_7_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_magician" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_body_crop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/kitten_face_8_tutorial"
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_face_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/width_kitten"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/image_costume_astronaut" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottom_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_navigation"
+        android:background="@color/color_navigation_background"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageButton
+        android:id="@+id/next_tutorial"
+        android:layout_width="@dimen/icon_size_default"
+        android:layout_height="@dimen/icon_size_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_tutorial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom_tutorial"
+        app:srcCompat="@drawable/icon_arrow_right"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/prev_tutorial"
+        android:layout_width="@dimen/icon_size_default"
+        android:layout_height="@dimen/icon_size_default"
+        android:layout_marginStart="@dimen/margin_default"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_tutorial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom_tutorial"
+        app:srcCompat="@drawable/icon_arrow_left"
+        tools:ignore="ContentDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>

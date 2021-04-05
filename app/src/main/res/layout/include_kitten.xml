@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_kitten"
+    android:layout_width="@dimen/width_kitten"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/body_kitten"
+        android:layout_width="@dimen/width_kitten"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/image_body" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/face_kitten"
+        android:layout_width="@dimen/width_kitten"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/image_face_default" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/costume_kitten"
+        android:layout_width="@dimen/width_kitten"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:adjustViewBounds="true" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_skip_game"
+        android:background="?attr/selectableItemBackground"
+        android:icon="@drawable/icon_skip"
+        android:title="@string/menu_title_skip_opening"
+        app:showAsAction="always" />
+
+</menu>

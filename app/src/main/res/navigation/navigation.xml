@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.pleiades.pleione.kittencare.ui.fragment.home.HomeFragment"
+        android:label="@string/label_home"
+        tools:layout="@layout/fragment_status" />
+
+    <fragment
+        android:id="@+id/navigation_costume"
+        android:name="com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment"
+        android:label="@string/label_costume"
+        tools:layout="@layout/fragment_costume" />
+
+    <fragment
+        android:id="@+id/navigation_item"
+        android:name="com.pleiades.pleione.kittencare.ui.fragment.ItemFragment"
+        android:label="@string/label_item"
+        tools:layout="@layout/fragment_item" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment"
+        android:label="@string/label_settings"
+        tools:layout="@layout/fragment_item" />
+</navigation>

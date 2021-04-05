@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/icon_star"
+        android:gravity="left" />
+
+    <item
+        android:drawable="@drawable/icon_star"
+        android:gravity="left"
+        android:left="12sp" />
+
+    <item
+        android:drawable="@drawable/icon_star"
+        android:gravity="left"
+        android:left="24sp" />
+
+    <item
+        android:drawable="@drawable/icon_star"
+        android:left="36sp" />
+</layer-list>

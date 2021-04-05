@@ -1,0 +1,29 @@
+<resources>
+    <dimen name="height_navigation">56dp</dimen>
+    <dimen name="height_progress_default">4dp</dimen>
+    <dimen name="height_progress_large">8dp</dimen>
+
+    <dimen name="width_kitten">52dp</dimen>
+
+    <dimen name="icon_size_default">36dp</dimen>
+    <dimen name="icon_size_large">64dp</dimen>
+    <dimen name="icon_size_very_large">128dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">13sp</dimen>
+    <dimen name="text_size_default">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_very_large">18sp</dimen>
+    <dimen name="text_size_huge">36sp</dimen>
+
+    <dimen name="margin_recycler_contents">2dp</dimen>
+    <dimen name="margin_very_small">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_very_large">32dp</dimen>
+    <dimen name="margin_huge">48dp</dimen>
+
+    <dimen name="margin_dialog_default">64dp</dimen>
+    <dimen name="margin_dialog_recycler">128dp</dimen>
+</resources>

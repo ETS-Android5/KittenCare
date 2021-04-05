@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/appbar_pleiades"
+        layout="@layout/include_appbar_sub" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_pleiades"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        android:background="@drawable/drawable_round_stroke"
+        app:layout_constraintBottom_toTopOf="@id/button_pleiades"
+        app:layout_constraintTop_toBottomOf="@id/appbar_pleiades">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/high_line_pleiades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mid_line_pleiades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/low_line_pleiades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/drawable_game_sky_low_wall"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@color/color_game_sky_mid_wall"
+            app:layout_constraintBottom_toTopOf="@id/mid_line_pleiades"
+            app:layout_constraintTop_toBottomOf="@id/high_line_pleiades"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/drawable_game_sky_high_wall"
+            app:layout_constraintBottom_toTopOf="@id/high_line_pleiades"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/bed_lower_pleiades"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_pleiades_bed"
+            app:layout_constraintBottom_toTopOf="@id/low_line_pleiades"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:id="@+id/line_pillar_left_pleiades"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@id/bed_lower_pleiades" />
+
+        <View
+            android:id="@+id/line_pillar_right_pleiades"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/bed_lower_pleiades" />
+
+        <ImageView
+            android:id="@+id/bed_pillar_left_pleiades"
+            android:layout_width="9.29dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_pleiades_bed_pillar"
+            app:layout_constraintBottom_toTopOf="@id/low_line_pleiades"
+            app:layout_constraintEnd_toEndOf="@id/line_pillar_left_pleiades"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/bed_pillar_right_pleiades"
+            android:layout_width="9.29dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_pleiades_bed_pillar"
+            app:layout_constraintBottom_toTopOf="@id/low_line_pleiades"
+            app:layout_constraintStart_toStartOf="@id/line_pillar_right_pleiades"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/bed_upper_pleiades"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_pleiades_bed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bed_pillar_left_pleiades"
+            tools:ignore="ContentDescription" />
+
+        <include
+            android:id="@+id/alcyone_pleiades"
+            layout="@layout/include_kitten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/bed_upper_pleiades"
+            app:layout_constraintStart_toStartOf="@id/bed_upper_pleiades" />
+
+        <include
+            android:id="@+id/pleione_pleiades"
+            layout="@layout/include_kitten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/bed_lower_pleiades"
+            app:layout_constraintStart_toStartOf="@id/bed_lower_pleiades" />
+
+        <ImageView
+            android:id="@+id/gift_pleiades"
+            android:layout_width="@dimen/width_kitten"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_costume_gift"
+            app:layout_constraintBottom_toTopOf="@id/low_line_pleiades"
+            app:layout_constraintEnd_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/floor_pleiades"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/drawable_game_floor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/low_line_pleiades"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/refrigerator_pleiades"
+            android:layout_width="@dimen/width_kitten"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_game_pleiades_refrigerator"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/low_line_pleiades"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:id="@+id/color_filter_pleiades"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/drawable_round_dark"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/speaker_alcyone_pleiades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_round_stroke"
+            android:paddingHorizontal="@dimen/margin_default"
+            android:paddingVertical="@dimen/margin_small"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/alcyone_pleiades"
+            app:layout_constraintStart_toEndOf="@id/alcyone_pleiades" />
+
+        <TextView
+            android:id="@+id/speaker_pleione_pleiades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_round_stroke"
+            android:paddingHorizontal="@dimen/margin_default"
+            android:paddingVertical="@dimen/margin_small"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/pleione_pleiades"
+            app:layout_constraintStart_toEndOf="@id/pleione_pleiades" />
+
+        <TextView
+            android:id="@+id/speaker_translation_pleiades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/low_line_pleiades" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_pleiades"
+        android:layout_width="@dimen/icon_size_very_large"
+        android:layout_height="@dimen/icon_size_very_large"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        android:background="@drawable/background_game_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

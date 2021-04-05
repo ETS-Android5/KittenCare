@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/appbar_advertisement"
+        layout="@layout/include_appbar_sub" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/box_advertisement"
+        android:layout_width="@dimen/icon_size_large"
+        android:layout_height="@dimen/icon_size_large"
+        android:layout_marginBottom="@dimen/margin_very_large"
+        app:layout_constraintBottom_toTopOf="@+id/title_advertisement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/title_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ads_title_default"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/line_advertisement" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_advertisement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/contents_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/ads_contents_default"
+        android:textAlignment="center"
+        android:textColor="@color/color_signature_gray"
+        app:layout_constraintTop_toBottomOf="@id/line_advertisement" />
+
+    <Button
+        android:id="@+id/button_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_very_large"
+        android:background="@drawable/background_round_stroke"
+        android:layout_marginStart="@dimen/margin_dialog_recycler"
+        android:layout_marginEnd="@dimen/margin_dialog_recycler"
+        android:text="@string/button_sure"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/contents_advertisement" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
