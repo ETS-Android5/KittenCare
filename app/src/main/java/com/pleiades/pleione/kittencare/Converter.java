@@ -11,6 +11,7 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ASTRONAUT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_BEE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_BLAZER;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_CHOCO;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_COAT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_FLEECE;
@@ -24,6 +25,7 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_MAID;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PENGUIN;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PLEIONE;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SEER;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SHIRTS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SUNFLOWER;
@@ -68,6 +70,7 @@ import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ASTRONAUT;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_BEE;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_BLAZER;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_CHOCO;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_COAT;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_FLEECE;
@@ -81,6 +84,7 @@ import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_MAID;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PENGUIN;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PLEIONE;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SEER;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SHIRTS;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SUNFLOWER;
@@ -293,6 +297,8 @@ public class Converter {
                 return context.getString(R.string.costume_title_hoodie);
             case COSTUME_CODE_JACKET:
                 return context.getString(R.string.costume_title_jacket);
+            case COSTUME_CODE_COAT:
+                return context.getString(R.string.costume_title_coat);
 
             case COSTUME_CODE_ALCYONE:
                 return context.getString(R.string.costume_title_alcyone);
@@ -306,6 +312,8 @@ public class Converter {
                 return context.getString(R.string.costume_title_2021);
             case COSTUME_CODE_GAME_MACHINE:
                 return context.getString(R.string.costume_title_game_machine);
+            case COSTUME_CODE_SAILOR:
+                return context.getString(R.string.costume_title_sailor);
 
             case COSTUME_CODE_DINOSAUR:
                 return context.getString(R.string.costume_title_dinosaur);
@@ -351,6 +359,8 @@ public class Converter {
                 return KEY_COSTUME_HOODIE;
             case COSTUME_CODE_JACKET:
                 return KEY_COSTUME_JACKET;
+            case COSTUME_CODE_COAT:
+                return KEY_COSTUME_COAT;
 
             case COSTUME_CODE_ALCYONE:
                 return KEY_COSTUME_ALCYONE;
@@ -364,6 +374,8 @@ public class Converter {
                 return KEY_COSTUME_2021;
             case COSTUME_CODE_GAME_MACHINE:
                 return KEY_COSTUME_GAME_MACHINE;
+            case COSTUME_CODE_SAILOR:
+                return KEY_COSTUME_SAILOR;
 
             case COSTUME_CODE_DINOSAUR:
                 return KEY_COSTUME_DINOSAUR;
@@ -410,6 +422,8 @@ public class Converter {
                 return COSTUME_CODE_HOODIE;
             case KEY_COSTUME_JACKET:
                 return COSTUME_CODE_JACKET;
+            case KEY_COSTUME_COAT:
+                return COSTUME_CODE_COAT;
 
             case KEY_COSTUME_ALCYONE:
                 return COSTUME_CODE_ALCYONE;
@@ -423,6 +437,8 @@ public class Converter {
                 return COSTUME_CODE_2021;
             case KEY_COSTUME_GAME_MACHINE:
                 return COSTUME_CODE_GAME_MACHINE;
+            case KEY_COSTUME_SAILOR:
+                return COSTUME_CODE_SAILOR;
 
             case KEY_COSTUME_DINOSAUR:
                 return COSTUME_CODE_DINOSAUR;
@@ -468,6 +484,8 @@ public class Converter {
                 return 70;
             case COSTUME_CODE_JACKET:
                 return 80;
+            case COSTUME_CODE_COAT:
+                return 90;
         }
         return Integer.MAX_VALUE;
     }
@@ -492,6 +510,8 @@ public class Converter {
                 return R.drawable.image_costume_hoodie;
             case COSTUME_CODE_JACKET:
                 return R.drawable.image_costume_jacket;
+            case COSTUME_CODE_COAT:
+                return R.drawable.image_costume_coat;
 
             case COSTUME_CODE_ALCYONE:
                 return R.drawable.image_costume_alcyone;
@@ -505,6 +525,8 @@ public class Converter {
                 return R.drawable.image_costume_2021;
             case COSTUME_CODE_GAME_MACHINE:
                 return R.drawable.image_costume_game_machine;
+            case COSTUME_CODE_SAILOR:
+                return R.drawable.image_costume_sailor;
 
             case COSTUME_CODE_DINOSAUR:
                 return R.drawable.image_costume_dinosaur;

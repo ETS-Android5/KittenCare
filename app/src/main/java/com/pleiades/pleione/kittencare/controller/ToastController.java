@@ -19,6 +19,7 @@ import com.pleiades.pleione.kittencare.object.Costume;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_CHOCO;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_GAME_MACHINE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_GIFT;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_FREE;
 import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_HIGH;
@@ -43,6 +44,8 @@ public class ToastController {
             showCustomToast(context.getString(R.string.costume_condition_choco), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
         } else if (costume.costumeCode == COSTUME_CODE_GAME_MACHINE){
             showCustomToast(context.getString(R.string.costume_condition_game_machine), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
+        } else if (costume.costumeCode == COSTUME_CODE_SAILOR){
+            showCustomToast(context.getString(R.string.costume_condition_sailor), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
         }
     }
 

@@ -1823,6 +1823,7 @@ drawable image_costume_astronaut
 drawable image_costume_bee
 drawable image_costume_blazer
 drawable image_costume_choco
+drawable image_costume_coat
 drawable image_costume_dinosaur
 drawable image_costume_fleece
 drawable image_costume_game_machine
@@ -1835,6 +1836,7 @@ drawable image_costume_maid
 drawable image_costume_pajamas
 drawable image_costume_penguin
 drawable image_costume_pleione
+drawable image_costume_sailor
 drawable image_costume_seer
 drawable image_costume_shirts
 drawable image_costume_sunflower
@@ -2800,6 +2802,7 @@ string costume_condition_game_machine
 string costume_condition_gift
 string costume_condition_level
 string costume_condition_pleione
+string costume_condition_sailor
 string costume_contents_wearing
 string costume_title_2021
 string costume_title_alchemist
@@ -2808,6 +2811,7 @@ string costume_title_astronaut
 string costume_title_bee
 string costume_title_blazer
 string costume_title_choco
+string costume_title_coat
 string costume_title_default
 string costume_title_dinosaur
 string costume_title_fleece
@@ -2821,6 +2825,7 @@ string costume_title_maid
 string costume_title_pajamas
 string costume_title_penguin
 string costume_title_pleione
+string costume_title_sailor
 string costume_title_seer
 string costume_title_shirts
 string costume_title_sunflower
@@ -2994,7 +2999,7 @@ string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
-string notification_contents
+string notification_contents_title
 string notification_escape
 string offline_notification_text
 string offline_notification_title
@@ -3026,6 +3031,7 @@ string s7
 string search_menu_title
 string setting_title_check_update
 string setting_title_coordinates
+string setting_title_dress_random_costume
 string setting_title_other_apps
 string setting_title_recognize_keyboard
 string setting_title_rename_kitten

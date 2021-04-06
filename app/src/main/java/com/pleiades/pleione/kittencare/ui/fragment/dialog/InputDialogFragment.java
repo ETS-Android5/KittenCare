@@ -24,6 +24,7 @@ import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.controller.DeviceController;
 
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_RENAME;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.KEY_NAME;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 
@@ -141,6 +142,7 @@ public class InputDialogFragment extends androidx.fragment.app.DialogFragment {
             if (type == DIALOG_TYPE_RENAME) {
                 String kittenName = inputEditText.getText().toString();
                 editor.putString(KEY_NAME, kittenName);
+                editor.putBoolean(KEY_COSTUME_SAILOR, true);
                 editor.apply();
 
                 // restart kitten service

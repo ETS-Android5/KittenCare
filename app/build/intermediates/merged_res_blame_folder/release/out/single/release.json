@@ -80,6 +80,10 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_skip.xml"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_costume_coat.png.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_coat.png"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_drawable_game_sky_low_dark.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_game_sky_low_dark.xml"
     },
@@ -234,6 +238,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_costume_maid.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_maid.png"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_costume_sailor.png.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_sailor.png"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_icon_arrow_right_small.xml.flat",

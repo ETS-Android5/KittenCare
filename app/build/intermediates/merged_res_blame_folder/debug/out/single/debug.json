@@ -76,6 +76,10 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_costume_sailor.png.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_sailor.png"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -154,6 +158,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_costume_coat.png.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_coat.png"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_round.xml.flat",

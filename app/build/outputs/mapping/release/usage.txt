@@ -22324,8 +22324,6 @@ com.google.android.gms.internal.ads.zzme:
     public final void zzhm()
 com.google.android.gms.internal.ads.zzcec:
     public final java.lang.Object zzapg()
-androidx.lifecycle.ViewModelProvider$KeyedFactory:
-    public androidx.lifecycle.ViewModel create(java.lang.Class)
 com.google.android.gms.internal.ads.zzajn
 com.google.android.gms.internal.ads.zzaun
 androidx.core.view.accessibility.AccessibilityViewCommand$SetTextArguments
@@ -22364,8 +22362,6 @@ com.google.android.gms.internal.ads.zzbbq:
 com.google.android.gms.internal.ads.zzws:
     public static com.google.android.gms.internal.ads.zzxy zzqw()
     public final java.lang.Object zzqy()
-androidx.navigation.NavControllerViewModel$1:
-    public androidx.lifecycle.ViewModel create(java.lang.Class)
 com.google.android.gms.internal.ads.zzab:
     public static synthetic com.google.android.gms.internal.ads.zzao$zza zzb(com.google.android.gms.internal.ads.zzab)
     public final int getMethod()
@@ -23199,7 +23195,7 @@ com.google.android.gms.internal.ads.zzzj:
 androidx.navigation.NavType$2:
     public void put(android.os.Bundle,java.lang.String,java.lang.Integer)
     public java.lang.Integer get(android.os.Bundle,java.lang.String)
-    public java.lang.Integer parseValue()
+    public java.lang.Integer parseValue(java.lang.String)
 com.google.android.gms.internal.ads.zznx:
     public void <init>()
 com.google.android.gms.internal.ads.zzame:
@@ -24500,7 +24496,6 @@ com.google.android.gms.internal.ads.zzcnn:
 com.google.android.gms.internal.ads.zzcyn:
     public static com.google.android.gms.internal.ads.zzcyn zzak(com.google.android.gms.internal.ads.zzeqo)
 androidx.navigation.NavControllerViewModel:
-    public static androidx.navigation.NavControllerViewModel getInstance(androidx.lifecycle.ViewModelStore)
     public void clear(java.util.UUID)
     public androidx.lifecycle.ViewModelStore getViewModelStore(java.util.UUID)
 com.google.android.gms.internal.ads.zzaik:
@@ -27212,6 +27207,7 @@ androidx.fragment.app.Fragment$OnStartEnterTransitionListener:
 com.google.android.gms.internal.ads.zzdns:
     public static synthetic com.google.android.gms.internal.ads.zzdnq zzavj()
 com.pleiades.pleione.kittencare.controller.PrefsController:
+    public java.util.ArrayList getUnlockedCostumeArrayList()
     public void useItem(java.util.ArrayList,int)
     public int alchemyItem(int,int)
     public void wasteItem(int,int)
@@ -27419,8 +27415,6 @@ com.google.android.gms.internal.ads.zzvs:
     public static int zzc(android.util.DisplayMetrics)
     public static com.google.android.gms.internal.ads.zzvs zzqg()
     public final com.google.android.gms.ads.AdSize zzqi()
-androidx.lifecycle.ViewModelProvider$Factory:
-    public abstract androidx.lifecycle.ViewModel create(java.lang.Class)
 com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker:
     public void <init>(com.google.android.material.button.MaterialButtonToggleGroup)
     public void onPressedChanged(com.google.android.material.button.MaterialButton,boolean)
@@ -34160,8 +34154,8 @@ androidx.constraintlayout.widget.ConstraintSet$Constraint:
     public static synthetic void access$400(androidx.constraintlayout.widget.ConstraintSet$Constraint,int,androidx.constraintlayout.widget.Constraints$LayoutParams)
     public androidx.constraintlayout.widget.ConstraintSet$Constraint clone()
     public final void fillFromConstraints(androidx.constraintlayout.widget.ConstraintHelper,int,androidx.constraintlayout.widget.Constraints$LayoutParams)
-com.google.android.gms.internal.ads.zzblf
 com.google.android.gms.internal.ads.zzegf
+com.google.android.gms.internal.ads.zzblf
 com.google.android.gms.internal.ads.zzait:
     public static com.google.android.gms.internal.ads.zzait zzh(com.google.android.gms.internal.ads.zzab)
 androidx.fragment.R$id

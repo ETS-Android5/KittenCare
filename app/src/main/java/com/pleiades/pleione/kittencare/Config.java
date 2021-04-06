@@ -153,13 +153,15 @@ public class Config {
     public static final int COSTUME_CODE_JACKET = 7;
     public static final int COSTUME_CODE_SHIRTS = 8;
     public static final int COSTUME_CODE_FLEECE = 9;
+    public static final int COSTUME_CODE_COAT = 10;
 
-    public static final int COSTUME_CODE_ALCYONE = 10;
-    public static final int COSTUME_CODE_PLEIONE = 11;
-    public static final int COSTUME_CODE_GIFT = 12;
-    public static final int COSTUME_CODE_CHOCO = 13;
-    public static final int COSTUME_CODE_2021 = 14;
-    public static final int COSTUME_CODE_GAME_MACHINE = 15;
+    public static final int COSTUME_CODE_ALCYONE = 11;
+    public static final int COSTUME_CODE_PLEIONE = 12;
+    public static final int COSTUME_CODE_GIFT = 13;
+    public static final int COSTUME_CODE_CHOCO = 14;
+    public static final int COSTUME_CODE_2021 = 15;
+    public static final int COSTUME_CODE_GAME_MACHINE = 16;
+    public static final int COSTUME_CODE_SAILOR = 17;
 
     public static final int COSTUME_CODE_DINOSAUR = 20;
     public static final int COSTUME_CODE_BEE = 21;
@@ -234,6 +236,7 @@ public class Config {
     public static final String KEY_COSTUME_FLEECE = "fleece_costume";
     public static final String KEY_COSTUME_HOODIE = "hoodie_costume";
     public static final String KEY_COSTUME_JACKET = "jacket_costume";
+    public static final String KEY_COSTUME_COAT = "coat_costume";
 
     public static final String KEY_COSTUME_ALCYONE = "alcyone_costume";
     public static final String KEY_COSTUME_PLEIONE = "pleione_costume";
@@ -241,6 +244,7 @@ public class Config {
     public static final String KEY_COSTUME_CHOCO = "choco_costume";
     public static final String KEY_COSTUME_2021 = "2021_costume";
     public static final String KEY_COSTUME_GAME_MACHINE = "game_machine_costume";
+    public static final String KEY_COSTUME_SAILOR = "sailor_costume";
 
     public static final String KEY_COSTUME_DINOSAUR = "dinosaur_costume";
     public static final String KEY_COSTUME_BEE = "bee_costume";

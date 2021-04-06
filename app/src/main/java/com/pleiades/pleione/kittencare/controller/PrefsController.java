@@ -27,6 +27,7 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ASTRONAUT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_BEE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_BLAZER;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_CHOCO;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_COAT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_FLEECE;
@@ -40,6 +41,7 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_MAID;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PENGUIN;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PLEIONE;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SEER;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SHIRTS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SUNFLOWER;
@@ -177,9 +179,11 @@ public class PrefsController {
         addCostume(costumeArrayList, COSTUME_CODE_FLEECE, COSTUME_TYPE_FREE);
         addCostume(costumeArrayList, COSTUME_CODE_HOODIE, COSTUME_TYPE_FREE);
         addCostume(costumeArrayList, COSTUME_CODE_JACKET, COSTUME_TYPE_FREE);
+        addCostume(costumeArrayList, COSTUME_CODE_COAT, COSTUME_TYPE_FREE);
 
         addCostume(costumeArrayList, COSTUME_CODE_ALCYONE, COSTUME_TYPE_SPECIAL);
         addCostume(costumeArrayList, COSTUME_CODE_PLEIONE, COSTUME_TYPE_SPECIAL);
+        addCostume(costumeArrayList, COSTUME_CODE_SAILOR, COSTUME_TYPE_SPECIAL);
         addCostume(costumeArrayList, COSTUME_CODE_GAME_MACHINE, COSTUME_TYPE_SPECIAL);
         addCostume(costumeArrayList, COSTUME_CODE_GIFT, COSTUME_TYPE_SPECIAL);
         addCostume(costumeArrayList, COSTUME_CODE_CHOCO, COSTUME_TYPE_SPECIAL);
@@ -609,5 +613,6 @@ public class PrefsController {
         addCostume(costumeArrayList, COSTUME_CODE_FLEECE, COSTUME_TYPE_FREE);
         addCostume(costumeArrayList, COSTUME_CODE_HOODIE, COSTUME_TYPE_FREE);
         addCostume(costumeArrayList, COSTUME_CODE_JACKET, COSTUME_TYPE_FREE);
+        addCostume(costumeArrayList, COSTUME_CODE_COAT, COSTUME_TYPE_FREE);
     }
 }

@@ -40,6 +40,7 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_GAME_MACHINE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_GIFT;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PLEIONE;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_SAILOR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_FREE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_PAID;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_SPECIAL;
@@ -180,6 +181,7 @@ public class CostumeFragment extends Fragment {
                                     case COSTUME_CODE_GIFT:
                                     case COSTUME_CODE_CHOCO:
                                     case COSTUME_CODE_GAME_MACHINE:
+                                    case COSTUME_CODE_SAILOR:
                                         new ToastController(context).showCostumeConditionToast(costume);
                                         break;
                                 }
