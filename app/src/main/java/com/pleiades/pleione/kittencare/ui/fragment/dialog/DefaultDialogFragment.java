@@ -1,7 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.fragment.dialog;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -14,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -187,12 +187,12 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
 
         int margin = getResources().getDimensionPixelSize(R.dimen.margin_dialog_default);
         int width = (new DeviceController(context)).getWidthMax() - margin;
-        int height = ActionBar.LayoutParams.WRAP_CONTENT;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
         Dialog dialog = getDialog();
         if (dialog != null) {
