@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
@@ -59,6 +60,7 @@ import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_LEVEL_UP;
 import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_MINT_CAKE;
 import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_MINT_ICE_CREAM;
 import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_SIZE_LIMIT;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_DRESS_RANDOMLY;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_EXPLORED;
@@ -254,7 +256,6 @@ public class StatusFragment extends Fragment {
         else
             experienceProgressBar.setProgress(experience);
 
-
         // initialize costume progress bar
         ProgressBar costumeProgressBar = rootView.findViewById(R.id.costume_progress_status);
         ArrayList<Costume> costumeArrayList = new PrefsController(context).getInitializedCostumeArrayList();
@@ -269,6 +270,16 @@ public class StatusFragment extends Fragment {
         // initialize costume progress text view
         TextView costumeProgressTextView = rootView.findViewById(R.id.costume_status);
         costumeProgressTextView.setText(String.format(Locale.getDefault(), "%02d/%02d", costumeProgress, costumeProgressBar.getMax()));
+
+        // initialize happiness progress bar
+        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+        ProgressBar happinessProgressBar = rootView.findViewById(R.id.happiness_progress_status);
+        happinessProgressBar.setProgress(happiness);
+        happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, happiness >= 50 ? R.drawable.drawable_progress : R.drawable.drawable_progress_blue));
+
+        // initialize happiness progress text view
+        TextView happinessProgressTextView = rootView.findViewById(R.id.happiness_status);
+        happinessProgressTextView.setText(String.format(Locale.getDefault(), "%02d/100", happiness));
     }
 
     private void reconstrainHistory() {
@@ -302,35 +313,6 @@ public class StatusFragment extends Fragment {
         historyArrayList = new PrefsController(context).getHistoryArrayListPrefs();
         historyRecyclerAdapter.notifyDataSetChanged();
     }
-
-//    @Override
-//    public void onResume() {
-//        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-//        int pajamasTickets = prefs.getInt(KEY_GAME_TICKET_PAJAMAS, TICKET_MAX);
-//        int pleiadesTickets = prefs.getInt(KEY_GAME_TICKET_PLEIADES, TICKET_MAX);
-//        int dinosaurTickets = prefs.getInt(KEY_GAME_TICKET_DINOSAUR, TICKET_MAX);
-//
-//        String message;
-//
-//        // case all tickets max
-//        if (pajamasTickets == TICKET_MAX &&
-//                pleiadesTickets == TICKET_MAX &&
-//                dinosaurTickets == TICKET_MAX) {
-//            // set message
-//            message = getString(R.string.status_message_scroll);
-//        } else {
-//            ArrayList<String> tipArraylist = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.messages_tip)));
-//            int randomValue = new Random().nextInt(tipArraylist.size());
-//
-//            // set message
-//            message = getString(R.string.status_message_did_you_know) + "\n" + tipArraylist.get(randomValue);
-//        }
-//
-//        // set message text view
-//        messageTextView.setText(message);
-//        messageTextView.getLineCount();
-//        super.onResume();
-//    }
 
     @Override
     public void onAttach(@NonNull Context context) {

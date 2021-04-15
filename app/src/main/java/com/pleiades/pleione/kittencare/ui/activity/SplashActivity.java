@@ -37,6 +37,8 @@ import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PLEIADES;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
+import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_SIZE_LIMIT;
 import static com.pleiades.pleione.kittencare.Config.KEY_LEVEL;
 import static com.pleiades.pleione.kittencare.Config.KEY_USER_LAST_VERSION_CODE;
 import static com.pleiades.pleione.kittencare.Config.LEVEL_MAX;
@@ -74,6 +76,8 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
+        editor.putInt(KEY_HAPPINESS, 40);
+
         PrefsController prefsController = new PrefsController(activity);
         prefsController.addItemPrefs(ITEM_CODE_ICE_CREAM_CAKE, 50);
         prefsController.addItemPrefs(ITEM_CODE_GREEN_TEA_ICE_CREAM, 1);
@@ -110,8 +114,8 @@ public class SplashActivity extends AppCompatActivity {
 
             // case version code is not latest
             if (existVersionCode != latestVersionCode) {
-                // fix bugs
-                fixBugs(existVersionCode);
+                // respond to app version
+                respond(existVersionCode);
 
                 // add update reward items
                 PrefsController prefsController = new PrefsController(activity);
@@ -127,7 +131,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void fixBugs(int existVersionCode) {
+    private void respond(int existVersionCode) {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         PrefsController prefsController = new PrefsController(activity);
@@ -155,6 +159,12 @@ public class SplashActivity extends AppCompatActivity {
                 editor.putInt(KEY_EXPERIENCE, 0);
                 editor.apply();
             }
+        }
+
+        // case ~ 1.7.0
+        if (existVersionCode <= 30) {
+            editor.remove(KEY_HISTORY_SIZE_LIMIT);
+            editor.apply();
         }
     }
 }

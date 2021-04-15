@@ -22,6 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <ImageView
+            android:id="@+id/happiness_arrow_item"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_very_small"
+            android:src="@drawable/icon_arrow_down"
+            tools:ignore="ContentDescription" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -125,7 +125,7 @@ public class CostumeFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         // initialize position
-                        int position = getAdapterPosition();
+                        int position = getBindingAdapterPosition();
                         if (position == RecyclerView.NO_POSITION)
                             return;
 

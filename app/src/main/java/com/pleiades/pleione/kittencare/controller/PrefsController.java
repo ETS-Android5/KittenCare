@@ -78,6 +78,7 @@ import static com.pleiades.pleione.kittencare.Config.ITEM_TYPE_CONSUMPTION;
 import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_CHOCO;
 import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_ARRAY_LIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_ARRAY_LIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_PLEIONE_DOLL;
@@ -512,6 +513,12 @@ public class PrefsController {
         // apply level, experience
         editor.putInt(KEY_LEVEL, level);
         editor.putInt(KEY_EXPERIENCE, level == LEVEL_MAX ? 0 : experience);
+        editor.apply();
+
+        // apply happiness
+        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+        happiness = Math.min(100, happiness + Converter.getConsumptionItemRank(itemArrayList.get(position).itemCode));
+        editor.putInt(KEY_HAPPINESS, happiness);
         editor.apply();
 
         // unlock choco costume

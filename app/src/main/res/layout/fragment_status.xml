@@ -14,14 +14,14 @@
         android:id="@+id/button_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_round_stroke"
         android:paddingTop="@dimen/margin_small"
         android:paddingBottom="@dimen/margin_small"
-        android:background="@drawable/background_round_stroke"
         android:textAllCaps="false"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/block_status"
+        android:id="@+id/first_block_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_default"
@@ -102,6 +102,41 @@
             android:layout_height="@dimen/height_progress_default"
             android:layout_marginTop="@dimen/margin_small"
             android:progressDrawable="@drawable/drawable_progress" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_very_large"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_happiness"
+                android:textSize="@dimen/text_size_very_large"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/happiness_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_signature_gray"
+                android:textSize="@dimen/text_size_small"
+                tools:text="75/100" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/happiness_progress_status"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_progress_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:max="100" />
     </LinearLayout>
 
     <LinearLayout
@@ -117,7 +152,7 @@
         android:paddingEnd="@dimen/margin_default"
         android:paddingBottom="@dimen/margin_default"
         app:layout_constraintBottom_toTopOf="@id/message_status"
-        app:layout_constraintTop_toBottomOf="@id/block_status">
+        app:layout_constraintTop_toBottomOf="@id/first_block_status">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,10 +183,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_status"
-            android:background="@drawable/drawable_round"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_default"
+            android:background="@drawable/drawable_round"
             android:scrollbars="none" />
     </LinearLayout>
 
@@ -164,19 +199,6 @@
         android:textAlignment="center"
         android:textColor="@color/color_signature_gray"
         app:layout_constraintBottom_toTopOf="@id/arrow_status" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/message_status"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="@dimen/margin_small"-->
-<!--        android:gravity="bottom|center_horizontal"-->
-<!--        android:lineSpacingMultiplier="1.2"-->
-<!--        android:maxLines="3"-->
-<!--        android:minLines="3"-->
-<!--        android:textColor="@color/color_signature_gray"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/arrow_status"-->
-<!--        tools:text="@string/status_message_scroll" />-->
 
     <ImageView
         android:id="@+id/arrow_status"

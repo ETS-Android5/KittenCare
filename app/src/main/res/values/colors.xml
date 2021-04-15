@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_accent">#FE7C8D</color>
+    <color name="color_accent_blue">#7EAFFE</color>
     <color name="color_signature_black">#4C3C40</color>
     <color name="color_signature_gray">#B2A6A7</color>
     <color name="color_signature_brown">#82696e</color>
@@ -11,6 +12,7 @@
     <color name="color_navigation_background">#F9F6F8</color>
     <color name="color_toast_background">#9b8c8c</color>
     <color name="color_progress_background">#ffd6dc</color>
+    <color name="color_progress_background_blue">#D7E6FF</color>
 
     <color name="color_game_floor">#dec0b1</color>
     <color name="color_game_dark">#33ebe6e6</color>

@@ -49,6 +49,7 @@ import static com.pleiades.pleione.kittencare.Config.ITEM_TYPE_CONSUMPTION;
 import static com.pleiades.pleione.kittencare.Config.ITEM_TYPE_TOY;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ALCHEMIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SEER;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_HIGH;
 
@@ -59,9 +60,11 @@ public class ItemFragment extends Fragment {
     private ItemsRecyclerAdapter itemsRecyclerAdapter;
 
     private int filterPosition;
+    private int happiness;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item, container, false);
+        final SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
 
         // set has options menu
         setHasOptionsMenu(true);
@@ -70,6 +73,9 @@ public class ItemFragment extends Fragment {
         RecyclerView itemsRecyclerView = rootView.findViewById(R.id.recycler_item);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         itemsRecyclerView.setLayoutManager(linearLayoutManager);
+
+        // initialize happiness
+        happiness = prefs.getInt(KEY_HAPPINESS, 100);
 
         // initialize items recycler adapter
         itemsRecyclerAdapter = new ItemsRecyclerAdapter();
@@ -83,6 +89,7 @@ public class ItemFragment extends Fragment {
             @Override
             public void onRefresh() {
                 initializeItemArrayList();
+                happiness = prefs.getInt(KEY_HAPPINESS, 100);
                 itemsRecyclerAdapter.notifyDataSetChanged();
 
                 swipeRefreshLayout.setRefreshing(false);
@@ -204,7 +211,7 @@ public class ItemFragment extends Fragment {
 
         private class ItemsViewHolder extends RecyclerView.ViewHolder {
             TextView nameTextView, effectTextView, quantityTextView;
-            ImageView iconImageView;
+            ImageView arrowImageView, iconImageView;
 
             public ItemsViewHolder(@NonNull final View itemView) {
                 super(itemView);
@@ -213,6 +220,7 @@ public class ItemFragment extends Fragment {
                 nameTextView = itemView.findViewById(R.id.title_recycler_item);
                 effectTextView = itemView.findViewById(R.id.contents_recycler_item);
                 quantityTextView = itemView.findViewById(R.id.quantity_recycler_item);
+                arrowImageView = itemView.findViewById(R.id.happiness_arrow_item);
                 iconImageView = itemView.findViewById(R.id.icon_recycler_item);
 
                 // TODO update item
@@ -220,7 +228,7 @@ public class ItemFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         // initialize position
-                        int position = getAdapterPosition();
+                        int position = getBindingAdapterPosition();
                         if (position == RecyclerView.NO_POSITION)
                             return;
 
@@ -233,16 +241,23 @@ public class ItemFragment extends Fragment {
                             PrefsController prefsController = new PrefsController(context);
                             prefsController.useItem(itemArrayList, position);
 
-                            // case out of item
-                            if (item.quantity <= 0) {
-                                // remove item from list
-                                itemArrayList.remove(position);
-
-                                // notify item removed
-                                notifyItemRemoved(position);
+                            int prevHappiness = happiness;
+                            happiness = context.getSharedPreferences(PREFS, MODE_PRIVATE).getInt(KEY_HAPPINESS, 100);
+                            if ((prevHappiness < 50 && happiness >= 50) || (prevHappiness >= 50 && happiness < 50)) {
+                                initializeItemArrayList();
+                                itemsRecyclerAdapter.notifyDataSetChanged();
                             } else {
-                                // notify item changed
-                                notifyItemChanged(position);
+                                // case out of item
+                                if (item.quantity <= 0) {
+                                    // remove item from list
+                                    itemArrayList.remove(position);
+
+                                    // notify item removed
+                                    notifyItemRemoved(position);
+                                } else {
+                                    // notify item changed
+                                    notifyItemChanged(position);
+                                }
                             }
                         }
 
@@ -258,7 +273,7 @@ public class ItemFragment extends Fragment {
                         }
 
                         // case crystal ball
-                        else if (item.itemCode == ITEM_CODE_CRYSTAL_BALL){
+                        else if (item.itemCode == ITEM_CODE_CRYSTAL_BALL) {
                             SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
 
                             if (prefs.getBoolean(KEY_COSTUME_SEER, false)) {
@@ -285,6 +300,13 @@ public class ItemFragment extends Fragment {
 
             // set name
             holder.nameTextView.setText(Converter.getItemName(context, item.itemCode));
+
+            // set arrow
+            if (item.itemType == ITEM_TYPE_CONSUMPTION) {
+                holder.arrowImageView.setImageResource(happiness >= 50 ? R.drawable.icon_arrow_up : R.drawable.icon_arrow_down);
+                holder.arrowImageView.setColorFilter(ContextCompat.getColor(context, happiness >= 50 ? R.color.color_accent : R.color.color_accent_blue));
+            } else
+                holder.arrowImageView.setImageDrawable(null);
 
             // set effect
             holder.effectTextView.setText(Converter.getItemEffect(context, item.itemCode));

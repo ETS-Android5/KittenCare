@@ -122,6 +122,7 @@ public class KittenService extends Service {
         // set on system ui visibility change listener
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // TODO implement
+            // deprecation
             kittenLayout.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
                 @Override
                 public void onSystemUiVisibilityChange(int visibility) {

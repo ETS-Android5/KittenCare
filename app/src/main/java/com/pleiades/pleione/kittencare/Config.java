@@ -203,6 +203,7 @@ public class Config {
     public static final String KEY_IS_EXPLORED = "firstExploring";
     public static final String KEY_LEVEL = "level";
     public static final String KEY_EXPERIENCE = "experience";
+    public static final String KEY_HAPPINESS = "happiness";
     public static final String KEY_HISTORY_ARRAY_LIST = "historyList";
     public static final String KEY_ITEM_ARRAY_LIST = "itemList";
     public static final String KEY_WORN_ARRAY_LIST = "wornList";

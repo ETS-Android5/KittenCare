@@ -245,29 +245,48 @@ public class Converter {
         }
     }
 
+    public static int getConsumptionItemRank(int itemCode) {
+        switch (itemCode) {
+            case ITEM_CODE_ICE_CREAM_CAKE:
+                return 6;
+            case ITEM_CODE_GREEN_TEA_ICE_CREAM:
+            case ITEM_CODE_GREEN_TEA_CAKE:
+                return 5;
+            case ITEM_CODE_CHOCOLATE_ICE_CREAM:
+            case ITEM_CODE_CHOCOLATE_CAKE:
+                return 4;
+            case ITEM_CODE_CHERRY_ICE_CREAM:
+            case ITEM_CODE_CHERRY_CAKE:
+                return 3;
+            case ITEM_CODE_MELON_ICE_CREAM:
+            case ITEM_CODE_MELON_CAKE:
+                return 2;
+            case ITEM_CODE_MINT_ICE_CREAM:
+            case ITEM_CODE_MINT_CAKE:
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
     public static int getItemIconResourceId(int itemType, int itemCode) {
         if (itemType == ITEM_TYPE_CHARM)
             return R.drawable.icon_charm;
         if (itemType == ITEM_TYPE_TOY)
             return R.drawable.icon_toy;
 
-        switch (itemCode) {
-            case ITEM_CODE_ICE_CREAM_CAKE:
+        switch (getConsumptionItemRank(itemCode)) {
+            case 6:
                 return R.drawable.icon_star_6;
-            case ITEM_CODE_GREEN_TEA_ICE_CREAM:
-            case ITEM_CODE_GREEN_TEA_CAKE:
+            case 5:
                 return R.drawable.icon_star_5;
-            case ITEM_CODE_CHOCOLATE_ICE_CREAM:
-            case ITEM_CODE_CHOCOLATE_CAKE:
+            case 4:
                 return R.drawable.icon_star_4;
-            case ITEM_CODE_CHERRY_ICE_CREAM:
-            case ITEM_CODE_CHERRY_CAKE:
+            case 3:
                 return R.drawable.icon_star_3;
-            case ITEM_CODE_MELON_ICE_CREAM:
-            case ITEM_CODE_MELON_CAKE:
+            case 2:
                 return R.drawable.icon_star_2;
-            case ITEM_CODE_MINT_ICE_CREAM:
-            case ITEM_CODE_MINT_CAKE:
+            case 1:
                 return R.drawable.icon_star;
             default:
                 return 0;
