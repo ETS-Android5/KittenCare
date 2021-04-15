@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rPT\\values-pt-rPT.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\749d7c877bdde65b0ef534dd26a63412\\jetified-play-services-ads-19.7.0\\res\\values-pt-rPT\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "203,311,441,521,669,750,891,1010,1081,1202,1267,1332,1416,1524",
-                        "endColumns": "107,129,79,147,80,140,118,70,120,64,64,83,107,73",
-                        "endOffsets": "310,440,520,668,749,890,1009,1080,1201,1266,1331,1415,1523,1597"
-                    },
-                    "to": {
-                        "startLines": "89,90,91,92,93,94,95,97,98,99,100,101,102,103",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7804,7916,8050,8134,8286,8371,8516,8725,8800,8925,8994,9063,9151,9263",
-                        "endColumns": "111,133,83,151,84,144,122,74,124,68,68,87,111,77",
-                        "endOffsets": "7911,8045,8129,8281,8366,8511,8634,8795,8920,8989,9058,9146,9258,9336"
-                    }
-                },
-                {
                     "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\e86e09275252e593849731a82eb201cd\\navigation-ui-2.3.4\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3",
@@ -52,6 +35,23 @@
                         "startOffsets": "3407",
                         "endColumns": "203",
                         "endOffsets": "3606"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\80137b0d3570aa651c8591c1ecf902de\\jetified-play-services-ads-19.8.0\\res\\values-pt-rPT\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "203,311,441,521,669,750,891,1010,1081,1202,1267,1332,1416,1524",
+                        "endColumns": "107,129,79,147,80,140,118,70,120,64,64,83,107,73",
+                        "endOffsets": "310,440,520,668,749,890,1009,1080,1201,1266,1331,1415,1523,1597"
+                    },
+                    "to": {
+                        "startLines": "89,90,91,92,93,94,95,97,98,99,100,101,102,103",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "7804,7916,8050,8134,8286,8371,8516,8725,8800,8925,8994,9063,9151,9263",
+                        "endColumns": "111,133,83,151,84,144,122,74,124,68,68,87,111,77",
+                        "endOffsets": "7911,8045,8129,8281,8366,8511,8634,8795,8920,8989,9058,9146,9258,9336"
                     }
                 },
                 {

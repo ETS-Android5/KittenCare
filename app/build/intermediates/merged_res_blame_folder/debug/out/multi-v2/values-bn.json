@@ -4,23 +4,6 @@
             "outputFile": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\749d7c877bdde65b0ef534dd26a63412\\jetified-play-services-ads-19.7.0\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "199,310,437,521,649,733,866,993,1062,1177,1245,1320,1406,1522",
-                        "endColumns": "110,126,83,127,83,132,126,68,114,67,74,85,115,77",
-                        "endOffsets": "309,436,520,648,732,865,992,1061,1176,1244,1319,1405,1521,1599"
-                    },
-                    "to": {
-                        "startLines": "89,90,91,92,93,94,95,97,98,99,100,101,102,103",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7661,7776,7907,7995,8127,8215,8352,8563,8636,8755,8827,8906,8996,9116",
-                        "endColumns": "114,130,87,131,87,136,130,72,118,71,78,89,119,81",
-                        "endOffsets": "7771,7902,7990,8122,8210,8347,8478,8631,8750,8822,8901,8991,9111,9193"
-                    }
-                },
-                {
                     "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\e86e09275252e593849731a82eb201cd\\navigation-ui-2.3.4\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2,3",
@@ -69,6 +52,23 @@
                         "startOffsets": "9285",
                         "endColumns": "100",
                         "endOffsets": "9381"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\LordRoid\\.gradle\\caches\\transforms-2\\files-2.1\\80137b0d3570aa651c8591c1ecf902de\\jetified-play-services-ads-19.8.0\\res\\values-bn\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "199,310,437,521,649,733,866,993,1062,1177,1245,1320,1406,1522",
+                        "endColumns": "110,126,83,127,83,132,126,68,114,67,74,85,115,77",
+                        "endOffsets": "309,436,520,648,732,865,992,1061,1176,1244,1319,1405,1521,1599"
+                    },
+                    "to": {
+                        "startLines": "89,90,91,92,93,94,95,97,98,99,100,101,102,103",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "7661,7776,7907,7995,8127,8215,8352,8563,8636,8755,8827,8906,8996,9116",
+                        "endColumns": "114,130,87,131,87,136,130,72,118,71,78,89,119,81",
+                        "endOffsets": "7771,7902,7990,8122,8210,8347,8478,8631,8750,8822,8901,8991,9111,9193"
                     }
                 },
                 {

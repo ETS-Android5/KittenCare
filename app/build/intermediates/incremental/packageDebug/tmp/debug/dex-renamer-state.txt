@@ -1,4 +1,4 @@
-#Tue Apr 06 16:22:25 KST 2021
+#Thu Apr 15 09:15:24 KST 2021
 base.0=C\:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

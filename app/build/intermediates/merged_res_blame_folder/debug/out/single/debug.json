@@ -152,16 +152,16 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_game_pajamas_ttakji_player.png"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_costume_coat.png.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_coat.png"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\layout_recycler_setting_switch.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\recycler_setting_switch.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_home.xml"
-    },
-    {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_costume_coat.png.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_coat.png"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_round.xml.flat",

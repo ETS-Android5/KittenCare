@@ -122,11 +122,9 @@ public class KittenService extends Service {
         // set on system ui visibility change listener
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // TODO implement
-            //noinspection deprecation
             kittenLayout.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
                 @Override
                 public void onSystemUiVisibilityChange(int visibility) {
-                    //noinspection deprecation
                     systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
                 }
             });
@@ -138,11 +136,9 @@ public class KittenService extends Service {
 //                }
 //            });
         } else {
-            //noinspection deprecation
             kittenLayout.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
                 @Override
                 public void onSystemUiVisibilityChange(int visibility) {
-                    //noinspection deprecation
                     systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
                 }
             });

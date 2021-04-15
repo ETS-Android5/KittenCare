@@ -24,10 +24,8 @@ public class DeviceController {
             WindowMetrics windowMetrics = windowManager.getCurrentWindowMetrics();
             return windowMetrics.getBounds().width();
         } else {
-            //noinspection deprecation
             Display display = windowManager.getDefaultDisplay();
             Point size = new Point();
-            //noinspection deprecation
             display.getSize(size);
             return size.x;
         }
@@ -38,10 +36,8 @@ public class DeviceController {
             WindowMetrics windowMetrics = windowManager.getCurrentWindowMetrics();
             return windowMetrics.getBounds().height();
         } else {
-            //noinspection deprecation
             Display display = windowManager.getDefaultDisplay();
             Point size = new Point();
-            //noinspection deprecation
             display.getSize(size);
             return size.y;
         }

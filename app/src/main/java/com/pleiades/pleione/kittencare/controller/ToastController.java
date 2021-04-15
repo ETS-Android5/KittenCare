@@ -54,7 +54,6 @@ public class ToastController {
 
         // set background color
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            //noinspection deprecation
             View view = toast.getView();
             view.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.color_toast_background), PorterDuff.Mode.SRC_ATOP);
 

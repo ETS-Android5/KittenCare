@@ -61,7 +61,7 @@ public class SplashActivity extends AppCompatActivity {
         updateAppVersion();
 
         // set developer mode
-//        setDeveloperMode();
+        setDeveloperMode();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -75,7 +75,7 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         PrefsController prefsController = new PrefsController(activity);
-        prefsController.addItemPrefs(ITEM_CODE_ICE_CREAM_CAKE, 1);
+        prefsController.addItemPrefs(ITEM_CODE_ICE_CREAM_CAKE, 50);
         prefsController.addItemPrefs(ITEM_CODE_GREEN_TEA_ICE_CREAM, 1);
         prefsController.addItemPrefs(ITEM_CODE_CHOCOLATE_ICE_CREAM, 1);
         prefsController.addItemPrefs(ITEM_CODE_CHERRY_ICE_CREAM, 1);
