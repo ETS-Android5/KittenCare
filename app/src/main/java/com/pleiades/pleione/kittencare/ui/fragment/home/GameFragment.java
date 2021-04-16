@@ -77,6 +77,7 @@ import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PLEIADES;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_WIN_COUNT;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_GAME_DIFFICULTY_HARD;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_CHANGE_FACE_GAME_FRAGMENT;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
@@ -328,22 +329,35 @@ public class GameFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+
         // case win (request code == result code == game code)
         if (requestCode == resultCode) {
-            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
+            // set happiness
+            happiness = Math.min(100, happiness + 1);
 
+            // apply game win count
             int gameWinCount = prefs.getInt(KEY_GAME_WIN_COUNT, 0) + 1;
             editor.putInt(KEY_GAME_WIN_COUNT, gameWinCount);
             editor.apply();
 
+            // unlock game machine costume
             if (gameWinCount == 30) {
                 editor.putBoolean(KEY_COSTUME_GAME_MACHINE, true);
                 editor.apply();
 
                 new PrefsController(context).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_GAME_MACHINE);
             }
+        } else if (resultCode == -1) {
+            // set happiness
+            happiness = Math.max(0, happiness - 1);
         }
+
+        // apply happiness
+        editor.putInt(KEY_HAPPINESS, happiness);
+        editor.apply();
 
         super.onActivityResult(requestCode, resultCode, data);
     }

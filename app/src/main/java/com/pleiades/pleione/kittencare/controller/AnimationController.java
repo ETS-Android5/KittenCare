@@ -48,6 +48,7 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_1;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
 import static com.pleiades.pleione.kittencare.Config.KEY_ANIMATOR_DURATION_SCALE;
 import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
+import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_DISTANCE;
 import static com.pleiades.pleione.kittencare.Config.KEY_SHOW_POSITION;
@@ -469,6 +470,7 @@ public class AnimationController {
             @Override
             public void run() {
                 SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
 
                 // prevent action overlap
                 if (isActionLocked)
@@ -486,12 +488,19 @@ public class AnimationController {
                 if (prefs.getInt(KEY_BUFF, BUFF_CODE_FAIL) == BUFF_CODE_ITEM)
                     bound = (int) (bound / 1.1);
 
+                // initialize happiness
+                int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+
                 // initialize random value
                 Random random = new Random();
                 int randomValue = random.nextInt(bound);
 
                 // case item found
                 if (randomValue == 0) {
+                    // apply happiness
+                    editor.putInt(KEY_HAPPINESS, Math.min(100, happiness + 1));
+                    editor.apply();
+
                     new PrefsController(context).addRandomItemPrefs(REWARD_TYPE_EXPLORE);
                     animateKittenSniffItem(decideDirection());
                 }
@@ -501,22 +510,25 @@ public class AnimationController {
                     randomValue = random.nextInt(15);
 
                     if (randomValue == 0)
-                        animateKittenSniffSmile(decideDirection(), true);
-                    else if (randomValue == 1)
                         animateKittenSlip(decideDirection());
-                    else if (randomValue == 2)
+                    else if (randomValue == 1)
                         animateKittenLongJumpUpRandom();
-                    else if (randomValue == 3)
+                    else if (randomValue == 2)
                         animateKittenFaceMeow();
-                    else if (randomValue == 4) {
-                        float from = KittenService.kittenLayoutParams.x;
-                        float shiverDistance = (float) prefs.getInt(KEY_JUMP_DISTANCE, DEFAULT_JUMP_DISTANCE) / 5;
-
-                        // prevent wall bug
-                        if (!isWallDetected(DIRECTION_TO_LEFT, from + shiverDistance) && !isWallDetected(DIRECTION_TO_RIGHT, from - shiverDistance))
-                            animateKittenShiverAngry(decideDirection(), 6);
+                    else if (randomValue == 3) {
+                        // angry
+                        if (happiness < 50) {
+                            // prevent wall bug
+                            float from = KittenService.kittenLayoutParams.x;
+                            float shiverDistance = (float) prefs.getInt(KEY_JUMP_DISTANCE, DEFAULT_JUMP_DISTANCE) / 5;
+                            if (!isWallDetected(DIRECTION_TO_LEFT, from + shiverDistance) && !isWallDetected(DIRECTION_TO_RIGHT, from - shiverDistance))
+                                animateKittenShiverAngry(decideDirection(), 6);
+                            else
+                                animateKittenFaceBlink();
+                        }
+                        // smile
                         else
-                            animateKittenFaceBlink();
+                            animateKittenSniffSmile(decideDirection(), true);
                     } else
                         animateKittenFaceBlink();
                 }

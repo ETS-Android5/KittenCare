@@ -36,16 +36,21 @@ import com.pleiades.pleione.kittencare.object.History;
 import com.pleiades.pleione.kittencare.ui.activity.HistoryActivity;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.pleiades.pleione.kittencare.Config.BUFF_CODE_EXPERIENCE;
 import static com.pleiades.pleione.kittencare.Config.BUFF_CODE_ITEM;
 import static com.pleiades.pleione.kittencare.Config.DEFAULT_SHOW_POSITION;
 import static com.pleiades.pleione.kittencare.Config.DELAY_DEFAULT;
+import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_OVERLAY;
 import static com.pleiades.pleione.kittencare.Config.EXPERIENCE_MAGNIFICATION;
 import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_BUFF;
@@ -64,6 +69,9 @@ import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_SIZE_LIMIT;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_DRESS_RANDOMLY;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_EXPLORED;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
+import static com.pleiades.pleione.kittencare.Config.KEY_LAST_CONSUMPTION_DATE_STRING;
+import static com.pleiades.pleione.kittencare.Config.KEY_LAST_HIDE_DATE_STRING;
 import static com.pleiades.pleione.kittencare.Config.KEY_LEVEL;
 import static com.pleiades.pleione.kittencare.Config.KEY_NAME;
 import static com.pleiades.pleione.kittencare.Config.KEY_SCREEN_HEIGHT;
@@ -226,11 +234,18 @@ public class StatusFragment extends Fragment {
             }
         });
 
+        // case is not happiness tutorial completed
+        if (!prefs.getBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, false)) {
+            DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_HAPPINESS);
+            defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_HAPPINESS));
+        }
+
         return rootView;
     }
 
     private void initializeStatus() {
         SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
 
         // initialize level, experience, max experience
         int level = prefs.getInt(KEY_LEVEL, 1);
@@ -271,8 +286,54 @@ public class StatusFragment extends Fragment {
         TextView costumeProgressTextView = rootView.findViewById(R.id.costume_status);
         costumeProgressTextView.setText(String.format(Locale.getDefault(), "%02d/%02d", costumeProgress, costumeProgressBar.getMax()));
 
-        // initialize happiness progress bar
+        // initialize happiness
         int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+
+        // initialize last hide date string, last consumption date string, last current date string
+        String lastHideDateString = prefs.getString(KEY_LAST_HIDE_DATE_STRING, null);
+        String lastConsumptionDateString = prefs.getString(KEY_LAST_CONSUMPTION_DATE_STRING, null);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy/MM/dd HH:mm:ss", Locale.US);
+        String currentDateString = simpleDateFormat.format(new Date());
+
+        // update happiness using last hide date
+        if (lastHideDateString != null) {
+            try {
+                Date lastHideDate = simpleDateFormat.parse(lastHideDateString);
+                Date currentDate = simpleDateFormat.parse(currentDateString);
+
+                long timeDifference = currentDate.getTime() - lastHideDate.getTime();
+                happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference));
+
+                // apply last hide date string
+                editor.putString(KEY_LAST_HIDE_DATE_STRING, currentDateString);
+                editor.apply();
+            } catch (ParseException e) {
+                // ignore exception block
+            }
+        }
+
+        // update happiness using last consumption date
+        if (lastConsumptionDateString != null) {
+            try {
+                Date lastConsumptionDate = simpleDateFormat.parse(lastConsumptionDateString);
+                Date currentDate = simpleDateFormat.parse(currentDateString);
+
+                long timeDifference = currentDate.getTime() - lastConsumptionDate.getTime();
+                happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference) / 12 * 10);
+
+                // apply last consumption date string
+                editor.putString(KEY_LAST_CONSUMPTION_DATE_STRING, currentDateString);
+                editor.apply();
+            } catch (ParseException e) {
+                // ignore exception block
+            }
+        }
+
+        // apply happiness
+        editor.putInt(KEY_HAPPINESS, happiness);
+        editor.apply();
+
+        // initialize happiness progress bar
         ProgressBar happinessProgressBar = rootView.findViewById(R.id.happiness_progress_status);
         happinessProgressBar.setProgress(happiness);
         happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, happiness >= 50 ? R.drawable.drawable_progress : R.drawable.drawable_progress_blue));

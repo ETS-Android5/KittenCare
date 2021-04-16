@@ -12,9 +12,12 @@ import com.pleiades.pleione.kittencare.object.History;
 import com.pleiades.pleione.kittencare.object.Item;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -83,6 +86,7 @@ import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_ARRAY_LIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_ARRAY_LIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_PLEIONE_DOLL;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_SCRATCHER;
+import static com.pleiades.pleione.kittencare.Config.KEY_LAST_CONSUMPTION_DATE_STRING;
 import static com.pleiades.pleione.kittencare.Config.KEY_LEVEL;
 import static com.pleiades.pleione.kittencare.Config.KEY_USE_CHERRY_ICE_CREAM;
 import static com.pleiades.pleione.kittencare.Config.KEY_USE_CHOCOLATE_ICE_CREAM;
@@ -426,10 +430,11 @@ public class PrefsController {
         // add item use history
         addHistoryPrefs(HISTORY_TYPE_ITEM_USED, itemArrayList.get(position).itemCode);
 
-        // initialize level, experience, max experience
+        // initialize level, experience, max experience, happiness
         int level = prefs.getInt(KEY_LEVEL, 1);
         int experience = prefs.getInt(KEY_EXPERIENCE, 0);
         int maxExperience = (int) (100 * (Math.pow(EXPERIENCE_MAGNIFICATION, level - 1)));
+        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
 
         // initialize increasing experience
         double increasingExperience;
@@ -459,19 +464,19 @@ public class PrefsController {
                 editor.putBoolean(KEY_USE_MINT_ICE_CREAM, true);
                 break;
             case ITEM_CODE_GREEN_TEA_CAKE:
-                increasingExperience = Math.ceil((double) maxExperience / 100 * 50);
+                increasingExperience = (double) maxExperience / 100 * 50;
                 break;
             case ITEM_CODE_CHOCOLATE_CAKE:
-                increasingExperience = Math.ceil((double) maxExperience / 100 * 30);
+                increasingExperience = (double) maxExperience / 100 * 30;
                 break;
             case ITEM_CODE_CHERRY_CAKE:
-                increasingExperience = Math.ceil((double) maxExperience / 100 * 20);
+                increasingExperience = (double) maxExperience / 100 * 20;
                 break;
             case ITEM_CODE_MELON_CAKE:
-                increasingExperience = Math.ceil((double) maxExperience / 100 * 10);
+                increasingExperience = (double) maxExperience / 100 * 10;
                 break;
             case ITEM_CODE_MINT_CAKE:
-                increasingExperience = Math.ceil((double) maxExperience / 100 * 5);
+                increasingExperience = (double) maxExperience / 100 * 5;
                 break;
             default:
                 increasingExperience = 0;
@@ -483,6 +488,7 @@ public class PrefsController {
             increasingExperience += increasingExperience / 100 * 10;
         if (prefs.getInt(KEY_BUFF, BUFF_CODE_FAIL) == BUFF_CODE_EXPERIENCE)
             increasingExperience += increasingExperience / 100 * 10;
+        increasingExperience *= happiness < 50 ? ((double) happiness + 50) / 100 : (1 + ((double) happiness - 50) / 200);
 
         // add increasing experience
         experience += increasingExperience;
@@ -502,6 +508,9 @@ public class PrefsController {
                 // calculate max experience
                 maxExperience = (int) (100 * (Math.pow(EXPERIENCE_MAGNIFICATION, level - 1)));
 
+                // calculate happiness
+                happiness = 100;
+
                 // add level up history
                 addHistoryPrefs(HISTORY_TYPE_LEVEL_UP, level);
 
@@ -513,13 +522,16 @@ public class PrefsController {
         // apply level, experience
         editor.putInt(KEY_LEVEL, level);
         editor.putInt(KEY_EXPERIENCE, level == LEVEL_MAX ? 0 : experience);
-        editor.apply();
+//        editor.apply();
 
         // apply happiness
-        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
         happiness = Math.min(100, happiness + Converter.getConsumptionItemRank(itemArrayList.get(position).itemCode));
         editor.putInt(KEY_HAPPINESS, happiness);
-        editor.apply();
+//        editor.apply();
+
+        // apply last consumption date string
+        editor.putString(KEY_LAST_CONSUMPTION_DATE_STRING, new SimpleDateFormat("yy/MM/dd HH:mm:ss", Locale.US).format(new Date()));
+//        editor.apply();
 
         // unlock choco costume
         if (prefs.getBoolean(KEY_USE_GREEN_TEA_ICE_CREAM, false))
@@ -529,11 +541,13 @@ public class PrefsController {
                         if (prefs.getBoolean(KEY_USE_MINT_ICE_CREAM, false)) {
                             if (!prefs.getBoolean(KEY_COSTUME_CHOCO, false)) {
                                 editor.putBoolean(KEY_COSTUME_CHOCO, true);
-                                editor.apply();
+//                                editor.apply();
 
                                 addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_CHOCO);
                             }
                         }
+
+        editor.apply();
     }
 
     public int alchemyItem(int iceCreamCode, int quantity) {

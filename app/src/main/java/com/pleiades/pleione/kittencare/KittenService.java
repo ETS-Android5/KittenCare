@@ -26,6 +26,9 @@ import com.pleiades.pleione.kittencare.controller.AnimationController;
 import com.pleiades.pleione.kittencare.controller.DeviceController;
 import com.pleiades.pleione.kittencare.controller.NotificationController;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,6 +39,7 @@ import static com.pleiades.pleione.kittencare.Config.DELAY_UNLOCK_SCREEN;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SURPRISED;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_RECOGNIZING_KEYBOARD;
+import static com.pleiades.pleione.kittencare.Config.KEY_LAST_HIDE_DATE_STRING;
 import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_HEIGHT;
 import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_WIDTH;
 import static com.pleiades.pleione.kittencare.Config.KEY_WEARING_COSTUME;
@@ -65,6 +69,12 @@ public class KittenService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        // remove last hide date string
+        editor.remove(KEY_LAST_HIDE_DATE_STRING);
+        editor.apply();
 
         // initialize context
         context = KittenService.this;
@@ -81,7 +91,7 @@ public class KittenService extends Service {
 
     @SuppressLint({"ClickableViewAccessibility", "InflateParams"})
     private void initializeKitten() {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
 
         // case already initialized
         if (kittenWindowManager != null)
@@ -113,7 +123,7 @@ public class KittenService extends Service {
         kittenLayoutParams.gravity = Gravity.END | Gravity.BOTTOM;
 
         // initialize kitten view
-        kittenView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.include_kitten, null);
+        kittenView = ((LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE)).inflate(R.layout.include_kitten, null);
 
         // initialize kitten layout
         kittenLayout = kittenView.findViewById(R.id.layout_kitten);
@@ -146,7 +156,7 @@ public class KittenService extends Service {
         }
 
         // initialize kitten window manager
-        kittenWindowManager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
+        kittenWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         // add kitten view to window with layout params
         kittenWindowManager.addView(kittenView, kittenLayoutParams);
@@ -206,6 +216,13 @@ public class KittenService extends Service {
 
     @Override
     public void onDestroy() {
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        // apply last hide date string
+        editor.putString(KEY_LAST_HIDE_DATE_STRING, new SimpleDateFormat("yy/MM/dd HH:mm:ss", Locale.US).format(new Date()));
+        editor.apply();
+
         // destroy kitten
         destroyKitten();
 
@@ -266,13 +283,13 @@ public class KittenService extends Service {
         @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
             DeviceController deviceController = new DeviceController(context);
             int viewWidth = view.getWidth();
             int viewHeight = view.getHeight();
             int deviceWidth = deviceController.getWidthMax();
             int deviceHeight = deviceController.getHeightMax();
-            int orientation = context.getResources().getConfiguration().orientation;
+            int orientation = getResources().getConfiguration().orientation;
 
             switch (motionEvent.getAction()) {
                 case MotionEvent.ACTION_DOWN:

@@ -37,7 +37,6 @@ import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PLEIADES;
-import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_SIZE_LIMIT;
 import static com.pleiades.pleione.kittencare.Config.KEY_LEVEL;
 import static com.pleiades.pleione.kittencare.Config.KEY_USER_LAST_VERSION_CODE;
@@ -76,7 +75,8 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putInt(KEY_HAPPINESS, 40);
+//        editor.putInt(KEY_HAPPINESS, 40);
+//        editor.putString(KEY_LAST_HIDE_DATE_STRING, "21/04/15 14:45:04");
 
         PrefsController prefsController = new PrefsController(activity);
         prefsController.addItemPrefs(ITEM_CODE_ICE_CREAM_CAKE, 50);

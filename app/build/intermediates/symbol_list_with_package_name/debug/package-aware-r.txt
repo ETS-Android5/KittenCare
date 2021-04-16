@@ -2842,10 +2842,12 @@ string default_name
 string dialog_cancel
 string dialog_confirm
 string dialog_message_chase
+string dialog_message_complete_happiness_tutorial
 string dialog_message_complete_tutorial
 string dialog_message_escape
 string dialog_message_fast_opening
 string dialog_message_finish
+string dialog_message_happiness
 string dialog_message_move_destination
 string dialog_message_overlay
 string dialog_message_rename

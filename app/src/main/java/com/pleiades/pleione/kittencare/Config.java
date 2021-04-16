@@ -61,6 +61,8 @@ public class Config {
     public static final int DIALOG_TYPE_START_DINOSAUR = 14;
     public static final int DIALOG_TYPE_WIN_DINOSAUR = 15;
     public static final int DIALOG_TYPE_TICKET = 16;
+    public static final int DIALOG_TYPE_HAPPINESS = 17;
+    public static final int DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL = 18;
 
     // animation kitten
     public static final int PERIOD_EXPLORE = 3000;
@@ -200,6 +202,7 @@ public class Config {
     public static final String KEY_LAST_LAUNCH_DAY = "last_launch_day";
     public static final String KEY_REWARD_EARNED_COUNT = "adsCount";
     public static final String KEY_IS_TUTORIAL_COMPLETED = "tutorial_complete";
+    public static final String KEY_IS_HAPPINESS_TUTORIAL_COMPLETED = "happiness_tutorial_complete";
     public static final String KEY_IS_EXPLORED = "firstExploring";
     public static final String KEY_LEVEL = "level";
     public static final String KEY_EXPERIENCE = "experience";
@@ -210,6 +213,8 @@ public class Config {
     public static final String KEY_SCREEN_WIDTH = "screen_width";
     public static final String KEY_SCREEN_HEIGHT = "screen_height";
     public static final String KEY_HISTORY_SIZE_LIMIT = "history_size_limit";
+    public static final String KEY_LAST_HIDE_DATE_STRING = "last_hide_date_string";
+    public static final String KEY_LAST_CONSUMPTION_DATE_STRING = "last_consumption_date_string";
 
     public static final String KEY_ITEM_PLEIONE_DOLL = "pleioneDoll";
     public static final String KEY_ITEM_SCRATCHER = "scratcher";

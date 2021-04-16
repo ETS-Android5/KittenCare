@@ -37,9 +37,11 @@ import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PLEIONE;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_2021;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_ALCYONE;
+import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_COMPLETE_TUTORIAL;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_ESCAPE;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_FINISH_GAME;
+import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_OVERLAY;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_PLEIONE;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_SKIP_OPENING;
@@ -57,6 +59,7 @@ import static com.pleiades.pleione.kittencare.Config.GAME_CODE_PLEIADES;
 import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_COSTUME_FOUND;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_2021;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PLEIONE;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.URL_ALCYONE;
@@ -132,6 +135,12 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                 case DIALOG_TYPE_TICKET:
                     messageTextView.setText(R.string.dialog_message_ticket);
                     break;
+                case DIALOG_TYPE_HAPPINESS:
+                    messageTextView.setText(R.string.dialog_message_happiness);
+                    break;
+                case DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL:
+                    messageTextView.setText(R.string.dialog_message_complete_happiness_tutorial);
+                    break;
             }
 
             // set positive listener
@@ -150,6 +159,7 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                 case DIALOG_TYPE_WIN_PAJAMAS:
                 case DIALOG_TYPE_WIN_PLEIADES:
                 case DIALOG_TYPE_WIN_DINOSAUR:
+                case DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL:
                     negativeTextView.setVisibility(View.INVISIBLE);
                     break;
                 default:
@@ -176,6 +186,8 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
             case DIALOG_TYPE_WIN_PAJAMAS:
             case DIALOG_TYPE_WIN_PLEIADES:
             case DIALOG_TYPE_WIN_DINOSAUR:
+            case DIALOG_TYPE_HAPPINESS:
+            case DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL:
                 dialog.setCanceledOnTouchOutside(false);
                 break;
             default:
@@ -339,6 +351,13 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
 //                GameFragment gameFragment = (GameFragment) getTargetFragment();
 //                if (gameFragment != null)
 //                    gameFragment.requestTicketRewardedAd();
+            } else if (type == DIALOG_TYPE_HAPPINESS) {
+                editor.putBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, true);
+                editor.apply();
+                // TODO start happiness tutorial activity
+            } else if (type == DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL){
+                editor.putBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, true);
+                editor.apply();
             }
 
             dismiss();
@@ -352,8 +371,14 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                 Activity parentActivity = getActivity();
                 if (parentActivity != null)
                     parentActivity.finish();
-            } else
+            } else {
+                if (type == DIALOG_TYPE_HAPPINESS) {
+                    // show complete tutorial dialog
+                    DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL);
+                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL));
+                }
                 dismiss();
+            }
         }
     }
 }
