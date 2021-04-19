@@ -62,7 +62,7 @@ public class SplashActivity extends AppCompatActivity {
         updateAppVersion();
 
         // set developer mode
-        setDeveloperMode();
+//        setDeveloperMode();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -115,7 +115,8 @@ public class SplashActivity extends AppCompatActivity {
             // case version code is not latest
             if (existVersionCode != latestVersionCode) {
                 // respond to app version
-                respond(existVersionCode);
+                if (existVersionCode != 1)
+                    respond(existVersionCode);
 
                 // add update reward items
                 PrefsController prefsController = new PrefsController(activity);

@@ -185,10 +185,11 @@ public class Config {
     public static final int POSITION_APPLICATION = 0;
     public static final int POSITION_DETAIL = 1;
     public static final int APPLICATION_POSITION_TUTORIAL = 0;
-    public static final int APPLICATION_POSITION_SHARE = 1;
-    public static final int APPLICATION_POSITION_CHECK_UPDATE = 2;
-    public static final int APPLICATION_POSITION_BACKUP = 3;
-    public static final int APPLICATION_POSITION_OTHER_APPS = 4;
+    public static final int APPLICATION_POSITION_HAPPINESS = 1;
+    public static final int APPLICATION_POSITION_SHARE = 2;
+    public static final int APPLICATION_POSITION_CHECK_UPDATE = 3;
+    public static final int APPLICATION_POSITION_BACKUP = 4;
+    public static final int APPLICATION_POSITION_OTHER_APPS = 5;
     public static final int DETAIL_POSITION_RENAME = 0;
     public static final int DETAIL_POSITION_MODIFY_COORDINATES = 1;
     public static final int DETAIL_POSITION_DRESS_RANDOM_COSTUME = 2;

@@ -2003,6 +2003,7 @@ id appbar_application
 id appbar_detail
 id appbar_dinosaur
 id appbar_divination
+id appbar_happiness_tutorial
 id appbar_history
 id appbar_main
 id appbar_pajamas
@@ -2205,13 +2206,21 @@ id jumpToEnd
 id jumpToStart
 id kitten_alchemy
 id kitten_divination
+id kitten_face_1_happiness_tutorial
 id kitten_face_1_tutorial
+id kitten_face_2_happiness_tutorial
 id kitten_face_2_tutorial
+id kitten_face_3_happiness_tutorial
 id kitten_face_3_tutorial
+id kitten_face_4_happiness_tutorial
 id kitten_face_4_tutorial
+id kitten_face_5_happiness_tutorial
 id kitten_face_5_tutorial
+id kitten_face_6_happiness_tutorial
 id kitten_face_6_tutorial
+id kitten_face_7_happiness_tutorial
 id kitten_face_7_tutorial
+id kitten_face_8_happiness_tutorial
 id kitten_face_8_tutorial
 id kitten_left_pajamas
 id kitten_left_recycler_game
@@ -2323,8 +2332,11 @@ id navigation_setting
 id negative_dialog_default
 id negative_dialog_input
 id never
+id newsstand_bottom_happiness_tutorial
 id newsstand_bottom_tutorial
+id newsstand_top_happiness_tutorial
 id newsstand_top_tutorial
+id next_happiness_tutorial
 id next_tutorial
 id noScroll
 id none
@@ -2337,6 +2349,7 @@ id on
 id outline
 id outward
 id packed
+id pager_happiness_tutorial
 id pager_home
 id pager_tutorial
 id parallax
@@ -2356,6 +2369,7 @@ id position
 id positive_dialog_default
 id positive_dialog_input
 id postLayout
+id prev_happiness_tutorial
 id prev_tutorial
 id progress_background_dinosaur
 id progress_circular
@@ -2618,6 +2632,7 @@ layout activity_game_pleiades
 layout activity_history
 layout activity_main
 layout activity_tutorial
+layout activity_tutorial_happiness
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -2872,6 +2887,8 @@ string game_contents_tickets
 string game_title_dinosaur
 string game_title_pajamas
 string game_title_pleiades
+string happiness_tutorial_contents_first
+string happiness_tutorial_title_first
 string hide_bottom_view_on_scroll_behavior
 string history_contents_buff_get_experience
 string history_contents_buff_get_item

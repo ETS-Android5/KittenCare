@@ -70,6 +70,7 @@ import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_SIZE_LIMIT;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_DRESS_RANDOMLY;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_EXPLORED;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.KEY_LAST_CONSUMPTION_DATE_STRING;
 import static com.pleiades.pleione.kittencare.Config.KEY_LAST_HIDE_DATE_STRING;
 import static com.pleiades.pleione.kittencare.Config.KEY_LEVEL;
@@ -235,7 +236,7 @@ public class StatusFragment extends Fragment {
         });
 
         // case is not happiness tutorial completed
-        if (!prefs.getBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, false)) {
+        if (prefs.getBoolean(KEY_IS_TUTORIAL_COMPLETED, false) && !prefs.getBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, false)) {
             DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_HAPPINESS);
             defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_HAPPINESS));
         }
@@ -301,7 +302,7 @@ public class StatusFragment extends Fragment {
                 Date lastHideDate = simpleDateFormat.parse(lastHideDateString);
                 Date currentDate = simpleDateFormat.parse(currentDateString);
 
-                long timeDifference = currentDate.getTime() - lastHideDate.getTime();
+                long timeDifference = Math.abs(currentDate.getTime() - lastHideDate.getTime());
                 happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference));
 
                 // apply last hide date string
@@ -318,7 +319,7 @@ public class StatusFragment extends Fragment {
                 Date lastConsumptionDate = simpleDateFormat.parse(lastConsumptionDateString);
                 Date currentDate = simpleDateFormat.parse(currentDateString);
 
-                long timeDifference = currentDate.getTime() - lastConsumptionDate.getTime();
+                long timeDifference = Math.abs(currentDate.getTime() - lastConsumptionDate.getTime());
                 happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference) / 12 * 10);
 
                 // apply last consumption date string

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_BACKUP;
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_CHECK_UPDATE;
+import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_OTHER_APPS;
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_SHARE;
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_TUTORIAL;
@@ -65,6 +66,7 @@ public class ApplicationActivity extends AppCompatActivity {
         // initialize application setting array list
         applicationSettingArrayList = new ArrayList<>();
         applicationSettingArrayList.add(APPLICATION_POSITION_TUTORIAL, getString(R.string.label_tutorial));
+        applicationSettingArrayList.add(APPLICATION_POSITION_HAPPINESS, getString(R.string.label_happiness));
         applicationSettingArrayList.add(APPLICATION_POSITION_SHARE, getString(R.string.setting_title_share_app));
         applicationSettingArrayList.add(APPLICATION_POSITION_CHECK_UPDATE, getString(R.string.setting_title_check_update));
         applicationSettingArrayList.add(APPLICATION_POSITION_BACKUP, getString(R.string.setting_title_request_backup));
@@ -112,6 +114,9 @@ public class ApplicationActivity extends AppCompatActivity {
                             return;
                         if (position == APPLICATION_POSITION_TUTORIAL) {
                             Intent intent = new Intent(context, TutorialActivity.class);
+                            startActivity(intent);
+                        } else if (position == APPLICATION_POSITION_HAPPINESS) {
+                            Intent intent = new Intent(context, HappinessTutorialActivity.class);
                             startActivity(intent);
                         } else if (position == APPLICATION_POSITION_SHARE) {
                             Intent intent = new Intent(Intent.ACTION_SEND);

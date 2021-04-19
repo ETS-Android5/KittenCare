@@ -29,6 +29,9 @@ import com.pleiades.pleione.kittencare.ui.activity.MainActivity;
 import com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity;
 import com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity;
 import com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity;
+import com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity;
+
+import java.util.StringTokenizer;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_2021;
@@ -348,16 +351,22 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                 if (mainActivity != null) {
                     mainActivity.requestTicketRewardedAd();
                 }
-//                GameFragment gameFragment = (GameFragment) getTargetFragment();
-//                if (gameFragment != null)
-//                    gameFragment.requestTicketRewardedAd();
             } else if (type == DIALOG_TYPE_HAPPINESS) {
+                Intent intent = new Intent(context, HappinessTutorialActivity.class);
+                startActivity(intent);
+            } else if (type == DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL) {
                 editor.putBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, true);
                 editor.apply();
-                // TODO start happiness tutorial activity
-            } else if (type == DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL){
-                editor.putBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, true);
-                editor.apply();
+
+                Activity parentActivity = getActivity();
+                if (parentActivity != null) {
+                    String activityName = null;
+                    StringTokenizer stringTokenizer = new StringTokenizer(parentActivity.getClass().getName(), ".");
+                    while (stringTokenizer.hasMoreTokens())
+                        activityName = stringTokenizer.nextToken();
+                    if (activityName.equals("HappinessTutorialActivity"))
+                        parentActivity.onBackPressed();
+                }
             }
 
             dismiss();

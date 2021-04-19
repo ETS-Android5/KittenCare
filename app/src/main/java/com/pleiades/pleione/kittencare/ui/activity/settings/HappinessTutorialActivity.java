@@ -1,7 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.activity.settings;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,7 +32,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.pleiades.pleione.kittencare.Config.DELAY_FACE_MAINTAIN;
-import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_SKIP_TUTORIAL;
+import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_1;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_2;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_3;
@@ -46,12 +45,12 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SPARKLE;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SURPRISED;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_1;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
-import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
-public class TutorialActivity extends AppCompatActivity {
+public class HappinessTutorialActivity extends AppCompatActivity {
     private Timer timer;
     private TimerTask timerTask;
     private ImageView[] kittenFaceImageViewList;
@@ -59,17 +58,17 @@ public class TutorialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial);
+        setContentView(R.layout.activity_tutorial_happiness);
 
         // initialize context
-        Context context = TutorialActivity.this;
+        Context context = HappinessTutorialActivity.this;
 
         // set navigation color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1)
             getWindow().setNavigationBarColor(ContextCompat.getColor(context, R.color.color_navigation_background));
 
         // initialize appbar
-        View appbar = findViewById(R.id.appbar_tutorial);
+        View appbar = findViewById(R.id.appbar_happiness_tutorial);
         Toolbar toolbar = appbar.findViewById(R.id.toolbar_sub);
         setSupportActionBar(toolbar);
 
@@ -79,12 +78,12 @@ public class TutorialActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
 
         // initialize view pager
-        final ViewPager viewPager = findViewById(R.id.pager_tutorial);
-        TutorialFragmentPagerAdapter contentsPagerAdapter = new TutorialFragmentPagerAdapter(getSupportFragmentManager(), 6);
+        final ViewPager viewPager = findViewById(R.id.pager_happiness_tutorial);
+        HappinessTutorialFragmentPagerAdapter contentsPagerAdapter = new HappinessTutorialFragmentPagerAdapter(getSupportFragmentManager(), 6);
         viewPager.setAdapter(contentsPagerAdapter);
 
         // initialize right image button
-        final ImageButton rightImageButton = findViewById(R.id.next_tutorial);
+        final ImageButton rightImageButton = findViewById(R.id.next_happiness_tutorial);
         rightImageButton.setVisibility(View.VISIBLE);
         rightImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +93,7 @@ public class TutorialActivity extends AppCompatActivity {
         });
 
         // initialize left image button
-        final ImageButton leftImageButton = findViewById(R.id.prev_tutorial);
+        final ImageButton leftImageButton = findViewById(R.id.prev_happiness_tutorial);
         leftImageButton.setVisibility(View.INVISIBLE);
         leftImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,14 +132,14 @@ public class TutorialActivity extends AppCompatActivity {
     private void initializeTimerTask() {
         // initialize kitten face image view list
         kittenFaceImageViewList = new ImageView[8];
-        kittenFaceImageViewList[0] = findViewById(R.id.kitten_face_1_tutorial);
-        kittenFaceImageViewList[1] = findViewById(R.id.kitten_face_2_tutorial);
-        kittenFaceImageViewList[2] = findViewById(R.id.kitten_face_3_tutorial);
-        kittenFaceImageViewList[3] = findViewById(R.id.kitten_face_4_tutorial);
-        kittenFaceImageViewList[4] = findViewById(R.id.kitten_face_5_tutorial);
-        kittenFaceImageViewList[5] = findViewById(R.id.kitten_face_6_tutorial);
-        kittenFaceImageViewList[6] = findViewById(R.id.kitten_face_7_tutorial);
-        kittenFaceImageViewList[7] = findViewById(R.id.kitten_face_8_tutorial);
+        kittenFaceImageViewList[0] = findViewById(R.id.kitten_face_1_happiness_tutorial);
+        kittenFaceImageViewList[1] = findViewById(R.id.kitten_face_2_happiness_tutorial);
+        kittenFaceImageViewList[2] = findViewById(R.id.kitten_face_3_happiness_tutorial);
+        kittenFaceImageViewList[3] = findViewById(R.id.kitten_face_4_happiness_tutorial);
+        kittenFaceImageViewList[4] = findViewById(R.id.kitten_face_5_happiness_tutorial);
+        kittenFaceImageViewList[5] = findViewById(R.id.kitten_face_6_happiness_tutorial);
+        kittenFaceImageViewList[6] = findViewById(R.id.kitten_face_7_happiness_tutorial);
+        kittenFaceImageViewList[7] = findViewById(R.id.kitten_face_8_happiness_tutorial);
 
         // initialize timer task
         timerTask = new TimerTask() {
@@ -270,12 +269,12 @@ public class TutorialActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-            if (prefs.getBoolean(KEY_IS_TUTORIAL_COMPLETED, false))
+            if (prefs.getBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, false))
                 onBackPressed();
             else {
-                // show skip tutorial dialog
-                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_SKIP_TUTORIAL);
-                defaultDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_SKIP_TUTORIAL));
+                // show complete happiness tutorial dialog
+                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL);
+                defaultDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL));
             }
 
             return true;
@@ -287,21 +286,19 @@ public class TutorialActivity extends AppCompatActivity {
     public void onBackPressed() {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
 
-        if (prefs.getBoolean(KEY_IS_TUTORIAL_COMPLETED, false)) {
+        if (prefs.getBoolean(KEY_IS_HAPPINESS_TUTORIAL_COMPLETED, false)) {
             super.onBackPressed();
         } else {
-            // return to home
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            // show complete happiness tutorial dialog
+            DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL);
+            defaultDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_COMPLETE_HAPPINESS_TUTORIAL));
         }
     }
 
-    private static class TutorialFragmentPagerAdapter extends FragmentStatePagerAdapter {
+    private static class HappinessTutorialFragmentPagerAdapter extends FragmentStatePagerAdapter {
         private final int pageCount;
 
-        TutorialFragmentPagerAdapter(FragmentManager manager, int pageCount) {
+        HappinessTutorialFragmentPagerAdapter(FragmentManager manager, int pageCount) {
             super(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.pageCount = pageCount;
         }

@@ -6,18 +6,18 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/appbar_tutorial"
+        android:id="@+id/appbar_happiness_tutorial"
         layout="@layout/include_appbar_sub" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager_tutorial"
+        android:id="@+id/pager_happiness_tutorial"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/newsstand_bottom_tutorial"
-        app:layout_constraintTop_toBottomOf="@id/newsstand_top_tutorial" />
+        app:layout_constraintBottom_toTopOf="@id/newsstand_bottom_happiness_tutorial"
+        app:layout_constraintTop_toBottomOf="@id/newsstand_top_happiness_tutorial" />
 
     <LinearLayout
-        android:id="@+id/newsstand_top_tutorial"
+        android:id="@+id/newsstand_top_happiness_tutorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
@@ -25,7 +25,7 @@
         android:layout_marginEnd="@dimen/margin_default"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/appbar_tutorial">
+        app:layout_constraintTop_toBottomOf="@id/appbar_happiness_tutorial">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="0dp"
@@ -40,7 +40,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_1_tutorial"
+                android:id="@+id/kitten_face_1_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -69,7 +69,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_2_tutorial"
+                android:id="@+id/kitten_face_2_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -98,7 +98,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_3_tutorial"
+                android:id="@+id/kitten_face_3_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -127,7 +127,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_4_tutorial"
+                android:id="@+id/kitten_face_4_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -145,7 +145,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/newsstand_bottom_tutorial"
+        android:id="@+id/newsstand_bottom_happiness_tutorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
@@ -168,7 +168,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_5_tutorial"
+                android:id="@+id/kitten_face_5_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -197,7 +197,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_6_tutorial"
+                android:id="@+id/kitten_face_6_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -226,7 +226,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_7_tutorial"
+                android:id="@+id/kitten_face_7_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -255,7 +255,7 @@
                 app:srcCompat="@drawable/image_body_crop" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/kitten_face_8_tutorial"
+                android:id="@+id/kitten_face_8_happiness_tutorial"
                 android:layout_width="@dimen/width_kitten"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -280,7 +280,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageButton
-        android:id="@+id/next_tutorial"
+        android:id="@+id/next_happiness_tutorial"
         android:layout_width="@dimen/icon_size_default"
         android:layout_height="@dimen/icon_size_default"
         android:layout_marginEnd="@dimen/margin_default"
@@ -292,7 +292,7 @@
         tools:ignore="ContentDescription" />
 
     <ImageButton
-        android:id="@+id/prev_tutorial"
+        android:id="@+id/prev_happiness_tutorial"
         android:layout_width="@dimen/icon_size_default"
         android:layout_height="@dimen/icon_size_default"
         android:layout_marginStart="@dimen/margin_default"
