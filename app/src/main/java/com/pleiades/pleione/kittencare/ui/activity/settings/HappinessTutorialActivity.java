@@ -23,9 +23,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.FirstTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.LastTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.MiddleTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
 
 import java.util.Random;
 import java.util.Timer;
@@ -48,6 +49,7 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
+import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
 public class HappinessTutorialActivity extends AppCompatActivity {
@@ -79,7 +81,7 @@ public class HappinessTutorialActivity extends AppCompatActivity {
 
         // initialize view pager
         final ViewPager viewPager = findViewById(R.id.pager_happiness_tutorial);
-        HappinessTutorialFragmentPagerAdapter contentsPagerAdapter = new HappinessTutorialFragmentPagerAdapter(getSupportFragmentManager(), 6);
+        HappinessTutorialFragmentPagerAdapter contentsPagerAdapter = new HappinessTutorialFragmentPagerAdapter(getSupportFragmentManager(), 7);
         viewPager.setAdapter(contentsPagerAdapter);
 
         // initialize right image button
@@ -306,13 +308,16 @@ public class HappinessTutorialActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment getItem(int position) {
+            // TODO
             switch (position) {
                 case 0:
-                    return new FirstTutorialFragment();
-                case 5:
-                    return new LastTutorialFragment();
+                    return new HappinessTutorialFragment();
+                case 1:
+                    return new FaceTutorialFragment();
+                case 6:
+                    return new PawTutorialFragment();
                 default:
-                    return MiddleTutorialFragment.newInstance(position);
+                    return ImageTutorialFragment.newInstance(TUTORIAL_TYPE_HAPPINESS, position);
             }
         }
 

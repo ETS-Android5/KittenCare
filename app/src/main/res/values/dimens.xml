@@ -26,4 +26,6 @@
 
     <dimen name="margin_dialog_default">64dp</dimen>
     <dimen name="margin_dialog_recycler">128dp</dimen>
+
+    <dimen name="padding_bottom_image_stroke">1dp</dimen>
 </resources>

@@ -2,7 +2,12 @@ package com.pleiades.pleione.kittencare;
 
 public class Config {
     // argument
+    public static final String ARGUMENT_KEY_TYPE = "type";
     public static final String ARGUMENT_KEY_POSITION = "position";
+
+    // tutorial type
+    public static final int TUTORIAL_TYPE_DEFAULT = 0;
+    public static final int TUTORIAL_TYPE_HAPPINESS = 1;
 
     // reward type
     public static final int REWARD_TYPE_ADVERTISEMENT_ITEM = 0;

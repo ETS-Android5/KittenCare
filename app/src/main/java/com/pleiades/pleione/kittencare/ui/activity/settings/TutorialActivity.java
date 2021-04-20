@@ -24,9 +24,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.FirstTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.LastTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.MiddleTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ShowTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
 
 import java.util.Random;
 import java.util.Timer;
@@ -49,6 +49,7 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
+import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
 public class TutorialActivity extends AppCompatActivity {
@@ -311,11 +312,11 @@ public class TutorialActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new FirstTutorialFragment();
+                    return new ShowTutorialFragment();
                 case 5:
-                    return new LastTutorialFragment();
+                    return new PawTutorialFragment();
                 default:
-                    return MiddleTutorialFragment.newInstance(position);
+                    return ImageTutorialFragment.newInstance(TUTORIAL_TYPE_DEFAULT, position);
             }
         }
 
