@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment;
@@ -117,7 +118,7 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                 if (position == 0) {
                     leftImageButton.setVisibility(View.INVISIBLE);
                     rightImageButton.setVisibility(View.VISIBLE);
-                } else if (position == 5) {
+                } else if (position == 6) {
                     leftImageButton.setVisibility(View.VISIBLE);
                     rightImageButton.setVisibility(View.INVISIBLE);
                 } else {
@@ -317,6 +318,8 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                     return new FaceTutorialFragment();
                 case 2:
                     return new ExperienceTutorialFragment();
+                case 3:
+                    return new DailyTutorialFragment();
                 case 6:
                     return new PawTutorialFragment();
                 default:

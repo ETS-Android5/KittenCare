@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.pleiades.pleione.kittencare.R;
+import com.pleiades.pleione.kittencare.controller.AnimationController;
 
 import java.util.Random;
 
@@ -35,7 +36,6 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_1;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_2;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_3;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SMILE;
-import static com.pleiades.pleione.kittencare.Config.KEY_ANIMATOR_DURATION_SCALE;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_DISTANCE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
@@ -60,7 +60,7 @@ public class FaceTutorialFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_tutorial_face, container, false);
 
         // initialize left kitten view
-        leftKittenView = rootView.findViewById(R.id.kitten_left_tutorial);
+        leftKittenView = rootView.findViewById(R.id.kitten_left_tutorial_face);
         leftKittenView.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
@@ -74,7 +74,7 @@ public class FaceTutorialFragment extends Fragment {
         ((ImageView) leftKittenView.findViewById(R.id.costume_kitten)).setImageResource(R.drawable.image_costume_alcyone);
 
         // initialize right kitten view
-        rightKittenView = rootView.findViewById(R.id.kitten_right_tutorial);
+        rightKittenView = rootView.findViewById(R.id.kitten_right_tutorial_face);
         rightFaceImageView = rightKittenView.findViewById(R.id.face_kitten);
         ((ImageView) rightKittenView.findViewById(R.id.body_kitten)).setImageResource(R.drawable.image_body_crop);
         ((ImageView) rightKittenView.findViewById(R.id.costume_kitten)).setImageResource(R.drawable.image_costume_pleione);
@@ -126,7 +126,7 @@ public class FaceTutorialFragment extends Fragment {
         float to = direction == DIRECTION_TO_LEFT ? from - shiverDistance : from + shiverDistance;
 
         // initialize duration
-        long duration = calculateDurationGravity(shiverDistance, true);
+        long duration = AnimationController.calculateDurationGravity(context, shiverDistance, true);
 
         // initialize value animator
         leftValueAnimator = ValueAnimator.ofFloat(from, to);
@@ -161,7 +161,7 @@ public class FaceTutorialFragment extends Fragment {
 
         // initialize distance, duration
         float distance = prefs.getInt(KEY_JUMP_ALTITUDE, DEFAULT_JUMP_ALTITUDE);
-        long duration = calculateDurationGravity(distance, false);
+        long duration = AnimationController.calculateDurationGravity(context, distance, false);
 
         // initialize from, to
         float from = leftKittenView.getY();
@@ -197,7 +197,7 @@ public class FaceTutorialFragment extends Fragment {
 
         // initialize distance, duration
         float distance = prefs.getInt(KEY_JUMP_ALTITUDE, DEFAULT_JUMP_ALTITUDE);
-        long duration = calculateDurationGravity(distance, false);
+        long duration = AnimationController.calculateDurationGravity(context, distance, false);
 
         // initialize from, to
         float from = leftKittenView.getY();
@@ -206,7 +206,7 @@ public class FaceTutorialFragment extends Fragment {
         // initialize value animator
         leftValueAnimator = ValueAnimator.ofFloat(from, to);
         leftValueAnimator.setDuration(duration);
-        leftValueAnimator.setInterpolator(new DecelerateInterpolator());
+        leftValueAnimator.setInterpolator(new AccelerateInterpolator());
         leftValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -319,18 +319,8 @@ public class FaceTutorialFragment extends Fragment {
         }, delay);
     }
 
-    private long calculateDurationGravity(float distance, boolean bounce) {
-        long duration;
-
-        duration = Math.round((int) (100 * Math.sqrt(distance / 49)));
-        duration = bounce ? (2 * duration) : duration;
-        duration = Math.round(context.getSharedPreferences(PREFS, MODE_PRIVATE).getFloat(KEY_ANIMATOR_DURATION_SCALE, 1) * duration);
-
-        return duration;
-    }
-
     private long calculateDurationSniff() {
-        return calculateDurationGravity(rightKittenView.getHeight() * 4, false);
+        return AnimationController.calculateDurationGravity(context, rightKittenView.getHeight() * 4, false);
     }
 
     @Override

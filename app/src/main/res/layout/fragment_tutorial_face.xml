@@ -13,7 +13,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <!-- TODO -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,14 +23,14 @@
         app:layout_constraintBottom_toTopOf="@id/line_tutorial_face">
 
         <include
-            android:id="@+id/kitten_left_tutorial"
+            android:id="@+id/kitten_left_tutorial_face"
             layout="@layout/include_kitten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <include
-            android:id="@+id/kitten_right_tutorial"
+            android:id="@+id/kitten_right_tutorial_face"
             layout="@layout/include_kitten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,10 +44,10 @@
         android:text="@string/tutorial_title_face"
         android:textAlignment="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/contents_tutorial_show" />
+        app:layout_constraintBottom_toTopOf="@+id/contents_tutorial_face" />
 
     <TextView
-        android:id="@+id/contents_tutorial_show"
+        android:id="@+id/contents_tutorial_face"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_huge"
