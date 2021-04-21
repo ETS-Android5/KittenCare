@@ -35,7 +35,7 @@ public class HappinessTutorialFragment extends Fragment {
         happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, R.drawable.drawable_progress_blue));
         happinessProgressBar.setProgress(0);
 
-        happinessProgressTextView = rootView.findViewById(R.id.happiness_tutorial);
+        happinessProgressTextView = rootView.findViewById(R.id.happiness_tutorial_happiness);
         happinessProgressTextView.setText(String.format(Locale.getDefault(), "%02d/100", 0));
 
         return rootView;
@@ -67,8 +67,10 @@ public class HappinessTutorialFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        if (progressValueAnimator != null)
+        if (progressValueAnimator != null) {
+            progressValueAnimator.removeAllUpdateListeners();
             progressValueAnimator.cancel();
+        }
 
         happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, R.drawable.drawable_progress_blue));
         happinessProgressBar.setProgress(0);

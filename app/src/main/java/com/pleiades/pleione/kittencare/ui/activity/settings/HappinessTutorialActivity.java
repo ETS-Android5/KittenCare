@@ -29,6 +29,7 @@ import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutori
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment;
 
 import java.util.Random;
 import java.util.Timer;
@@ -320,6 +321,8 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                     return new ExperienceTutorialFragment();
                 case 3:
                     return new DailyTutorialFragment();
+                case 4:
+                    return new LevelTutorialFragment();
                 case 6:
                     return new PawTutorialFragment();
                 default:

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/margin_large">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_huge"
+        android:layout_marginEnd="@dimen/margin_huge"
+        android:layout_marginBottom="@dimen/margin_huge"
+        android:background="@drawable/background_round_stroke"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/level_tutorial_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_very_large"
+                android:textStyle="bold"
+                tools:text="Level 99 (MAX)" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/experience_tutorial_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_signature_gray"
+                android:textSize="@dimen/text_size_small"
+                tools:text="99.99 %" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/experience_progress_tutorial_level"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_progress_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:max="100"
+            android:progressDrawable="@drawable/drawable_progress" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_very_large"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_happiness"
+                android:textSize="@dimen/text_size_very_large"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/happiness_tutorial_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_signature_gray"
+                android:textSize="@dimen/text_size_small"
+                tools:text="75/100" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/happiness_progress_tutorial_level"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_progress_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:max="100" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/tutorial_title_level"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/contents_tutorial_happiness" />
+
+    <TextView
+        android:id="@+id/contents_tutorial_happiness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_huge"
+        android:text="@string/tutorial_contents_level"
+        android:textAlignment="center"
+        android:textColor="@color/color_signature_gray"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

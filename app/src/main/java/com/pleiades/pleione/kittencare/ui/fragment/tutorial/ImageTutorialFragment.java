@@ -79,13 +79,7 @@ public class ImageTutorialFragment extends Fragment {
             }
         } else if (type == TUTORIAL_TYPE_HAPPINESS) {
             // TODO
-            if (position == 3) {
-                titleTextView.setText(R.string.tutorial_title_daily);
-                contentsTextView.setText(R.string.tutorial_contents_daily);
-            } else if (position == 4) {
-                titleTextView.setText(R.string.tutorial_title_happiness_image_3);
-                contentsTextView.setText(R.string.tutorial_contents_happiness_image_3);
-            } else if (position == 5) {
+            if (position == 5) {
                 titleTextView.setText(R.string.tutorial_title_happiness_image_4);
                 contentsTextView.setText(R.string.tutorial_contents_happiness_image_4);
             }

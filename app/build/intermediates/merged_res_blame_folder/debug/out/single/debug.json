@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_arrow_down.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_arrow_down.xml"
-    },
-    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\anim_anim_shiver_to_right.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\anim\\anim_shiver_to_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_arrow_down.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_arrow_down.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_costume_2021.png.flat",
@@ -630,6 +630,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_tutorial_level.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_level.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_tutorial_2.png.flat",
