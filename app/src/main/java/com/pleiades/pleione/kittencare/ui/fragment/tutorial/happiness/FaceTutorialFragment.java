@@ -67,6 +67,8 @@ public class FaceTutorialFragment extends Fragment {
                     public void onGlobalLayout() {
                         leftOriginPositionX = leftKittenView.getX();
                         leftOriginPositionY = leftKittenView.getY();
+
+                        leftKittenView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
         leftFaceImageView = leftKittenView.findViewById(R.id.face_kitten);

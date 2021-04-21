@@ -13,6 +13,7 @@ anim abc_tooltip_enter
 anim abc_tooltip_exit
 anim anim_alchemy_scale_zoom_in
 anim anim_alchemy_scale_zoom_out
+anim anim_rotate_kitten_left
 anim anim_rotate_kitten_right
 anim anim_rotate_kitten_right_back
 anim anim_scale_appear
@@ -2091,6 +2092,7 @@ id contents_tutorial_daily
 id contents_tutorial_experience
 id contents_tutorial_face
 id contents_tutorial_happiness
+id contents_tutorial_idle
 id contents_tutorial_image
 id contents_tutorial_paw
 id contents_tutorial_show
@@ -2232,11 +2234,13 @@ id kitten_left_pajamas
 id kitten_left_recycler_game
 id kitten_left_tutorial_daily
 id kitten_left_tutorial_face
+id kitten_left_tutorial_idle
 id kitten_recycler_costume
 id kitten_right_pajamas
 id kitten_right_recycler_game
 id kitten_right_tutorial_daily
 id kitten_right_tutorial_face
+id kitten_right_tutorial_idle
 id labelGroup
 id labeled
 id largeLabel
@@ -2264,6 +2268,7 @@ id line_tutorial_daily
 id line_tutorial_experience
 id line_tutorial_face
 id line_tutorial_happiness
+id line_tutorial_idle
 id line_tutorial_paw
 id line_tutorial_show
 id linear
@@ -2679,6 +2684,7 @@ layout fragment_tutorial_daily
 layout fragment_tutorial_experience
 layout fragment_tutorial_face
 layout fragment_tutorial_happiness
+layout fragment_tutorial_idle
 layout fragment_tutorial_image
 layout fragment_tutorial_level
 layout fragment_tutorial_paw
@@ -3104,7 +3110,7 @@ string tutorial_contents_daily
 string tutorial_contents_experience
 string tutorial_contents_face
 string tutorial_contents_happiness
-string tutorial_contents_happiness_image_4
+string tutorial_contents_idle
 string tutorial_contents_image_1
 string tutorial_contents_image_2
 string tutorial_contents_image_3
@@ -3116,7 +3122,7 @@ string tutorial_title_daily
 string tutorial_title_experience
 string tutorial_title_face
 string tutorial_title_happiness
-string tutorial_title_happiness_image_4
+string tutorial_title_idle
 string tutorial_title_image_1
 string tutorial_title_image_2
 string tutorial_title_image_3

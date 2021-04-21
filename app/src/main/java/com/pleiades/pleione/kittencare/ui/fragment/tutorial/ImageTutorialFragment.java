@@ -16,7 +16,6 @@ import com.pleiades.pleione.kittencare.R;
 import static com.pleiades.pleione.kittencare.Config.ARGUMENT_KEY_POSITION;
 import static com.pleiades.pleione.kittencare.Config.ARGUMENT_KEY_TYPE;
 import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_DEFAULT;
-import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_HAPPINESS;
 
 public class ImageTutorialFragment extends Fragment {
     private int type, position;
@@ -76,12 +75,6 @@ public class ImageTutorialFragment extends Fragment {
                 imageView.setPadding(padding, padding, padding, padding);
                 titleTextView.setText(R.string.tutorial_title_image_4);
                 contentsTextView.setText(R.string.tutorial_contents_image_4);
-            }
-        } else if (type == TUTORIAL_TYPE_HAPPINESS) {
-            // TODO
-            if (position == 5) {
-                titleTextView.setText(R.string.tutorial_title_happiness_image_4);
-                contentsTextView.setText(R.string.tutorial_contents_happiness_image_4);
             }
         }
 

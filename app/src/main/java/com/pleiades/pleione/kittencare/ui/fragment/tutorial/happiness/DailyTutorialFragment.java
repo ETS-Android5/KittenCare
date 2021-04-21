@@ -55,6 +55,8 @@ public class DailyTutorialFragment extends Fragment {
                     @Override
                     public void onGlobalLayout() {
                         originPositionY = leftKittenView.getY();
+
+                        leftKittenView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
         leftFaceImageView = leftKittenView.findViewById(R.id.face_kitten);

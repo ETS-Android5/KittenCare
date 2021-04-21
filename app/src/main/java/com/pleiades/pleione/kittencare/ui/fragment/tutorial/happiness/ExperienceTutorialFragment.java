@@ -67,7 +67,7 @@ public class ExperienceTutorialFragment extends Fragment {
 
         // initialize timer
         timer = new Timer();
-        timer.schedule(timerTask, 500, 500);
+        timer.schedule(timerTask, 0, 500);
     }
 
     @Override

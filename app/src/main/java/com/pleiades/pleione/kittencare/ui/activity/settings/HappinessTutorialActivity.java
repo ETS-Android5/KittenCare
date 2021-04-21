@@ -23,12 +23,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.IdleTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment;
 
 import java.util.Random;
@@ -52,7 +52,6 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
 public class HappinessTutorialActivity extends AppCompatActivity {
@@ -311,7 +310,6 @@ public class HappinessTutorialActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment getItem(int position) {
-            // TODO
             switch (position) {
                 case 0:
                     return new HappinessTutorialFragment();
@@ -326,7 +324,7 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                 case 6:
                     return new PawTutorialFragment();
                 default:
-                    return ImageTutorialFragment.newInstance(TUTORIAL_TYPE_HAPPINESS, position);
+                    return new IdleTutorialFragment();
             }
         }
 
