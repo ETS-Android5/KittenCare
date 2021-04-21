@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment;
 import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
@@ -314,6 +315,8 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                     return new HappinessTutorialFragment();
                 case 1:
                     return new FaceTutorialFragment();
+                case 2:
+                    return new ExperienceTutorialFragment();
                 case 6:
                     return new PawTutorialFragment();
                 default:

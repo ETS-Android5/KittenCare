@@ -20,10 +20,7 @@
         android:layout_marginEnd="@dimen/margin_huge"
         android:background="@drawable/background_round_stroke"
         android:orientation="vertical"
-        android:paddingStart="@dimen/margin_large"
-        android:paddingTop="@dimen/margin_large"
-        android:paddingEnd="@dimen/margin_large"
-        android:paddingBottom="@dimen/margin_large"
+        android:padding="@dimen/margin_large"
         app:layout_constraintBottom_toTopOf="@id/line_tutorial_happiness">
 
         <LinearLayout

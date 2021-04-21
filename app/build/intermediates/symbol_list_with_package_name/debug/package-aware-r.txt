@@ -2087,6 +2087,7 @@ id contents_recycler_costume
 id contents_recycler_game
 id contents_recycler_history
 id contents_recycler_item
+id contents_tutorial_experience
 id contents_tutorial_happiness
 id contents_tutorial_image
 id contents_tutorial_paw
@@ -2200,6 +2201,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id item_tutorial_experience
 id jumpToEnd
 id jumpToStart
 id kitten_alchemy
@@ -2249,6 +2251,7 @@ id line_alchemy
 id line_divination
 id line_pillar_left_pleiades
 id line_pillar_right_pleiades
+id line_tutorial_experience
 id line_tutorial_face
 id line_tutorial_happiness
 id line_tutorial_paw
@@ -2662,6 +2665,7 @@ layout fragment_home
 layout fragment_item
 layout fragment_settings
 layout fragment_status
+layout fragment_tutorial_experience
 layout fragment_tutorial_face
 layout fragment_tutorial_happiness
 layout fragment_tutorial_image
@@ -3084,9 +3088,9 @@ string toast_todo
 string toast_try_again
 string toast_try_later
 string toast_unlock_costume_first
+string tutorial_contents_experience
 string tutorial_contents_face
 string tutorial_contents_happiness
-string tutorial_contents_happiness_image_1
 string tutorial_contents_happiness_image_2
 string tutorial_contents_happiness_image_3
 string tutorial_contents_happiness_image_4
@@ -3096,9 +3100,9 @@ string tutorial_contents_image_3
 string tutorial_contents_image_4
 string tutorial_contents_paw
 string tutorial_contents_show
+string tutorial_title_experience
 string tutorial_title_face
 string tutorial_title_happiness
-string tutorial_title_happiness_image_1
 string tutorial_title_happiness_image_2
 string tutorial_title_happiness_image_3
 string tutorial_title_happiness_image_4
