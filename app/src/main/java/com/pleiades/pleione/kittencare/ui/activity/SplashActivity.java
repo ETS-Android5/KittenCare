@@ -95,6 +95,7 @@ public class SplashActivity extends AppCompatActivity {
         prefsController.addItemPrefs(ITEM_CODE_PLEIONE_DOLL, 1);
         prefsController.addItemPrefs(ITEM_CODE_SCRATCHER, 1);
         prefsController.addItemPrefs(ITEM_CODE_TOWER, 1);
+        editor.putInt(KEY_LEVEL, 90);
         editor.putInt(KEY_GAME_TICKET_PAJAMAS, TICKET_MAX);
         editor.putInt(KEY_GAME_TICKET_PLEIADES, TICKET_MAX);
         editor.putInt(KEY_GAME_TICKET_DINOSAUR, TICKET_MAX);

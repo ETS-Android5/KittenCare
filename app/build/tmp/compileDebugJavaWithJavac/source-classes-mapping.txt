@@ -126,8 +126,14 @@ com/pleiades/pleione/kittencare/ui/activity/game/PleiadesActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$7
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$8
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$9
-com/pleiades/pleione/kittencare/ui/activity/SplashActivity.java
- com.pleiades.pleione.kittencare.ui.activity.SplashActivity
+com/pleiades/pleione/kittencare/ui/activity/settings/HappinessTutorialActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$1
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$2
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$3
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$4
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$5
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$HappinessTutorialFragmentPagerAdapter
 com/pleiades/pleione/kittencare/object/Scenario.java
  com.pleiades.pleione.kittencare.object.Scenario
 com/pleiades/pleione/kittencare/ui/activity/game/PajamasActivity.java
@@ -441,11 +447,5 @@ com/pleiades/pleione/kittencare/ui/activity/AdvertisementActivity.java
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$7
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/IdleTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.IdleTutorialFragment
-com/pleiades/pleione/kittencare/ui/activity/settings/HappinessTutorialActivity.java
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$1
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$2
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$3
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$4
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$5
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$HappinessTutorialFragmentPagerAdapter
+com/pleiades/pleione/kittencare/ui/activity/SplashActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.SplashActivity
