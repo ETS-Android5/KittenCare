@@ -205,8 +205,9 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
     public void onStart() {
         super.onStart();
 
-        int margin = getResources().getDimensionPixelSize(R.dimen.margin_dialog_default);
-        int width = (new DeviceController(context)).getWidthMax() - margin;
+//        int margin = getResources().getDimensionPixelSize(R.dimen.margin_dialog_default);
+//        int width = (new DeviceController(context)).getWidthMax() - margin;
+        int width = (int) ((new DeviceController(context)).getWidthMax() * 0.85);
         int height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
         Dialog dialog = getDialog();

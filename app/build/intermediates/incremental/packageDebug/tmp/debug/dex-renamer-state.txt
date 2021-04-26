@@ -1,7 +1,7 @@
-#Sun Apr 25 22:27:23 KST 2021
-base.0=C\:\\Users\\speed\\Primary\\Github Project\\Kitten Care\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+#Mon Apr 26 09:29:03 KST 2021
+base.0=C\:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\speed\\Primary\\Github Project\\Kitten Care\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.1=C\:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
