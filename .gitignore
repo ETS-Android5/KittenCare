@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 *.properties
+local.properties
+*.aab
+*.apk
