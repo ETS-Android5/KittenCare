@@ -60,16 +60,16 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_costume_2021.png"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_experience.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_experience.xml"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_icon_arrow_left.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_arrow_left.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_divination.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\activity_divination.xml"
-    },
-    {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_middle_2.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_middle_2.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\anim_anim_shiver_to_right.xml.flat",
@@ -86,6 +86,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_drawable_game_sky_low_dark.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_game_sky_low_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_daily.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_daily.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_costume_alchemist.png.flat",
@@ -106,10 +110,6 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_icon_filter.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_filter.xml"
-    },
-    {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_first.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_first.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_icon_settings.xml.flat",
@@ -134,10 +134,6 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_item.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_last.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_last.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_alchemy.xml.flat",
@@ -184,6 +180,10 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\menu\\menu_items.xml"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_idle.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_idle.xml"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_background_round_recycler.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\background_round_recycler.xml"
     },
@@ -196,16 +196,16 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_round.xml"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\anim_anim_rotate_kitten_left.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\anim\\anim_rotate_kitten_left.xml"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_face_blink_1.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_face_blink_1.png"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_game_pajamas_bed.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_game_pajamas_bed.png"
-    },
-    {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_middle_3.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_middle_3.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_face_angry.png.flat",
@@ -280,8 +280,8 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\recycler_game.xml"
     },
     {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_middle_4.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_middle_4.xml"
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_tutorial_happiness.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\activity_tutorial_happiness.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_tutorial_1.png.flat",
@@ -320,10 +320,6 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_game_progress.xml"
     },
     {
-        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_middle_1.xml.flat",
-        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_middle_1.xml"
-    },
-    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_settings.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_settings.xml"
     },
@@ -350,6 +346,14 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_drawable_round_recycler.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_round_recycler.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_show.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_show.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_drawable_progress_blue.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\drawable_progress_blue.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\anim_anim_scale_appear.xml.flat",
@@ -386,6 +390,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_paw.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_paw.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\anim_anim_rotate_kitten_right_back.xml.flat",
@@ -444,8 +452,16 @@
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\recycler_costume.xml"
     },
     {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_face.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_face.xml"
+    },
+    {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\menu_menu_history.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\menu\\menu_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_image.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_image.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_drawable_round_stroke.xml.flat",
@@ -482,6 +498,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_face_sweat_1.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_face_sweat_1.png"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_icon_arrow_up.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\icon_arrow_up.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_costume_pleione.png.flat",
@@ -530,6 +550,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_background_splash_launch.xml.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\background_splash_launch.xml"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_happiness.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_happiness.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_game_pajamas_alternative.xml.flat",
@@ -682,6 +706,10 @@
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_face_blink_3.png.flat",
         "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\drawable\\image_face_blink_3.png"
+    },
+    {
+        "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\layout_fragment_tutorial_level.xml.flat",
+        "source": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\src\\main\\res\\layout\\fragment_tutorial_level.xml"
     },
     {
         "merged": "C:\\Users\\LordRoid\\AndroidStudioProjects\\KittenCare\\app\\build\\intermediates\\res\\merged\\release\\drawable_image_game_pleiades_bed.png.flat",

@@ -28,6 +28,7 @@
 -keep class com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity { <init>(); }
 -keep class com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity { <init>(); }
 -keep class com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity { <init>(); }
+-keep class com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity { <init>(); }
 -keep class com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity { <init>(); }
 -keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
 

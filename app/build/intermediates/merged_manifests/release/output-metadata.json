@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 30,
-      "versionName": "1.7.0",
+      "versionCode": 32,
+      "versionName": "1.9.0",
       "outputFile": "AndroidManifest.xml"
     }
   ]
