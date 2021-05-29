@@ -110,24 +110,8 @@ com/pleiades/pleione/kittencare/ui/activity/game/PleiadesActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$7
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$8
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$9
-com/pleiades/pleione/kittencare/ui/activity/charm/AlchemyActivity.java
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$1
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$10
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$11
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$12
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$13
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$14
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$2
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$3
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$4
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$5
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6$1
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7$1
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$8
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$9
+com/pleiades/pleione/kittencare/ui/activity/SplashActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.SplashActivity
 com/pleiades/pleione/kittencare/object/Scenario.java
  com.pleiades.pleione.kittencare.object.Scenario
 com/pleiades/pleione/kittencare/ui/activity/game/PajamasActivity.java
@@ -447,5 +431,21 @@ com/pleiades/pleione/kittencare/ui/activity/AdvertisementActivity.java
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$7
 com/pleiades/pleione/kittencare/ui/activity/EscapeActivity.java
  com.pleiades.pleione.kittencare.ui.activity.EscapeActivity
-com/pleiades/pleione/kittencare/ui/activity/SplashActivity.java
- com.pleiades.pleione.kittencare.ui.activity.SplashActivity
+com/pleiades/pleione/kittencare/ui/activity/charm/AlchemyActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$1
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$10
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$11
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$12
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$13
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$14
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$2
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$3
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$4
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$5
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6$1
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7$1
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$8
+ com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$9
