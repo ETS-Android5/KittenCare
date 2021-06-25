@@ -403,12 +403,6 @@ com/pleiades/pleione/kittencare/ui/activity/HistoryActivity.java
  com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$2
  com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter$HistoryViewHolder
-com/pleiades/pleione/kittencare/ui/fragment/CostumeFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder$1
 com/pleiades/pleione/kittencare/ui/fragment/ItemFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.ItemFragment
  com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$1
@@ -417,20 +411,6 @@ com/pleiades/pleione/kittencare/ui/fragment/ItemFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter$ItemsViewHolder
  com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter$ItemsViewHolder$1
-com/pleiades/pleione/kittencare/controller/NotificationController.java
- com.pleiades.pleione.kittencare.controller.NotificationController
-com/pleiades/pleione/kittencare/ui/activity/AdvertisementActivity.java
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$1
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2$1
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$3
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$4
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$5
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$6
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$7
-com/pleiades/pleione/kittencare/ui/activity/EscapeActivity.java
- com.pleiades.pleione.kittencare.ui.activity.EscapeActivity
 com/pleiades/pleione/kittencare/ui/activity/charm/AlchemyActivity.java
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$1
@@ -449,3 +429,23 @@ com/pleiades/pleione/kittencare/ui/activity/charm/AlchemyActivity.java
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7$1
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$8
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$9
+com/pleiades/pleione/kittencare/controller/NotificationController.java
+ com.pleiades.pleione.kittencare.controller.NotificationController
+com/pleiades/pleione/kittencare/ui/activity/AdvertisementActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$1
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2$1
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$3
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$4
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$5
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$6
+ com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$7
+com/pleiades/pleione/kittencare/ui/activity/EscapeActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.EscapeActivity
+com/pleiades/pleione/kittencare/ui/fragment/CostumeFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment
+ com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$1
+ com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter
+ com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder
+ com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder$1

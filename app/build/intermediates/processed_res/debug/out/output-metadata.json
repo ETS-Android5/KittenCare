@@ -5,7 +5,7 @@
     "kind": "Directory"
   },
   "applicationId": "com.pleiades.pleione.kittencare",
-  "variantName": "processDebugResources",
+  "variantName": "debug",
   "elements": [
     {
       "type": "SINGLE",

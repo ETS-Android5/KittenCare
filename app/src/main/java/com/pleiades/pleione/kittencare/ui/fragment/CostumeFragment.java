@@ -86,12 +86,20 @@ public class CostumeFragment extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+
+        costumeArrayList = new PrefsController(context).getInitializedCostumeArrayList();
+        costumesRecyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
 
         // initialize costume array list
-        costumeArrayList = new PrefsController(context).getInitializedCostumeArrayList();
-        costumesRecyclerAdapter.notifyDataSetChanged();
+//        costumeArrayList = new PrefsController(context).getInitializedCostumeArrayList();
+//        costumesRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override

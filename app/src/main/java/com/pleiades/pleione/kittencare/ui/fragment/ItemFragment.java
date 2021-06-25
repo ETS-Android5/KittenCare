@@ -140,12 +140,21 @@ public class ItemFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
 
         // initialize item array list
         initializeItemArrayList();
         itemsRecyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+//        // initialize item array list
+//        initializeItemArrayList();
+//        itemsRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
