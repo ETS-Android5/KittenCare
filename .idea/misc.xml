@@ -5,6 +5,28 @@
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/background_round.xml" value="0.4197916666666667" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/background_splash_launch.xml" value="0.3558974358974359" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/drawable_round.xml" value="0.4197916666666667" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/activity_tutorial.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_costume.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_settings.xml" value="0.3183876811594203" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_status.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_daily.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_experience.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_face.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_happiness.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_idle.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_image.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_level.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_paw.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_show.xml" value="0.4036458333333333" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="org.jetbrains.annotations.Nullable" />
     <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />
@@ -30,7 +52,7 @@
     </option>
     <option name="myNotNulls">
       <value>
-        <list size="13">
+        <list size="14">
           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
           <item index="1" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
           <item index="2" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
@@ -44,6 +66,7 @@
           <item index="10" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.NonNull" />
           <item index="11" class="java.lang.String" itemvalue="io.reactivex.annotations.NonNull" />
           <item index="12" class="java.lang.String" itemvalue="io.reactivex.rxjava3.annotations.NonNull" />
+          <item index="13" class="java.lang.String" itemvalue="lombok.NonNull" />
         </list>
       </value>
     </option>
