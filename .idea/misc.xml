@@ -11,8 +11,10 @@
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/background_round.xml" value="0.4197916666666667" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/background_splash_launch.xml" value="0.3558974358974359" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/drawable/drawable_round.xml" value="0.4197916666666667" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/activity_application.xml" value="0.2586050724637681" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/activity_tutorial.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_costume.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_game.xml" value="0.23777173913043478" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_settings.xml" value="0.3183876811594203" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_status.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_daily.xml" value="0.4036458333333333" />
@@ -24,6 +26,12 @@
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_level.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_paw.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/fragment_tutorial_show.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/layout/include_appbar_sub.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/menu/menu_game_out.xml" value="0.2875" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/menu/menu_game_out_adjust_difficulty.xml" value="0.2875" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/menu/menu_history_filter.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/menu/menu_items.xml" value="0.2875" />
+        <entry key="..\:/Users/speed/Primary/GitHub/KittenCare/app/src/main/res/menu/menu_items_filter.xml" value="0.2875" />
       </map>
     </option>
   </component>

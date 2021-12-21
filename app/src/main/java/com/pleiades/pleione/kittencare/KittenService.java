@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -305,12 +306,14 @@ public class KittenService extends Service {
                     kittenLayout.setRotation(0);
 
                     keyboardGap = 0;
-                    if (prefs.getBoolean(KEY_IS_RECOGNIZING_KEYBOARD, false)) {
+//                    if (prefs.getBoolean(KEY_IS_RECOGNIZING_KEYBOARD, false)) {
                         // recognize keyboard (touch height)
                         int touchHeight = (int) (deviceHeight - motionEvent.getRawY());
                         keyboardGap = Math.abs(kittenLayoutParams.y - touchHeight);
-                        if (keyboardGap <= viewHeight)
-                            keyboardGap = 0;
+//                        if (keyboardGap <= viewHeight) {
+//                            Log.d("keyboard height", "reset by viewHeight" + viewHeight);
+//                            keyboardGap = 0;
+//                        }
 
                         // recognize keyboard (relative touch height)
                         int relativeTouchHeight;
@@ -320,7 +323,9 @@ public class KittenService extends Service {
                             relativeTouchHeight = (int) ((viewHeight - motionEvent.getX()) / 2);
                         if (keyboardGap != 0)
                             keyboardGap = keyboardGap - relativeTouchHeight;
-                    }
+
+//                        Log.d("keyboard height", Integer.toString(keyboardGap));
+//                    }
                     return true;
 
                 case MotionEvent.ACTION_MOVE:
