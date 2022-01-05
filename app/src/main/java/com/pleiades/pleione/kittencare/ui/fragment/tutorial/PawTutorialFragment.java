@@ -1,5 +1,13 @@
 package com.pleiades.pleione.kittencare.ui.fragment.tutorial;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_DISTANCE;
+import static com.pleiades.pleione.kittencare.Config.DELAY_DEFAULT;
+import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_COMPLETE_TUTORIAL;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
+import static com.pleiades.pleione.kittencare.Config.PREFS;
+import static com.pleiades.pleione.kittencare.controller.AnimationController.calculateDurationGravity;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -9,7 +17,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,14 +32,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_DISTANCE;
-import static com.pleiades.pleione.kittencare.Config.DELAY_DEFAULT;
-import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_COMPLETE_TUTORIAL;
-import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
-import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.controller.AnimationController.calculateDurationGravity;
 
 public class PawTutorialFragment extends Fragment {
     private Context context;

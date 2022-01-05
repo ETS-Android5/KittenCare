@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -134,26 +133,9 @@ public class KittenService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // TODO implement
             // deprecation
-            kittenLayout.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
-                }
-            });
-//            kittenLayout.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-//                @Override
-//                public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
-//                    insets.getInsets(WindowInsets.Type.navigationBars());
-//                    return insets;
-//                }
-//            });
+            kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0);
         } else {
-            kittenLayout.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
-                }
-            });
+            kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0);
         }
 
         // initialize kitten window manager
@@ -274,7 +256,7 @@ public class KittenService extends Service {
     }
 
     private class KittenOnTouchListener implements View.OnTouchListener {
-        private int keyboardGap = 0;
+        private int gap = 0;
 
         @SuppressLint("ClickableViewAccessibility")
         @Override
@@ -300,27 +282,17 @@ public class KittenService extends Service {
                     // reset kitten rotation
                     kittenLayout.setRotation(0);
 
-                    keyboardGap = 0;
-//                    if (prefs.getBoolean(KEY_IS_RECOGNIZING_KEYBOARD, false)) {
-                        // recognize keyboard (touch height)
-                        int touchHeight = (int) (deviceHeight - motionEvent.getRawY());
-                        keyboardGap = Math.abs(kittenLayoutParams.y - touchHeight);
-//                        if (keyboardGap <= viewHeight) {
-//                            Log.d("keyboard height", "reset by viewHeight" + viewHeight);
-//                            keyboardGap = 0;
-//                        }
+                    // recognize keyboard (touch height)
+                    int touchHeight = (int) (deviceHeight - motionEvent.getRawY());
+                    gap = Math.abs(kittenLayoutParams.y - touchHeight);
 
-                        // recognize keyboard (relative touch height)
-                        int relativeTouchHeight;
-                        if (orientation == Configuration.ORIENTATION_PORTRAIT)
-                            relativeTouchHeight = (int) ((viewHeight - motionEvent.getY()) / 2);
-                        else
-                            relativeTouchHeight = (int) ((viewHeight - motionEvent.getX()) / 2);
-                        if (keyboardGap != 0)
-                            keyboardGap = keyboardGap - relativeTouchHeight;
+                    // recognize keyboard (relative touch height)
+                    int relativeTouchHeight;
+                    if (orientation == Configuration.ORIENTATION_PORTRAIT) relativeTouchHeight = (int) ((viewHeight - motionEvent.getY()) / 2);
+                    else relativeTouchHeight = (int) ((viewHeight - motionEvent.getX()) / 2);
+                    if (gap != 0)
+                        gap = gap - relativeTouchHeight;
 
-//                        Log.d("keyboard height", Integer.toString(keyboardGap));
-//                    }
                     return true;
 
                 case MotionEvent.ACTION_MOVE:
@@ -340,7 +312,7 @@ public class KittenService extends Service {
                     }
 
                     // keyboard gap
-                    kittenLayoutParams.y = kittenLayoutParams.y - keyboardGap;
+                    kittenLayoutParams.y = kittenLayoutParams.y - gap;
 
                     // set x, y position
                     kittenWindowManager.updateViewLayout(kittenView, kittenLayoutParams);
@@ -356,7 +328,7 @@ public class KittenService extends Service {
                     // magnet range
                     boolean magnetLeft, magnetRight, magnetY;
                     magnetLeft = magnetRight = magnetY = false;
-                    if (motionEvent.getRawY() / (deviceHeight - keyboardGap) < MAGNET_HEIGHT_PERCENTAGE)
+                    if (motionEvent.getRawY() / (deviceHeight - gap) < MAGNET_HEIGHT_PERCENTAGE)
                         magnetY = true;
                     if (motionEvent.getRawX() / deviceWidth > MAGNET_WIDTH_PERCENTAGE)
                         magnetRight = true;
@@ -368,7 +340,7 @@ public class KittenService extends Service {
                         animationController.animateKittenAttractionRight();
                     else if (magnetLeft && magnetY)
                         animationController.animateKittenAttractionLeft();
-                    else if ((deviceHeight - keyboardGap - motionEvent.getRawY()) > (deviceHeight / 5.0))
+                    else if ((deviceHeight - gap - motionEvent.getRawY()) > (deviceHeight / 5.0))
                         animationController.animateKittenFall();
                     else
                         animationController.animateKittenRunAway();

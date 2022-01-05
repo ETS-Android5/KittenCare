@@ -7,7 +7,6 @@ public class Config {
 
     // tutorial type
     public static final int TUTORIAL_TYPE_DEFAULT = 0;
-    public static final int TUTORIAL_TYPE_HAPPINESS = 1;
 
     // reward type
     public static final int REWARD_TYPE_ADVERTISEMENT_ITEM = 0;
@@ -23,11 +22,6 @@ public class Config {
     // status
     public static final int LEVEL_MAX = 99;
     public static final double EXPERIENCE_MAGNIFICATION = 1.1;
-
-    // toast
-    public static final int TOAST_POSITION_DEFAULT = 0;
-    public static final int TOAST_POSITION_HIGH = 1;
-    public static final int TOAST_POSITION_VERY_HIGH = 2;
 
     // animation
     public static final int DIRECTION_TO_LEFT = 0;

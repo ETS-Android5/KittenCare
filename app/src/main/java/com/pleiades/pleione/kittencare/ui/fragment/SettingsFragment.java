@@ -1,5 +1,26 @@
 package com.pleiades.pleione.kittencare.ui.fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_ALTITUDE;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_DISTANCE;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_HEIGHT;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_WIDTH;
+import static com.pleiades.pleione.kittencare.Config.DEFAULT_SHOW_POSITION;
+import static com.pleiades.pleione.kittencare.Config.KEY_ANIMATOR_DURATION_SCALE;
+import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
+import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_DISTANCE;
+import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_HEIGHT;
+import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_WIDTH;
+import static com.pleiades.pleione.kittencare.Config.KEY_SHOW_POSITION;
+import static com.pleiades.pleione.kittencare.Config.POSITION_APPLICATION;
+import static com.pleiades.pleione.kittencare.Config.POSITION_DETAIL;
+import static com.pleiades.pleione.kittencare.Config.PREFS;
+import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_JUMP_ALTITUDE;
+import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_JUMP_DISTANCE;
+import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_MAGNET_PERCENTAGE;
+import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_SCALE_PERCENTAGE;
+import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_SHOW_POSITION;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,27 +42,6 @@ import com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_ALTITUDE;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_JUMP_DISTANCE;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_HEIGHT;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_WIDTH;
-import static com.pleiades.pleione.kittencare.Config.DEFAULT_SHOW_POSITION;
-import static com.pleiades.pleione.kittencare.Config.KEY_ANIMATOR_DURATION_SCALE;
-import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
-import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_DISTANCE;
-import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_HEIGHT;
-import static com.pleiades.pleione.kittencare.Config.KEY_MAGNET_PERCENTAGE_WIDTH;
-import static com.pleiades.pleione.kittencare.Config.KEY_SHOW_POSITION;
-import static com.pleiades.pleione.kittencare.Config.POSITION_APPLICATION;
-import static com.pleiades.pleione.kittencare.Config.POSITION_DETAIL;
-import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_JUMP_ALTITUDE;
-import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_JUMP_DISTANCE;
-import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_MAGNET_PERCENTAGE;
-import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_SCALE_PERCENTAGE;
-import static com.pleiades.pleione.kittencare.Config.PROGRESS_TERM_SHOW_POSITION;
 
 public class SettingsFragment extends Fragment {
     private Context context;
@@ -271,21 +271,18 @@ public class SettingsFragment extends Fragment {
                 titleTextView = itemView.findViewById(R.id.title_recycler_setting_default);
 
                 // set item view on click listener
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
+                itemView.setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
 
-                        if (position == POSITION_APPLICATION) {
-                            Intent intent = new Intent(context, ApplicationActivity.class);
-                            startActivity(intent);
-                        } else if (position == POSITION_DETAIL) {
-                            Intent intent = new Intent(context, DetailActivity.class);
-                            startActivity(intent);
-                        }
+                    if (position == POSITION_APPLICATION) {
+                        Intent intent = new Intent(context, ApplicationActivity.class);
+                        startActivity(intent);
+                    } else if (position == POSITION_DETAIL) {
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        startActivity(intent);
                     }
                 });
             }

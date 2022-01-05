@@ -1,9 +1,5 @@
 package com.pleiades.pleione.kittencare;
 
-import android.content.Context;
-
-import java.util.Locale;
-
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_2021;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ALCHEMIST;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ALCYONE;
@@ -95,6 +91,10 @@ import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_CRYSTAL_BALL;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_PLEIONE_DOLL;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_SCRATCHER;
 import static com.pleiades.pleione.kittencare.Config.KEY_ITEM_TOWER;
+
+import android.content.Context;
+
+import java.util.Locale;
 
 // TODO update all
 public class Converter {

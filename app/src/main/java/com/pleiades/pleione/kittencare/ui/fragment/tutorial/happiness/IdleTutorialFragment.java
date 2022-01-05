@@ -1,7 +1,5 @@
 package com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,8 +20,6 @@ public class IdleTutorialFragment extends Fragment {
 
     private View leftKittenView, rightKittenView;
     private ImageView leftFaceImageView, rightFaceImageView;
-    private ObjectAnimator leftObjectAnimator, rightObjectAnimator;
-    private AnimatorSet animatorSet;
 
     @Nullable
     @Override
@@ -84,20 +80,6 @@ public class IdleTutorialFragment extends Fragment {
             leftKittenView.clearAnimation();
         if (rightKittenView != null)
             rightKittenView.clearAnimation();
-        if (leftObjectAnimator != null) {
-            leftObjectAnimator.removeAllUpdateListeners();
-            leftObjectAnimator.removeAllListeners();
-            leftObjectAnimator.cancel();
-        }
-        if (rightObjectAnimator != null) {
-            rightObjectAnimator.removeAllUpdateListeners();
-            rightObjectAnimator.removeAllListeners();
-            rightObjectAnimator.cancel();
-        }
-        if (animatorSet != null) {
-            animatorSet.removeAllListeners();
-            animatorSet.cancel();
-        }
     }
 
     @Override

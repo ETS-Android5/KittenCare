@@ -1,47 +1,5 @@
 package com.pleiades.pleione.kittencare.ui.fragment.home;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.view.ContextThemeWrapper;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.pleiades.pleione.kittencare.R;
-import com.pleiades.pleione.kittencare.controller.AdvertisementController;
-import com.pleiades.pleione.kittencare.controller.PrefsController;
-import com.pleiades.pleione.kittencare.controller.ToastController;
-import com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity;
-import com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity;
-import com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity;
-import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import static android.content.Context.MODE_PRIVATE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ALCYONE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DINOSAUR;
@@ -86,9 +44,53 @@ import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
 import static com.pleiades.pleione.kittencare.Converter.getCostumeResourceId;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.pleiades.pleione.kittencare.R;
+import com.pleiades.pleione.kittencare.controller.AdvertisementController;
+import com.pleiades.pleione.kittencare.controller.PrefsController;
+import com.pleiades.pleione.kittencare.controller.ToastController;
+import com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity;
+import com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity;
+import com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity;
+import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 // TODO update game
 public class GameFragment extends Fragment {
     private Context context;
+    private ActivityResultLauncher<Intent> resultLauncher;
 
     private ArrayList<Game> gameArrayList;
     private GamesRecyclerAdapter gamesRecyclerAdapter;
@@ -98,6 +100,39 @@ public class GameFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game, container, false);
+
+        // initialize result launcher
+        resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+
+            // case win (request code == result code == game code)
+            if (result.getResultCode() != -1) {
+                // set happiness
+                happiness = Math.min(100, happiness + 1);
+
+                // apply game win count
+                int gameWinCount = prefs.getInt(KEY_GAME_WIN_COUNT, 0) + 1;
+                editor.putInt(KEY_GAME_WIN_COUNT, gameWinCount);
+                editor.apply();
+
+                // unlock game machine costume
+                if (gameWinCount == 30) {
+                    editor.putBoolean(KEY_COSTUME_GAME_MACHINE, true);
+                    editor.apply();
+
+                    new PrefsController(context).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_GAME_MACHINE);
+                }
+            } else {
+                // set happiness
+                happiness = Math.max(0, happiness - 1);
+            }
+
+            // apply happiness
+            editor.putInt(KEY_HAPPINESS, happiness);
+            editor.apply();
+        });
 
         // initialize game array list
         gameArrayList = new ArrayList<>();
@@ -316,41 +351,6 @@ public class GameFragment extends Fragment {
         this.context = context;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        int happiness = prefs.getInt(KEY_HAPPINESS, 100);
-
-        // case win (request code == result code == game code)
-        if (requestCode == resultCode) {
-            // set happiness
-            happiness = Math.min(100, happiness + 1);
-
-            // apply game win count
-            int gameWinCount = prefs.getInt(KEY_GAME_WIN_COUNT, 0) + 1;
-            editor.putInt(KEY_GAME_WIN_COUNT, gameWinCount);
-            editor.apply();
-
-            // unlock game machine costume
-            if (gameWinCount == 30) {
-                editor.putBoolean(KEY_COSTUME_GAME_MACHINE, true);
-                editor.apply();
-
-                new PrefsController(context).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_GAME_MACHINE);
-            }
-        } else if (resultCode == -1) {
-            // set happiness
-            happiness = Math.max(0, happiness - 1);
-        }
-
-        // apply happiness
-        editor.putInt(KEY_HAPPINESS, happiness);
-        editor.apply();
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
     private class Game {
         public int gameCode;
         public boolean isLeftUnlocked, isRightUnlocked;
@@ -395,74 +395,71 @@ public class GameFragment extends Fragment {
                 titleTextView = itemView.findViewById(R.id.title_recycler_game);
                 contentsTextView = itemView.findViewById(R.id.contents_recycler_game);
 
-                itemView.findViewById(R.id.layout_recycler_game).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
+                itemView.findViewById(R.id.layout_recycler_game).setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
 
-                        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        Game game = gameArrayList.get(position);
+                    SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    Game game = gameArrayList.get(position);
 
-                        if (game.isLeftUnlocked && game.isRightUnlocked) {
-                            int tickets = 0;
+                    if (game.isLeftUnlocked && game.isRightUnlocked) {
+                        int tickets = 0;
 
-                            if (game.gameCode == GAME_CODE_PAJAMAS) {
-                                // initialize tickets
-                                tickets = prefs.getInt(KEY_GAME_TICKET_PAJAMAS, TICKET_MAX);
+                        if (game.gameCode == GAME_CODE_PAJAMAS) {
+                            // initialize tickets
+                            tickets = prefs.getInt(KEY_GAME_TICKET_PAJAMAS, TICKET_MAX);
 
-                                if (tickets > 0) {
-                                    // start game activity
-                                    Intent intent = new Intent(context, PajamasActivity.class);
-                                    startActivityForResult(intent, game.gameCode);
+                            if (tickets > 0) {
+                                // start game activity
+                                Intent intent = new Intent(context, PajamasActivity.class);
+                                resultLauncher.launch(intent);
 
-                                    // apply decreased ticket
-                                    editor.putInt(KEY_GAME_TICKET_PAJAMAS, tickets - 1);
-                                    editor.apply();
-                                    notifyItemChanged(position);
-                                }
-                            } else if (game.gameCode == GAME_CODE_PLEIADES) {
-                                // initialize tickets
-                                tickets = prefs.getInt(KEY_GAME_TICKET_PLEIADES, TICKET_MAX);
-
-                                if (tickets > 0) {
-                                    // start game activity
-                                    Intent intent = new Intent(context, PleiadesActivity.class);
-                                    startActivityForResult(intent, game.gameCode);
-
-                                    // apply decreased ticket
-                                    editor.putInt(KEY_GAME_TICKET_PLEIADES, tickets - 1);
-                                    editor.apply();
-                                    notifyItemChanged(position);
-                                }
-                            } else if (game.gameCode == GAME_CODE_DINOSAUR) {
-                                // initialize tickets
-                                tickets = prefs.getInt(KEY_GAME_TICKET_DINOSAUR, TICKET_MAX);
-
-                                if (tickets > 0) {
-                                    // start game activity
-                                    Intent intent = new Intent(context, DinosaurActivity.class);
-                                    startActivityForResult(intent, game.gameCode);
-
-                                    // apply decreased ticket
-                                    editor.putInt(KEY_GAME_TICKET_DINOSAUR, tickets - 1);
-                                    editor.apply();
-                                    notifyItemChanged(position);
-                                }
+                                // apply decreased ticket
+                                editor.putInt(KEY_GAME_TICKET_PAJAMAS, tickets - 1);
+                                editor.apply();
+                                notifyItemChanged(position);
                             }
+                        } else if (game.gameCode == GAME_CODE_PLEIADES) {
+                            // initialize tickets
+                            tickets = prefs.getInt(KEY_GAME_TICKET_PLEIADES, TICKET_MAX);
 
-                            // case ticket is lack
-                            if (tickets == 0) {
-                                String message = String.format(getString(R.string.toast_lack_of_ticket), TICKET_MAX);
-                                new ToastController(context).showToast(message, Toast.LENGTH_SHORT);
+                            if (tickets > 0) {
+                                // start game activity
+                                Intent intent = new Intent(context, PleiadesActivity.class);
+                                resultLauncher.launch(intent);
+
+                                // apply decreased ticket
+                                editor.putInt(KEY_GAME_TICKET_PLEIADES, tickets - 1);
+                                editor.apply();
+                                notifyItemChanged(position);
                             }
-                        } else {
-                            String message = getString(R.string.toast_unlock_costume_first);
+                        } else if (game.gameCode == GAME_CODE_DINOSAUR) {
+                            // initialize tickets
+                            tickets = prefs.getInt(KEY_GAME_TICKET_DINOSAUR, TICKET_MAX);
+
+                            if (tickets > 0) {
+                                // start game activity
+                                Intent intent = new Intent(context, DinosaurActivity.class);
+                                resultLauncher.launch(intent);
+
+                                // apply decreased ticket
+                                editor.putInt(KEY_GAME_TICKET_DINOSAUR, tickets - 1);
+                                editor.apply();
+                                notifyItemChanged(position);
+                            }
+                        }
+
+                        // case ticket is lack
+                        if (tickets == 0) {
+                            String message = String.format(getString(R.string.toast_lack_of_ticket), TICKET_MAX);
                             new ToastController(context).showToast(message, Toast.LENGTH_SHORT);
                         }
+                    } else {
+                        String message = getString(R.string.toast_unlock_costume_first);
+                        new ToastController(context).showToast(message, Toast.LENGTH_SHORT);
                     }
                 });
             }

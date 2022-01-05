@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -74,17 +75,15 @@ public class CostumeFragment extends Fragment {
 
         // initialize advertisement button
         Button advertisementButton = rootView.findViewById(R.id.button_costume);
-        advertisementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AdvertisementActivity.class);
-                startActivity(intent);
-            }
+        advertisementButton.setOnClickListener(view -> {
+            Intent intent = new Intent(context, AdvertisementActivity.class);
+            startActivity(intent);
         });
 
         return rootView;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onStart() {
         super.onStart();

@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -61,6 +62,7 @@ public class ItemFragment extends Fragment {
     private int filterPosition;
     private int happiness;
 
+    @SuppressLint("NotifyDataSetChanged")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item, container, false);
         final SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
@@ -84,25 +86,19 @@ public class ItemFragment extends Fragment {
         // initialize swipe refresh layout
         final SwipeRefreshLayout swipeRefreshLayout = rootView.findViewById(R.id.swipe_item);
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(context, R.color.color_accent));
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                initializeItemArrayList();
-                happiness = prefs.getInt(KEY_HAPPINESS, 100);
-                itemsRecyclerAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            initializeItemArrayList();
+            happiness = prefs.getInt(KEY_HAPPINESS, 100);
+            itemsRecyclerAdapter.notifyDataSetChanged();
 
-                swipeRefreshLayout.setRefreshing(false);
-            }
+            swipeRefreshLayout.setRefreshing(false);
         });
 
         // initialize advertisement button
         Button advertisementButton = rootView.findViewById(R.id.button_item);
-        advertisementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AdvertisementActivity.class);
-                startActivity(intent);
-            }
+        advertisementButton.setOnClickListener(view -> {
+            Intent intent = new Intent(context, AdvertisementActivity.class);
+            startActivity(intent);
         });
 
         return rootView;
@@ -138,6 +134,7 @@ public class ItemFragment extends Fragment {
         Collections.sort(itemArrayList);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onStart() {
         super.onStart();
@@ -148,19 +145,11 @@ public class ItemFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-//        // initialize item array list
-//        initializeItemArrayList();
-//        itemsRecyclerAdapter.notifyDataSetChanged();
-    }
-
-    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_items, menu);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -175,28 +164,25 @@ public class ItemFragment extends Fragment {
             Context themeContext = new ContextThemeWrapper(context, R.style.AppTheme);
             PopupMenu popupMenu = new PopupMenu(themeContext, parentActivity.findViewById(R.id.action_filter_items));
             popupMenu.inflate(R.menu.menu_items_filter);
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    int id = item.getItemId();
+            popupMenu.setOnMenuItemClickListener(item1 -> {
+                int id1 = item1.getItemId();
 
-                    if (id == R.id.action_items_all)
-                        filterPosition = FILTER_POSITION_ITEM_ALL;
-                    else if (id == R.id.action_items_consumption)
-                        filterPosition = FILTER_POSITION_ITEM_CONSUMPTION;
-                    else if (id == R.id.action_items_charm)
-                        filterPosition = FILTER_POSITION_ITEM_CHARM;
-                    else if (id == R.id.action_items_toy)
-                        filterPosition = FILTER_POSITION_ITEM_TOY;
+                if (id1 == R.id.action_items_all)
+                    filterPosition = FILTER_POSITION_ITEM_ALL;
+                else if (id1 == R.id.action_items_consumption)
+                    filterPosition = FILTER_POSITION_ITEM_CONSUMPTION;
+                else if (id1 == R.id.action_items_charm)
+                    filterPosition = FILTER_POSITION_ITEM_CHARM;
+                else if (id1 == R.id.action_items_toy)
+                    filterPosition = FILTER_POSITION_ITEM_TOY;
 
-                    // initialize item array list
-                    initializeItemArrayList();
-                    itemsRecyclerAdapter.notifyDataSetChanged();
+                // initialize item array list
+                initializeItemArrayList();
+                itemsRecyclerAdapter.notifyDataSetChanged();
 
-                    // check item
-                    item.setChecked(true);
-                    return true;
-                }
+                // check item
+                item1.setChecked(true);
+                return true;
             });
 
             // initialize checked item
@@ -221,6 +207,7 @@ public class ItemFragment extends Fragment {
             TextView nameTextView, effectTextView, quantityTextView;
             ImageView arrowImageView, iconImageView;
 
+            @SuppressLint("NotifyDataSetChanged")
             public ItemsViewHolder(@NonNull final View itemView) {
                 super(itemView);
 
@@ -232,64 +219,61 @@ public class ItemFragment extends Fragment {
                 iconImageView = itemView.findViewById(R.id.icon_recycler_item);
 
                 // TODO update item
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
+                itemView.setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
 
-                        // initialize item object
-                        Item item = itemArrayList.get(position);
+                    // initialize item object
+                    Item item = itemArrayList.get(position);
 
-                        // case consumption
-                        if (item.itemType == ITEM_TYPE_CONSUMPTION) {
-                            // use item
-                            PrefsController prefsController = new PrefsController(context);
-                            prefsController.useItem(itemArrayList, position);
+                    // case consumption
+                    if (item.itemType == ITEM_TYPE_CONSUMPTION) {
+                        // use item
+                        PrefsController prefsController = new PrefsController(context);
+                        prefsController.useItem(itemArrayList, position);
 
-                            int prevHappiness = happiness;
-                            happiness = context.getSharedPreferences(PREFS, MODE_PRIVATE).getInt(KEY_HAPPINESS, 100);
-                            if ((prevHappiness < 50 && happiness >= 50) || (prevHappiness >= 50 && happiness < 50)) {
-                                initializeItemArrayList();
-                                itemsRecyclerAdapter.notifyDataSetChanged();
+                        int prevHappiness = happiness;
+                        happiness = context.getSharedPreferences(PREFS, MODE_PRIVATE).getInt(KEY_HAPPINESS, 100);
+                        if ((prevHappiness < 50 && happiness >= 50) || (prevHappiness >= 50 && happiness < 50)) {
+                            initializeItemArrayList();
+                            itemsRecyclerAdapter.notifyDataSetChanged();
+                        } else {
+                            // case out of item
+                            if (item.quantity <= 0) {
+                                // remove item from list
+                                itemArrayList.remove(position);
+
+                                // notify item removed
+                                notifyItemRemoved(position);
                             } else {
-                                // case out of item
-                                if (item.quantity <= 0) {
-                                    // remove item from list
-                                    itemArrayList.remove(position);
-
-                                    // notify item removed
-                                    notifyItemRemoved(position);
-                                } else {
-                                    // notify item changed
-                                    notifyItemChanged(position);
-                                }
+                                // notify item changed
+                                notifyItemChanged(position);
                             }
                         }
+                    }
 
-                        // case alchemy
-                        else if (item.itemCode == ITEM_CODE_ALCHEMY) {
-                            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+                    // case alchemy
+                    else if (item.itemCode == ITEM_CODE_ALCHEMY) {
+                        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
 
-                            if (prefs.getBoolean(KEY_COSTUME_ALCHEMIST, false)) {
-                                Intent intent = new Intent(context, AlchemyActivity.class);
-                                startActivity(intent);
-                            } else
-                                new ToastController(context).showToast(getString(R.string.toast_need_alchemist), Toast.LENGTH_SHORT);
-                        }
+                        if (prefs.getBoolean(KEY_COSTUME_ALCHEMIST, false)) {
+                            Intent intent = new Intent(context, AlchemyActivity.class);
+                            startActivity(intent);
+                        } else
+                            new ToastController(context).showToast(getString(R.string.toast_need_alchemist), Toast.LENGTH_SHORT);
+                    }
 
-                        // case crystal ball
-                        else if (item.itemCode == ITEM_CODE_CRYSTAL_BALL) {
-                            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+                    // case crystal ball
+                    else if (item.itemCode == ITEM_CODE_CRYSTAL_BALL) {
+                        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
 
-                            if (prefs.getBoolean(KEY_COSTUME_SEER, false)) {
-                                Intent intent = new Intent(context, DivinationActivity.class);
-                                startActivity(intent);
-                            } else
-                                new ToastController(context).showToast(getString(R.string.toast_need_seer), Toast.LENGTH_SHORT);
-                        }
+                        if (prefs.getBoolean(KEY_COSTUME_SEER, false)) {
+                            Intent intent = new Intent(context, DivinationActivity.class);
+                            startActivity(intent);
+                        } else
+                            new ToastController(context).showToast(getString(R.string.toast_need_seer), Toast.LENGTH_SHORT);
                     }
                 });
             }

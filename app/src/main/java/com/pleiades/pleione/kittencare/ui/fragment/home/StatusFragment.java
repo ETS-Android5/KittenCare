@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.fragment.home;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -92,6 +93,7 @@ public class StatusFragment extends Fragment {
 
     private long showTime;
 
+    @SuppressLint("NotifyDataSetChanged")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_status, container, false);
         final SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
@@ -100,70 +102,67 @@ public class StatusFragment extends Fragment {
 
         // initialize show button
         Button showButton = rootView.findViewById(R.id.button_status);
-        showButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // start kitten service
-                if (KittenService.kittenView == null) {
-                    // check overlay permission
-                    if (Settings.canDrawOverlays(context)) {
-                        // dress random costume
-                        if (prefs.getBoolean(KEY_IS_DRESS_RANDOMLY, false)) {
-                            PrefsController prefsController = new PrefsController(context);
-                            ArrayList<Costume> unlockedCostumeArrayList = prefsController.getUnlockedCostumeArrayList();
+        showButton.setOnClickListener(view -> {
+            // start kitten service
+            if (KittenService.kittenView == null) {
+                // check overlay permission
+                if (Settings.canDrawOverlays(context)) {
+                    // dress random costume
+                    if (prefs.getBoolean(KEY_IS_DRESS_RANDOMLY, false)) {
+                        PrefsController prefsController = new PrefsController(context);
+                        ArrayList<Costume> unlockedCostumeArrayList = prefsController.getUnlockedCostumeArrayList();
 
-                            Random random = new Random();
-                            int randomValue = random.nextInt(unlockedCostumeArrayList.size());
+                        Random random = new Random();
+                        int randomValue = random.nextInt(unlockedCostumeArrayList.size());
 
-                            Costume costume = unlockedCostumeArrayList.get(randomValue);
-                            editor.putInt(KEY_WEARING_COSTUME, costume.costumeCode);
-                            editor.apply();
-                        }
-
-                        // start kitten service
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                            context.startForegroundService(new Intent(context, KittenService.class));
-                        else
-                            context.startService(new Intent(context, KittenService.class));
-
-                        // case first exploring
-                        if (!prefs.getBoolean(KEY_IS_EXPLORED, false)) {
-                            PrefsController prefsController = new PrefsController(context);
-
-                            prefsController.addItemPrefs(ITEM_CODE_MINT_ICE_CREAM, 1);
-                            prefsController.addItemPrefs(ITEM_CODE_MINT_CAKE, 1);
-
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean(KEY_IS_EXPLORED, true);
-                            editor.apply();
-
-                            // add history
-                            prefsController.addHistoryPrefs(HISTORY_TYPE_FIRST_EXPLORE, 0);
-
-                            // refresh history
-                            historyArrayList = prefsController.getHistoryArrayListPrefs();
-                            historyRecyclerAdapter.notifyDataSetChanged();
-                        }
-
-                        showTime = SystemClock.elapsedRealtime();
-                    } else {
-                        // show overlay dialog
-                        DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_OVERLAY);
-                        defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_OVERLAY));
+                        Costume costume = unlockedCostumeArrayList.get(randomValue);
+                        editor.putInt(KEY_WEARING_COSTUME, costume.costumeCode);
+                        editor.apply();
                     }
+
+                    // start kitten service
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                        context.startForegroundService(new Intent(context, KittenService.class));
+                    else
+                        context.startService(new Intent(context, KittenService.class));
+
+                    // case first exploring
+                    if (!prefs.getBoolean(KEY_IS_EXPLORED, false)) {
+                        PrefsController prefsController = new PrefsController(context);
+
+                        prefsController.addItemPrefs(ITEM_CODE_MINT_ICE_CREAM, 1);
+                        prefsController.addItemPrefs(ITEM_CODE_MINT_CAKE, 1);
+
+                        SharedPreferences.Editor editor1 = prefs.edit();
+                        editor1.putBoolean(KEY_IS_EXPLORED, true);
+                        editor1.apply();
+
+                        // add history
+                        prefsController.addHistoryPrefs(HISTORY_TYPE_FIRST_EXPLORE, 0);
+
+                        // refresh history
+                        historyArrayList = prefsController.getHistoryArrayListPrefs();
+                        historyRecyclerAdapter.notifyDataSetChanged();
+                    }
+
+                    showTime = SystemClock.elapsedRealtime();
+                } else {
+                    // show overlay dialog
+                    DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_OVERLAY);
+                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_OVERLAY));
                 }
+            }
+            // stop kitten service
+            else {
+                // initialize show position
+                int showPosition = prefs.getInt(KEY_SHOW_POSITION, DEFAULT_SHOW_POSITION);
+
+                // case double click
+                if (SystemClock.elapsedRealtime() - showTime < (AnimationController.calculateDurationGravity(context, showPosition, true) + DELAY_DEFAULT))
+                    return;
+
                 // stop kitten service
-                else {
-                    // initialize show position
-                    int showPosition = prefs.getInt(KEY_SHOW_POSITION, DEFAULT_SHOW_POSITION);
-
-                    // case double click
-                    if (SystemClock.elapsedRealtime() - showTime < (AnimationController.calculateDurationGravity(context, showPosition, true) + DELAY_DEFAULT))
-                        return;
-
-                    // stop kitten service
-                    context.stopService(new Intent(context, KittenService.class));
-                }
+                context.stopService(new Intent(context, KittenService.class));
             }
         });
 
@@ -184,6 +183,7 @@ public class StatusFragment extends Fragment {
             reconstrainHistory();
         } else {
             historyRecyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onGlobalLayout() {
                     // get history recycler height
@@ -227,12 +227,9 @@ public class StatusFragment extends Fragment {
 
         // initialize history layout
         LinearLayout historyLayout = rootView.findViewById(R.id.history_status);
-        historyLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, HistoryActivity.class);
-                startActivity(intent);
-            }
+        historyLayout.setOnClickListener(view -> {
+            Intent intent = new Intent(context, HistoryActivity.class);
+            startActivity(intent);
         });
 
         // case is not happiness tutorial completed
@@ -302,6 +299,8 @@ public class StatusFragment extends Fragment {
                 Date lastHideDate = simpleDateFormat.parse(lastHideDateString);
                 Date currentDate = simpleDateFormat.parse(currentDateString);
 
+                assert currentDate != null;
+                assert lastHideDate != null;
                 long timeDifference = Math.abs(currentDate.getTime() - lastHideDate.getTime());
                 happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference));
 
@@ -319,6 +318,8 @@ public class StatusFragment extends Fragment {
                 Date lastConsumptionDate = simpleDateFormat.parse(lastConsumptionDateString);
                 Date currentDate = simpleDateFormat.parse(currentDateString);
 
+                assert currentDate != null;
+                assert lastConsumptionDate != null;
                 long timeDifference = Math.abs(currentDate.getTime() - lastConsumptionDate.getTime());
                 happiness = Math.max(0, happiness - (int) TimeUnit.MILLISECONDS.toHours(timeDifference) / 12 * 10);
 
@@ -360,6 +361,7 @@ public class StatusFragment extends Fragment {
         constraintSet.applyTo(statusLayout);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onStart() {
         super.onStart();
