@@ -15,6 +15,8 @@ import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.activity.EscapeActivity;
 import com.pleiades.pleione.kittencare.ui.activity.MainActivity;
 
+import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 import static android.content.Context.MODE_PRIVATE;
 import static com.pleiades.pleione.kittencare.Config.KEY_NAME;
 import static com.pleiades.pleione.kittencare.Config.NOTIFICATION_CHANNEL_ID;
@@ -39,11 +41,11 @@ public class NotificationController {
         // initialize notification click intent
         Intent clickIntent = new Intent(context, MainActivity.class);
         clickIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP); // prevent recreate instance(activity, fragment)
-        PendingIntent clickPendingIntent = PendingIntent.getActivity(context, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT); // update only if already exist
+        PendingIntent clickPendingIntent = PendingIntent.getActivity(context, 0, clickIntent, FLAG_IMMUTABLE | FLAG_UPDATE_CURRENT); // update only if already exist
 
         // initialize notification action intent
         Intent actionIntent = new Intent(context, EscapeActivity.class);
-        PendingIntent actionPendingIntent = PendingIntent.getActivity(context, 0, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent actionPendingIntent = PendingIntent.getActivity(context, 0, actionIntent, FLAG_IMMUTABLE | FLAG_UPDATE_CURRENT);
 
         // initialize notification content title
         String kittenName = context.getSharedPreferences(PREFS, MODE_PRIVATE).getString(KEY_NAME, context.getString(R.string.default_name));

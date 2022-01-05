@@ -46,7 +46,6 @@ import static com.pleiades.pleione.kittencare.Config.RANDOM_BOUND_REWARD;
 import static com.pleiades.pleione.kittencare.Config.REPEAT_COUNT_BOX_SHIVER;
 import static com.pleiades.pleione.kittencare.Config.REWARD_TYPE_ADVERTISEMENT_COSTUME;
 import static com.pleiades.pleione.kittencare.Config.REWARD_TYPE_ADVERTISEMENT_ITEM;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 import static com.pleiades.pleione.kittencare.controller.AnimationController.calculateDurationGravity;
 
 public class AdvertisementActivity extends AppCompatActivity {
@@ -114,7 +113,7 @@ public class AdvertisementActivity extends AppCompatActivity {
 
                     // show error toast
                     String message = getString(R.string.toast_error_load) + "\n" + getString(R.string.toast_try_later);
-                    new ToastController(activity).showCustomToast(message, Toast.LENGTH_SHORT, TOAST_POSITION_DEFAULT);
+                    new ToastController(activity).showToast(message, Toast.LENGTH_SHORT);
                 }
                 // case random box rewarded ad is loaded
                 else {

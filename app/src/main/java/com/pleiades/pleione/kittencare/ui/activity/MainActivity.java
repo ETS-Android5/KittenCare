@@ -45,8 +45,6 @@ import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.KEY_LAST_LAUNCH_DAY;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_HIGH;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_VERY_HIGH;
 
 // TODO update game
 public class MainActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
@@ -103,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements BillingProcessor.
 
             // show error toast
             String message = getString(R.string.toast_error_load) + "\n" + getString(R.string.toast_try_later);
-            new ToastController(activity).showCustomToast(message, Toast.LENGTH_SHORT, TOAST_POSITION_VERY_HIGH);
+            new ToastController(activity).showToast(message, Toast.LENGTH_SHORT);
         }
         // case ticket rewarded ad is loaded
         else {
@@ -228,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements BillingProcessor.
 
     @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
-        new ToastController(activity).showCustomToast(getString(R.string.toast_flutter), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
+        new ToastController(activity).showToast(getString(R.string.toast_flutter), Toast.LENGTH_SHORT);
     }
 
     private class GameTicket {

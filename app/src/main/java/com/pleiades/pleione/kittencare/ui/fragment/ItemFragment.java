@@ -51,7 +51,6 @@ import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ALCHEMIST;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SEER;
 import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_HIGH;
 
 public class ItemFragment extends Fragment {
     private Context context;
@@ -278,7 +277,7 @@ public class ItemFragment extends Fragment {
                                 Intent intent = new Intent(context, AlchemyActivity.class);
                                 startActivity(intent);
                             } else
-                                new ToastController(context).showCustomToast(getString(R.string.toast_need_alchemist), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
+                                new ToastController(context).showToast(getString(R.string.toast_need_alchemist), Toast.LENGTH_SHORT);
                         }
 
                         // case crystal ball
@@ -289,7 +288,7 @@ public class ItemFragment extends Fragment {
                                 Intent intent = new Intent(context, DivinationActivity.class);
                                 startActivity(intent);
                             } else
-                                new ToastController(context).showCustomToast(getString(R.string.toast_need_seer), Toast.LENGTH_SHORT, TOAST_POSITION_HIGH);
+                                new ToastController(context).showToast(getString(R.string.toast_need_seer), Toast.LENGTH_SHORT);
                         }
                     }
                 });

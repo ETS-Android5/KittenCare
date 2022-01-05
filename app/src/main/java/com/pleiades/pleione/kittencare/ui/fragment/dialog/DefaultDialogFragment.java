@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_2021;
+import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_ALCYONE;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_PLEIONE;
@@ -61,6 +62,7 @@ import static com.pleiades.pleione.kittencare.Config.GAME_CODE_PAJAMAS;
 import static com.pleiades.pleione.kittencare.Config.GAME_CODE_PLEIADES;
 import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_COSTUME_FOUND;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_2021;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ALCYONE;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PLEIONE;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_HAPPINESS_TUTORIAL_COMPLETED;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
@@ -248,6 +250,11 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
                 startActivity(intent);
             } else if (type == DIALOG_TYPE_ALCYONE) {
+                editor.putBoolean(KEY_COSTUME_ALCYONE, true);
+                editor.apply();
+
+                new PrefsController(context).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_ALCYONE);
+
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(URL_ALCYONE));
                 startActivity(intent);

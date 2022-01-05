@@ -38,7 +38,6 @@ import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_RENAME;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_DRESS_RANDOMLY;
 import static com.pleiades.pleione.kittencare.Config.KEY_IS_RECOGNIZING_KEYBOARD;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 
 public class DetailActivity extends AppCompatActivity {
     private Context context;
@@ -135,7 +134,7 @@ public class DetailActivity extends AppCompatActivity {
                             InputDialogFragment inputDialogFragment = new InputDialogFragment(DIALOG_TYPE_RENAME);
                             inputDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_RENAME));
                         } else if (position == DETAIL_POSITION_MODIFY_COORDINATES) {
-                            new ToastController(context).showCustomToast(getString(R.string.toast_todo), Toast.LENGTH_SHORT, TOAST_POSITION_DEFAULT);
+                            new ToastController(context).showToast(getString(R.string.toast_todo), Toast.LENGTH_SHORT);
                         }
                     }
                 });

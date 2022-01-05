@@ -1,4 +1,4 @@
-#Thu Nov 25 18:43:01 KST 2021
+#Wed Jan 05 22:33:28 KST 2022
 path.4=14/classes.dex
 path.3=12/classes.dex
 path.2=10/classes.dex
@@ -9,6 +9,7 @@ path.8=4/classes.dex
 path.7=2/classes.dex
 path.6=1/classes.dex
 path.5=15/classes.dex
+renamed.10=classes11.dex
 path.0=classes.dex
 base.4=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
 base.3=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
@@ -18,6 +19,7 @@ base.0=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
+path.10=classes2.dex
 renamed.0=classes.dex
 base.9=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
 path.9=9/classes.dex
@@ -29,3 +31,4 @@ renamed.5=classes6.dex
 base.6=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
 renamed.4=classes5.dex
 base.5=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.10=C\:\\Users\\speed\\Primary\\GitHub\\KittenCare\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex

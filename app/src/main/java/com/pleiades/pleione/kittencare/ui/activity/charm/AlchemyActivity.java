@@ -51,7 +51,6 @@ import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_1;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_SWEAT_2;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 import static com.pleiades.pleione.kittencare.controller.AnimationController.calculateDurationGravity;
 
@@ -147,64 +146,61 @@ public class AlchemyActivity extends AppCompatActivity {
 
         // initialize alchemy button
         button = findViewById(R.id.button_alchemy);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // case button is locked
-                if (isButtonLocked)
-                    return;
+        button.setOnClickListener(v -> {
+            // case button is locked
+            if (isButtonLocked)
+                return;
 
-                // lock button
-                isButtonLocked = true;
+            // lock button
+            isButtonLocked = true;
 
-                // initialize origin item array list
-                ArrayList<Item> originItemArrayList = new PrefsController(activity).getItemArrayListPrefs();
+            // initialize origin item array list
+            ArrayList<Item> originItemArrayList = new PrefsController(activity).getItemArrayListPrefs();
 
-                // initialize ice cream item array list
-                ArrayList<Item> iceCreamItemArrayList = new ArrayList<>();
-                for (Item item : originItemArrayList) {
-                    if (Converter.isItemIceCream(item.itemCode))
-                        iceCreamItemArrayList.add(item);
-                }
-
-                // case no ice cream found
-                if (iceCreamItemArrayList.size() == 0) {
-                    new ToastController(activity).showCustomToast(getString(R.string.toast_need_alchemy_material), Toast.LENGTH_SHORT, TOAST_POSITION_DEFAULT);
-
-                    // unlock button
-                    isButtonLocked = false;
-                    return;
-                }
-
-                // sort and reverse ice cream item array list
-                Collections.sort(iceCreamItemArrayList); // green to mint
-                Collections.reverse(iceCreamItemArrayList); // mint to green
-
-                // initialize quantity and success rate
-                Item item = iceCreamItemArrayList.get(0);
-                int quantity = Math.min(item.quantity, 5);
-                int successRate = 20 * quantity; // 0 ~ 100
-
-                // case kitten rotated
-                if (!isSucceed)
-                    kittenView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.anim_rotate_kitten_right_back));
-
-                // initialize is succeed
-                int randomValue = new Random().nextInt(100); // 0 ~ 99
-                isSucceed = randomValue < successRate;
-
-                // initialize prefs controller
-                PrefsController prefsController = new PrefsController(activity);
-
-                // alchemy item
-                if (isSucceed)
-                    cakeCode = prefsController.alchemyItem(item.itemCode, quantity);
-                else
-                    prefsController.wasteItem(item.itemCode, quantity);
-
-                // start animation
-                startAlchemyAnimation();
+            // initialize ice cream item array list
+            ArrayList<Item> iceCreamItemArrayList = new ArrayList<>();
+            for (Item item : originItemArrayList) {
+                if (Converter.isItemIceCream(item.itemCode))
+                    iceCreamItemArrayList.add(item);
             }
+
+            // case no ice cream found
+            if (iceCreamItemArrayList.size() == 0) {
+                new ToastController(activity).showToast(getString(R.string.toast_need_alchemy_material), Toast.LENGTH_SHORT);
+
+                // unlock button
+                isButtonLocked = false;
+                return;
+            }
+
+            // sort and reverse ice cream item array list
+            Collections.sort(iceCreamItemArrayList); // green to mint
+            Collections.reverse(iceCreamItemArrayList); // mint to green
+
+            // initialize quantity and success rate
+            Item item = iceCreamItemArrayList.get(0);
+            int quantity = Math.min(item.quantity, 5);
+            int successRate = 20 * quantity; // 0 ~ 100
+
+            // case kitten rotated
+            if (!isSucceed)
+                kittenView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.anim_rotate_kitten_right_back));
+
+            // initialize is succeed
+            int randomValue = new Random().nextInt(100); // 0 ~ 99
+            isSucceed = randomValue < successRate;
+
+            // initialize prefs controller
+            PrefsController prefsController = new PrefsController(activity);
+
+            // alchemy item
+            if (isSucceed)
+                cakeCode = prefsController.alchemyItem(item.itemCode, quantity);
+            else
+                prefsController.wasteItem(item.itemCode, quantity);
+
+            // start animation
+            startAlchemyAnimation();
         });
     }
 
@@ -243,24 +239,16 @@ public class AlchemyActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                shadowImageView.setX((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> shadowImageView.setX((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isSucceed)
-                            animateBloomZoomIn();
-                        else
-                            animateAlchemistRotate();
-                    }
+                handler.postDelayed(() -> {
+                    if (isSucceed)
+                        animateBloomZoomIn();
+                    else
+                        animateAlchemistRotate();
                 }, DELAY_FACE_MAINTAIN_LONG);
             }
         });
@@ -294,15 +282,12 @@ public class AlchemyActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate bloom zoom out
-                        bloomImageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.anim_alchemy_scale_zoom_out));
+                handler.postDelayed(() -> {
+                    // animate bloom zoom out
+                    bloomImageView.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.anim_alchemy_scale_zoom_out));
 
-                        // animate alchemist jump up
-                        animateAlchemistJumpUp();
-                    }
+                    // animate alchemist jump up
+                    animateAlchemistJumpUp();
                 }, DELAY_FACE_MAINTAIN_LONG);
             }
 
@@ -331,12 +316,7 @@ public class AlchemyActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {

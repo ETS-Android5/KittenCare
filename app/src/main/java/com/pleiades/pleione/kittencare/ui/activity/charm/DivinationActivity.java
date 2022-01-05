@@ -47,7 +47,6 @@ import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_BUFF;
 import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
 import static com.pleiades.pleione.kittencare.Config.KEY_JUMP_ALTITUDE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 import static com.pleiades.pleione.kittencare.controller.AnimationController.calculateDurationGravity;
 
@@ -134,7 +133,7 @@ public class DivinationActivity extends AppCompatActivity {
                     // start divination animation
                     startDivinationAnimation();
                 } else {
-                    new ToastController(activity).showCustomToast(getString(R.string.toast_divination_once), Toast.LENGTH_SHORT, TOAST_POSITION_DEFAULT);
+                    new ToastController(activity).showToast(getString(R.string.toast_divination_once), Toast.LENGTH_SHORT);
                 }
             }
         });

@@ -34,7 +34,6 @@ import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_SHARE;
 import static com.pleiades.pleione.kittencare.Config.APPLICATION_POSITION_TUTORIAL;
 import static com.pleiades.pleione.kittencare.Config.URL_CLUSTER_PLEIADES;
 import static com.pleiades.pleione.kittencare.Config.URL_KITTEN;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_DEFAULT;
 
 public class ApplicationActivity extends AppCompatActivity {
     private Context context;
@@ -131,7 +130,7 @@ public class ApplicationActivity extends AppCompatActivity {
                         } else if (position == APPLICATION_POSITION_BACKUP) {
                             BackupManager backupManager = new BackupManager(context);
                             backupManager.dataChanged();
-                            new ToastController(context).showCustomToast(getString(R.string.toast_backup), Toast.LENGTH_SHORT, TOAST_POSITION_DEFAULT);
+                            new ToastController(context).showToast(getString(R.string.toast_backup), Toast.LENGTH_SHORT);
                         } else if (position == APPLICATION_POSITION_OTHER_APPS) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setData(Uri.parse(URL_CLUSTER_PLEIADES));

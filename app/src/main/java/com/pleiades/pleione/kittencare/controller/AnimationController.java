@@ -256,40 +256,34 @@ public class AnimationController {
 
     public void changeKittenFace(final int faceCode, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (KittenService.kittenView == null)
-                    return;
+        handler.postDelayed(() -> {
+            if (KittenService.kittenView == null)
+                return;
 
-                // initialize image view
-                ImageView faceImageView = KittenService.kittenView.findViewById(R.id.face_kitten);
-                faceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+            // initialize image view
+            ImageView faceImageView = KittenService.kittenView.findViewById(R.id.face_kitten);
+            faceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 
     public static void changeKittenCostume(final int costumeCode) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                // case click unlocked costume when kitten is not shown
-                if (KittenService.kittenView == null)
-                    return;
+        handler.post(() -> {
+            // case click unlocked costume when kitten is not shown
+            if (KittenService.kittenView == null)
+                return;
 
-                // initialize image views
-                ImageView bodyImageView = KittenService.kittenView.findViewById(R.id.body_kitten);
-                ImageView costumeImageView = KittenService.kittenView.findViewById(R.id.costume_kitten);
+            // initialize image views
+            ImageView bodyImageView = KittenService.kittenView.findViewById(R.id.body_kitten);
+            ImageView costumeImageView = KittenService.kittenView.findViewById(R.id.costume_kitten);
 
-                if (costumeCode == COSTUME_CODE_DEFAULT) {
-                    bodyImageView.setImageResource(R.drawable.image_body);
-                    costumeImageView.setVisibility(View.INVISIBLE);
-                } else {
-                    bodyImageView.setImageResource(R.drawable.image_body_crop);
-                    costumeImageView.setImageResource(getCostumeResourceId(costumeCode));
-                    costumeImageView.setVisibility(View.VISIBLE);
-                }
+            if (costumeCode == COSTUME_CODE_DEFAULT) {
+                bodyImageView.setImageResource(R.drawable.image_body);
+                costumeImageView.setVisibility(View.INVISIBLE);
+            } else {
+                bodyImageView.setImageResource(R.drawable.image_body_crop);
+                costumeImageView.setImageResource(getCostumeResourceId(costumeCode));
+                costumeImageView.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -466,72 +460,69 @@ public class AnimationController {
     // explore
     public void explore() {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
+        handler.post(() -> {
+            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
 
-                // prevent action overlap
-                if (isActionLocked)
-                    return;
-                else
-                    isActionLocked = true;
+            // prevent action overlap
+            if (isActionLocked)
+                return;
+            else
+                isActionLocked = true;
 
-                // change kitten face
-                // changeKittenFace(FACE_DEFAULT, 0);
+            // change kitten face
+            // changeKittenFace(FACE_DEFAULT, 0);
 
-                // initialize random bound
-                int bound = 200;
-                if (prefs.getBoolean(KEY_ITEM_TOWER, false))
-                    bound = (int) (bound / 1.1);
-                if (prefs.getInt(KEY_BUFF, BUFF_CODE_FAIL) == BUFF_CODE_ITEM)
-                    bound = (int) (bound / 1.1);
+            // initialize random bound
+            int bound = 200;
+            if (prefs.getBoolean(KEY_ITEM_TOWER, false))
+                bound = (int) (bound / 1.1);
+            if (prefs.getInt(KEY_BUFF, BUFF_CODE_FAIL) == BUFF_CODE_ITEM)
+                bound = (int) (bound / 1.1);
 
-                // initialize happiness
-                int happiness = prefs.getInt(KEY_HAPPINESS, 100);
+            // initialize happiness
+            int happiness = prefs.getInt(KEY_HAPPINESS, 100);
 
+            // initialize random value
+            Random random = new Random();
+            int randomValue = random.nextInt(bound);
+
+            // case item found
+            if (randomValue == 0) {
+                // apply happiness
+                editor.putInt(KEY_HAPPINESS, Math.min(100, happiness + 1));
+                editor.apply();
+
+                new PrefsController(context).addRandomItemPrefs(REWARD_TYPE_EXPLORE);
+                animateKittenSniffItem(decideDirection());
+            }
+            // case behavior
+            else {
                 // initialize random value
-                Random random = new Random();
-                int randomValue = random.nextInt(bound);
+                randomValue = random.nextInt(15);
 
-                // case item found
-                if (randomValue == 0) {
-                    // apply happiness
-                    editor.putInt(KEY_HAPPINESS, Math.min(100, happiness + 1));
-                    editor.apply();
-
-                    new PrefsController(context).addRandomItemPrefs(REWARD_TYPE_EXPLORE);
-                    animateKittenSniffItem(decideDirection());
-                }
-                // case behavior
-                else {
-                    // initialize random value
-                    randomValue = random.nextInt(15);
-
-                    if (randomValue == 0)
-                        animateKittenSlip(decideDirection());
-                    else if (randomValue == 1)
-                        animateKittenLongJumpUpRandom();
-                    else if (randomValue == 2)
-                        animateKittenFaceMeow();
-                    else if (randomValue == 3) {
-                        // angry
-                        if (happiness < 50) {
-                            // prevent wall bug
-                            float from = KittenService.kittenLayoutParams.x;
-                            float shiverDistance = (float) prefs.getInt(KEY_JUMP_DISTANCE, DEFAULT_JUMP_DISTANCE) / 5;
-                            if (!isWallDetected(DIRECTION_TO_LEFT, from + shiverDistance) && !isWallDetected(DIRECTION_TO_RIGHT, from - shiverDistance))
-                                animateKittenShiverAngry(decideDirection(), 6);
-                            else
-                                animateKittenFaceBlink();
-                        }
-                        // smile
+                if (randomValue == 0)
+                    animateKittenSlip(decideDirection());
+                else if (randomValue == 1)
+                    animateKittenLongJumpUpRandom();
+                else if (randomValue == 2)
+                    animateKittenFaceMeow();
+                else if (randomValue == 3) {
+                    // angry
+                    if (happiness < 50) {
+                        // prevent wall bug
+                        float from = KittenService.kittenLayoutParams.x;
+                        float shiverDistance = (float) prefs.getInt(KEY_JUMP_DISTANCE, DEFAULT_JUMP_DISTANCE) / 5;
+                        if (!isWallDetected(DIRECTION_TO_LEFT, from + shiverDistance) && !isWallDetected(DIRECTION_TO_RIGHT, from - shiverDistance))
+                            animateKittenShiverAngry(decideDirection(), 6);
                         else
-                            animateKittenSniffSmile(decideDirection(), true);
-                    } else
-                        animateKittenFaceBlink();
-                }
+                            animateKittenFaceBlink();
+                    }
+                    // smile
+                    else
+                        animateKittenSniffSmile(decideDirection(), true);
+                } else
+                    animateKittenFaceBlink();
             }
         });
     }
@@ -593,14 +584,11 @@ public class AnimationController {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        int nextDirection = (direction == DIRECTION_TO_LEFT) ? DIRECTION_TO_RIGHT : DIRECTION_TO_LEFT;
+                handler.postDelayed(() -> {
+                    int nextDirection = (direction == DIRECTION_TO_LEFT) ? DIRECTION_TO_RIGHT : DIRECTION_TO_LEFT;
 
-                        // animate kitten sniff back item
-                        animateKittenSniffBackItem(nextDirection);
-                    }
+                    // animate kitten sniff back item
+                    animateKittenSniffBackItem(nextDirection);
                 }, DELAY_ANIMATION);
             }
         });
@@ -632,15 +620,12 @@ public class AnimationController {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // change kitten face
-                        changeKittenFace(FACE_CODE_SPARKLE, 0);
+                handler.postDelayed(() -> {
+                    // change kitten face
+                    changeKittenFace(FACE_CODE_SPARKLE, 0);
 
-                        // animate kitten jump up
-                        animateKittenJumpUp();
-                    }
+                    // animate kitten jump up
+                    animateKittenJumpUp();
                 }, DELAY_ANIMATION);
             }
         });
@@ -709,28 +694,25 @@ public class AnimationController {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // cancel animator
-                        cancelAnimator();
+                handler.postDelayed(() -> {
+                    // cancel animator
+                    cancelAnimator();
 
-                        // animate kitten face smile
-                        changeKittenFace(FACE_CODE_BLINK_1, 0);
-                        changeKittenFace(FACE_CODE_BLINK_2, 40);
-                        changeKittenFace(FACE_CODE_BLINK_3, 80);
-                        changeKittenFace(FACE_CODE_SMILE, 120);
-                        changeKittenFace(FACE_CODE_BLINK_3, 120 + DELAY_FACE_MAINTAIN);
-                        changeKittenFace(FACE_CODE_BLINK_2, 160 + DELAY_FACE_MAINTAIN);
-                        changeKittenFace(FACE_CODE_BLINK_1, 200 + DELAY_FACE_MAINTAIN);
-                        changeKittenFace(FACE_CODE_DEFAULT, 240 + DELAY_FACE_MAINTAIN);
+                    // animate kitten face smile
+                    changeKittenFace(FACE_CODE_BLINK_1, 0);
+                    changeKittenFace(FACE_CODE_BLINK_2, 40);
+                    changeKittenFace(FACE_CODE_BLINK_3, 80);
+                    changeKittenFace(FACE_CODE_SMILE, 120);
+                    changeKittenFace(FACE_CODE_BLINK_3, 120 + DELAY_FACE_MAINTAIN);
+                    changeKittenFace(FACE_CODE_BLINK_2, 160 + DELAY_FACE_MAINTAIN);
+                    changeKittenFace(FACE_CODE_BLINK_1, 200 + DELAY_FACE_MAINTAIN);
+                    changeKittenFace(FACE_CODE_DEFAULT, 240 + DELAY_FACE_MAINTAIN);
 
-                        // initialize value animator for unlock
-                        valueAnimatorX = ValueAnimator.ofFloat(KittenService.kittenLayoutParams.x, KittenService.kittenLayoutParams.x);
-                        valueAnimatorX.setDuration(240 + DELAY_FACE_MAINTAIN);
-                        valueAnimatorX.addListener(new ActionUnlockAnimatorEndListenerAdapter());
-                        valueAnimatorX.start();
-                    }
+                    // initialize value animator for unlock
+                    valueAnimatorX = ValueAnimator.ofFloat(KittenService.kittenLayoutParams.x, KittenService.kittenLayoutParams.x);
+                    valueAnimatorX.setDuration(240 + DELAY_FACE_MAINTAIN);
+                    valueAnimatorX.addListener(new ActionUnlockAnimatorEndListenerAdapter());
+                    valueAnimatorX.start();
                 }, DELAY_ANIMATION);
             }
         });
@@ -762,12 +744,9 @@ public class AnimationController {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate kitten slip jump up
-                        animateKittenLongJumpUpSlip(direction);
-                    }
+                handler.postDelayed(() -> {
+                    // animate kitten slip jump up
+                    animateKittenLongJumpUpSlip(direction);
                 }, DELAY_ANIMATION);
             }
         });
@@ -892,24 +871,21 @@ public class AnimationController {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // cancel animator
-                        cancelAnimator();
+                handler.postDelayed(() -> {
+                    // cancel animator
+                    cancelAnimator();
 
-                        // animate kitten face sweat back
-                        changeKittenFace(FACE_CODE_SWEAT_2, 0);
-                        changeKittenFace(FACE_CODE_MEOW_1, 40);
-                        changeKittenFace(FACE_CODE_MEOW_2, 80);
-                        changeKittenFace(FACE_CODE_DEFAULT, 120);
+                    // animate kitten face sweat back
+                    changeKittenFace(FACE_CODE_SWEAT_2, 0);
+                    changeKittenFace(FACE_CODE_MEOW_1, 40);
+                    changeKittenFace(FACE_CODE_MEOW_2, 80);
+                    changeKittenFace(FACE_CODE_DEFAULT, 120);
 
-                        // initialize value animator for unlock
-                        valueAnimatorX = ValueAnimator.ofFloat(KittenService.kittenLayoutParams.x, KittenService.kittenLayoutParams.x);
-                        valueAnimatorX.setDuration(120);
-                        valueAnimatorX.addListener(new ActionUnlockAnimatorEndListenerAdapter());
-                        valueAnimatorX.start();
-                    }
+                    // initialize value animator for unlock
+                    valueAnimatorX = ValueAnimator.ofFloat(KittenService.kittenLayoutParams.x, KittenService.kittenLayoutParams.x);
+                    valueAnimatorX.setDuration(120);
+                    valueAnimatorX.addListener(new ActionUnlockAnimatorEndListenerAdapter());
+                    valueAnimatorX.start();
                 }, DELAY_ANIMATION);
             }
         });

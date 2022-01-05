@@ -94,15 +94,6 @@ public class CostumeFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        // initialize costume array list
-//        costumeArrayList = new PrefsController(context).getInitializedCostumeArrayList();
-//        costumesRecyclerAdapter.notifyDataSetChanged();
-    }
-
-    @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
@@ -129,79 +120,76 @@ public class CostumeFragment extends Fragment {
                 contentsTextView = view.findViewById(R.id.contents_recycler_costume);
 
                 // TODO update costume
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
+                view.setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
 
-                        // initialize costume
-                        Costume costume = costumeArrayList.get(position);
+                    // initialize costume
+                    Costume costume = costumeArrayList.get(position);
 
-                        // check unlocked
-                        if (costume.isUnlocked) {
-                            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
-                            SharedPreferences.Editor editor = prefs.edit();
+                    // check unlocked
+                    if (costume.isUnlocked) {
+                        SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
 
-                            // change kitten costume
-                            AnimationController.changeKittenCostume(costume.costumeCode);
+                        // change kitten costume
+                        AnimationController.changeKittenCostume(costume.costumeCode);
 
-                            int wearingCostumeCode = prefs.getInt(KEY_WEARING_COSTUME, COSTUME_CODE_DEFAULT);
-                            for (int i = 0; i < costumeArrayList.size(); i++) {
-                                // find wearing costume position
-                                if (costumeArrayList.get(i).costumeCode == wearingCostumeCode) {
-                                    // apply wearing costume
-                                    editor.putInt(KEY_WEARING_COSTUME, costume.costumeCode);
-                                    editor.apply();
+                        int wearingCostumeCode = prefs.getInt(KEY_WEARING_COSTUME, COSTUME_CODE_DEFAULT);
+                        for (int i = 0; i < costumeArrayList.size(); i++) {
+                            // find wearing costume position
+                            if (costumeArrayList.get(i).costumeCode == wearingCostumeCode) {
+                                // apply wearing costume
+                                editor.putInt(KEY_WEARING_COSTUME, costume.costumeCode);
+                                editor.apply();
 
-                                    // add worn prefs
-                                    new PrefsController(context).addWornPrefs(costume.costumeCode);
+                                // add worn prefs
+                                new PrefsController(context).addWornPrefs(costume.costumeCode);
 
-                                    notifyItemChanged(i); // put off
-                                    notifyItemChanged(position); // put on
+                                notifyItemChanged(i); // put off
+                                notifyItemChanged(position); // put on
+                                break;
+                            }
+                        }
+                    } else {
+                        // case free costume
+                        if (costume.costumeType == COSTUME_TYPE_FREE) {
+                            new ToastController(context).showCostumeConditionToast(costume);
+                        }
+                        // case special costume
+                        else if (costume.costumeType == COSTUME_TYPE_SPECIAL) {
+                            DefaultDialogFragment defaultDialogFragment;
+
+                            switch (costume.costumeCode) {
+                                case COSTUME_CODE_ALCYONE:
+                                    defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_ALCYONE);
+                                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_ALCYONE));
                                     break;
-                                }
+                                case COSTUME_CODE_PLEIONE:
+                                    defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_PLEIONE);
+                                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_PLEIONE));
+                                    break;
+                                case COSTUME_CODE_2021:
+                                    defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_2021);
+                                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_2021));
+                                    break;
+                                case COSTUME_CODE_GIFT:
+                                case COSTUME_CODE_CHOCO:
+                                case COSTUME_CODE_GAME_MACHINE:
+                                case COSTUME_CODE_SAILOR:
+                                    new ToastController(context).showCostumeConditionToast(costume);
+                                    break;
                             }
-                        } else {
-                            // case free costume
-                            if (costume.costumeType == COSTUME_TYPE_FREE) {
-                                new ToastController(context).showCostumeConditionToast(costume);
-                            }
-                            // case special costume
-                            else if (costume.costumeType == COSTUME_TYPE_SPECIAL) {
-                                DefaultDialogFragment defaultDialogFragment;
+                        }
+                        // case paid costume
+                        else if (costume.costumeType == COSTUME_TYPE_PAID) {
+                            Activity activity = getActivity();
+                            if (activity == null)
+                                return;
 
-                                switch (costume.costumeCode) {
-                                    case COSTUME_CODE_ALCYONE:
-                                        defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_ALCYONE);
-                                        defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_ALCYONE));
-                                        break;
-                                    case COSTUME_CODE_PLEIONE:
-                                        defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_PLEIONE);
-                                        defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_PLEIONE));
-                                        break;
-                                    case COSTUME_CODE_2021:
-                                        defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_2021);
-                                        defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_2021));
-                                        break;
-                                    case COSTUME_CODE_GIFT:
-                                    case COSTUME_CODE_CHOCO:
-                                    case COSTUME_CODE_GAME_MACHINE:
-                                    case COSTUME_CODE_SAILOR:
-                                        new ToastController(context).showCostumeConditionToast(costume);
-                                        break;
-                                }
-                            }
-                            // case paid costume
-                            else if (costume.costumeType == COSTUME_TYPE_PAID) {
-                                Activity activity = getActivity();
-                                if (activity == null)
-                                    return;
-
-                                ((MainActivity) activity).purchaseCostume(costume.costumeCode);
-                            }
+                            ((MainActivity) activity).purchaseCostume(costume.costumeCode);
                         }
                     }
                 });

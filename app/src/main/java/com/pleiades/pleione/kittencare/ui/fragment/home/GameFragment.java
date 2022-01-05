@@ -82,7 +82,6 @@ import static com.pleiades.pleione.kittencare.Config.KEY_IS_GAME_DIFFICULTY_HARD
 import static com.pleiades.pleione.kittencare.Config.PERIOD_CHANGE_FACE_GAME_FRAGMENT;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
-import static com.pleiades.pleione.kittencare.Config.TOAST_POSITION_VERY_HIGH;
 import static com.pleiades.pleione.kittencare.Converter.getCostumeResourceId;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
 
@@ -468,11 +467,11 @@ public class GameFragment extends Fragment {
                             // case ticket is lack
                             if (tickets == 0) {
                                 String message = String.format(getString(R.string.toast_lack_of_ticket), TICKET_MAX);
-                                new ToastController(context).showCustomToast(message, Toast.LENGTH_SHORT, TOAST_POSITION_VERY_HIGH);
+                                new ToastController(context).showToast(message, Toast.LENGTH_SHORT);
                             }
                         } else {
                             String message = getString(R.string.toast_unlock_costume_first);
-                            new ToastController(context).showCustomToast(message, Toast.LENGTH_SHORT, TOAST_POSITION_VERY_HIGH);
+                            new ToastController(context).showToast(message, Toast.LENGTH_SHORT);
                         }
                     }
                 });
