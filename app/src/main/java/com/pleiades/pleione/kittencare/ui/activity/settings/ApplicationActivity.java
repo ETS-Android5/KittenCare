@@ -104,38 +104,35 @@ public class ApplicationActivity extends AppCompatActivity {
                 titleTextView = itemView.findViewById(R.id.title_recycler_setting_default);
 
                 // set item view on click listener
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
-                        if (position == APPLICATION_POSITION_TUTORIAL) {
-                            Intent intent = new Intent(context, TutorialActivity.class);
-                            startActivity(intent);
-                        } else if (position == APPLICATION_POSITION_HAPPINESS) {
-                            Intent intent = new Intent(context, HappinessTutorialActivity.class);
-                            startActivity(intent);
-                        } else if (position == APPLICATION_POSITION_SHARE) {
-                            Intent intent = new Intent(Intent.ACTION_SEND);
-                            intent.setType("text/plain");
-                            intent.putExtra(android.content.Intent.EXTRA_TEXT, URL_KITTEN);
-                            Intent chooserIntent = Intent.createChooser(intent, null);
-                            startActivity(chooserIntent);
-                        } else if (position == APPLICATION_POSITION_CHECK_UPDATE) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse(URL_KITTEN));
-                            startActivity(intent);
-                        } else if (position == APPLICATION_POSITION_BACKUP) {
-                            BackupManager backupManager = new BackupManager(context);
-                            backupManager.dataChanged();
-                            new ToastController(context).showToast(getString(R.string.toast_backup), Toast.LENGTH_SHORT);
-                        } else if (position == APPLICATION_POSITION_OTHER_APPS) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse(URL_CLUSTER_PLEIADES));
-                            startActivity(intent);
-                        }
+                itemView.setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
+                    if (position == APPLICATION_POSITION_TUTORIAL) {
+                        Intent intent = new Intent(context, TutorialActivity.class);
+                        startActivity(intent);
+                    } else if (position == APPLICATION_POSITION_HAPPINESS) {
+                        Intent intent = new Intent(context, HappinessTutorialActivity.class);
+                        startActivity(intent);
+                    } else if (position == APPLICATION_POSITION_SHARE) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_TEXT, URL_KITTEN);
+                        Intent chooserIntent = Intent.createChooser(intent, null);
+                        startActivity(chooserIntent);
+                    } else if (position == APPLICATION_POSITION_CHECK_UPDATE) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(URL_KITTEN));
+                        startActivity(intent);
+                    } else if (position == APPLICATION_POSITION_BACKUP) {
+                        BackupManager backupManager = new BackupManager(context);
+                        backupManager.dataChanged();
+                        new ToastController(context).showToast(getString(R.string.toast_backup), Toast.LENGTH_SHORT);
+                    } else if (position == APPLICATION_POSITION_OTHER_APPS) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(URL_CLUSTER_PLEIADES));
+                        startActivity(intent);
                     }
                 });
             }

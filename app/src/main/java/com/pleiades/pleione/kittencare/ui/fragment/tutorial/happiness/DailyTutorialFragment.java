@@ -115,12 +115,7 @@ public class DailyTutorialFragment extends Fragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animateKittensSniffBack();
-                    }
-                }, DELAY_ANIMATION);
+                handler.postDelayed(() -> animateKittensSniffBack(), DELAY_ANIMATION);
             }
         });
 
@@ -147,14 +142,11 @@ public class DailyTutorialFragment extends Fragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        leftFaceImageView.setImageResource(R.drawable.image_face_sparkle);
-                        rightFaceImageView.setImageResource(R.drawable.image_face_sparkle);
+                handler.postDelayed(() -> {
+                    leftFaceImageView.setImageResource(R.drawable.image_face_sparkle);
+                    rightFaceImageView.setImageResource(R.drawable.image_face_sparkle);
 
-                        animateKittensJumpUp();
-                    }
+                    animateKittensJumpUp();
                 }, DELAY_ANIMATION);
             }
         });
@@ -182,12 +174,9 @@ public class DailyTutorialFragment extends Fragment {
         valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            leftKittenView.setY((Float) animation.getAnimatedValue());
+            rightKittenView.setY((Float) animation.getAnimatedValue());
         });
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -218,12 +207,9 @@ public class DailyTutorialFragment extends Fragment {
         valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            leftKittenView.setY((Float) animation.getAnimatedValue());
+            rightKittenView.setY((Float) animation.getAnimatedValue());
         });
 
         // start animation

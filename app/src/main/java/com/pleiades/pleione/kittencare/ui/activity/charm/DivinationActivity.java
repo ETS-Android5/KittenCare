@@ -111,30 +111,27 @@ public class DivinationActivity extends AppCompatActivity {
 
         // initialize alchemy button
         Button button = findViewById(R.id.button_divination);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
+        button.setOnClickListener(v -> {
+            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
 
-                // case buff removed
-                if (prefs.getInt(KEY_BUFF, -1) == -1) {
-                    // initialize buff
-                    buffCode = new Random().nextInt(3);
+            // case buff removed
+            if (prefs.getInt(KEY_BUFF, -1) == -1) {
+                // initialize buff
+                buffCode = new Random().nextInt(3);
 
-                    // apply buff
-                    editor.putInt(KEY_BUFF, buffCode);
-                    editor.apply();
+                // apply buff
+                editor.putInt(KEY_BUFF, buffCode);
+                editor.apply();
 
-                    // add history
-                    if (buffCode != BUFF_CODE_FAIL)
-                        new PrefsController(activity).addHistoryPrefs(HISTORY_TYPE_BUFF, buffCode);
+                // add history
+                if (buffCode != BUFF_CODE_FAIL)
+                    new PrefsController(activity).addHistoryPrefs(HISTORY_TYPE_BUFF, buffCode);
 
-                    // start divination animation
-                    startDivinationAnimation();
-                } else {
-                    new ToastController(activity).showToast(getString(R.string.toast_divination_once), Toast.LENGTH_SHORT);
-                }
+                // start divination animation
+                startDivinationAnimation();
+            } else {
+                new ToastController(activity).showToast(getString(R.string.toast_divination_once), Toast.LENGTH_SHORT);
             }
         });
     }
@@ -233,16 +230,13 @@ public class DivinationActivity extends AppCompatActivity {
             setTextDelayed(titleTextView, titleCharSequence.subSequence(0, i + 1), i * DELAY_GAME_READ_CHAR);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (buffCode == BUFF_CODE_FAIL) {
-                    // animate crystal ball fall
-                    animateCrystalBallFall();
-                } else {
-                    // animate seer jump up
-                    animateSeerJumpUp();
-                }
+        handler.postDelayed(() -> {
+            if (buffCode == BUFF_CODE_FAIL) {
+                // animate crystal ball fall
+                animateCrystalBallFall();
+            } else {
+                // animate seer jump up
+                animateSeerJumpUp();
             }
         }, DELAY_GAME_READ_CHAR * titleCharSequence.length() + DELAY_FACE_MAINTAIN_LONG);
     }
@@ -261,13 +255,10 @@ public class DivinationActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, distance);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (Float) animation.getAnimatedValue();
-                crystalBallOutlineImageView.setY(fromOutlineY + animatedValue);
-                crystalBallImageView.setY(fromInlineY + animatedValue);
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            float animatedValue = (Float) animation.getAnimatedValue();
+            crystalBallOutlineImageView.setY(fromOutlineY + animatedValue);
+            crystalBallImageView.setY(fromInlineY + animatedValue);
         });
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -298,13 +289,10 @@ public class DivinationActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, distance);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (Float) animation.getAnimatedValue();
-                crystalBallOutlineImageView.setX(fromOutlineX + animatedValue);
-                crystalBallImageView.setX(fromInlineX + animatedValue);
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            float animatedValue = (Float) animation.getAnimatedValue();
+            crystalBallOutlineImageView.setX(fromOutlineX + animatedValue);
+            crystalBallImageView.setX(fromInlineX + animatedValue);
         });
 
         // start animation
@@ -358,12 +346,7 @@ public class DivinationActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -405,12 +388,7 @@ public class DivinationActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenView.setY((Float) animation.getAnimatedValue()));
 
         // start animation
         valueAnimator.start();
@@ -418,24 +396,18 @@ public class DivinationActivity extends AppCompatActivity {
 
     private void setFaceDelayed(final int faceCode, int delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (faceImageView != null)
-                    faceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (faceImageView != null)
+                faceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 
     private void setTextDelayed(final TextView textView, final CharSequence charSequence, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (textView != null) {
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setText(charSequence);
-                }
+        handler.postDelayed(() -> {
+            if (textView != null) {
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(charSequence);
             }
         }, delay);
     }

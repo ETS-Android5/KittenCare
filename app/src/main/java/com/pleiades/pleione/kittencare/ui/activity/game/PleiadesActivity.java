@@ -161,13 +161,8 @@ public class PleiadesActivity extends AppCompatActivity {
         initializeDelays();
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // read alcyone conversation script
-                readAlcyoneConversationScript();
-            }
-        }, shortAnimationDelay);
+        // read alcyone conversation script
+        handler.postDelayed(this::readAlcyoneConversationScript, shortAnimationDelay);
     }
 
     private void readAlcyoneConversationScript() {
@@ -183,12 +178,7 @@ public class PleiadesActivity extends AppCompatActivity {
         setTextDelayed(translationSpeakerTextView, translatedScript, readCharDelay);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                readPleioneConversationScript();
-            }
-        }, isOpeningSkipped ? 0 : duration);
+        handler.postDelayed(this::readPleioneConversationScript, isOpeningSkipped ? 0 : duration);
     }
 
     private void readPleioneConversationScript() {
@@ -207,13 +197,8 @@ public class PleiadesActivity extends AppCompatActivity {
         setTextDelayed(translationSpeakerTextView, translatedScript, readCharDelay);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // animate alcyone jump up
-                animateAlcyoneJumpUp();
-            }
-        }, isOpeningSkipped ? 0 : duration);
+        // animate alcyone jump up
+        handler.postDelayed(this::animateAlcyoneJumpUp, isOpeningSkipped ? 0 : duration);
     }
 
     private void animateAlcyoneJumpUp() {
@@ -237,12 +222,7 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                alcyoneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> alcyoneView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -273,12 +253,7 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                alcyoneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> alcyoneView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -347,13 +322,8 @@ public class PleiadesActivity extends AppCompatActivity {
         setTextDelayed(translationSpeakerTextView, ".. .. ..", 3 * longAnimationDelay);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // animate pleione rotate back
-                animatePleioneRotateBack();
-            }
-        }, 4 * longAnimationDelay);
+        // animate pleione rotate back
+        handler.postDelayed(this::animatePleioneRotateBack, 4 * longAnimationDelay);
     }
 
     private void animatePleioneRotateBack() {
@@ -367,12 +337,9 @@ public class PleiadesActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // read hungry script
-                        readHungryScript();
-                    }
+                handler.postDelayed(() -> {
+                    // read hungry script
+                    readHungryScript();
                 }, longAnimationDelay);
             }
 
@@ -399,13 +366,8 @@ public class PleiadesActivity extends AppCompatActivity {
         translationSpeakerTextView.setText(script);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // animate pleione rotate
-                animatePleioneRotateAgain();
-            }
-        }, readCharDelay * script.length() + longAnimationDelay);
+        // animate pleione rotate
+        handler.postDelayed(this::animatePleioneRotateAgain, readCharDelay * script.length() + longAnimationDelay);
     }
 
     private void animatePleioneRotateAgain() {
@@ -430,12 +392,9 @@ public class PleiadesActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate pleione rotate back again
-                        animatePleioneRotateBackAgain();
-                    }
+                handler.postDelayed(() -> {
+                    // animate pleione rotate back again
+                    animatePleioneRotateBackAgain();
                 }, readCharDelay * script.length() + longAnimationDelay);
             }
 
@@ -458,12 +417,9 @@ public class PleiadesActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate pleione long jump up bed
-                        animatePleioneLongJumpUpBed();
-                    }
+                handler.postDelayed(() -> {
+                    // animate pleione long jump up bed
+                    animatePleioneLongJumpUpBed();
                 }, longAnimationDelay);
             }
 
@@ -503,18 +459,8 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> pleioneView.setX((Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -550,18 +496,8 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> pleioneView.setX((Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -597,18 +533,8 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> pleioneView.setX((Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -643,18 +569,8 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> pleioneView.setX((Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -667,12 +583,9 @@ public class PleiadesActivity extends AppCompatActivity {
                 // case arrival
                 if (pleioneView.getX() <= giftImageView.getX()) {
                     Handler handler = new Handler(Looper.getMainLooper());
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // animate gift long jump up
-                            animateGiftLongJumpUp();
-                        }
+                    handler.postDelayed(() -> {
+                        // animate gift long jump up
+                        animateGiftLongJumpUp();
                     }, longAnimationDelay);
                 } else
                     animatePleioneLongJumpUpToGift();
@@ -708,19 +621,13 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-                giftImageView.setX((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            pleioneView.setX((Float) animation.getAnimatedValue());
+            giftImageView.setX((Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-                giftImageView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
+            giftImageView.setY((Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -756,19 +663,13 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-                giftImageView.setX((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            pleioneView.setX((Float) animation.getAnimatedValue());
+            giftImageView.setX((Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-                giftImageView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
+            giftImageView.setY((Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -780,12 +681,9 @@ public class PleiadesActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // read hoo script
-                        readHooScript();
-                    }
+                handler.postDelayed(() -> {
+                    // read hoo script
+                    readHooScript();
                 }, defaultAnimationDelay);
             }
         });
@@ -806,13 +704,8 @@ public class PleiadesActivity extends AppCompatActivity {
         translationSpeakerTextView.setText(script);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // animate gift hide
-                animatePleioneHide();
-            }
-        }, readCharDelay * script.length() + longAnimationDelay);
+        // animate gift hide
+        handler.postDelayed(this::animatePleioneHide, readCharDelay * script.length() + longAnimationDelay);
     }
 
     private void animatePleioneHide() {
@@ -831,12 +724,7 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -860,15 +748,12 @@ public class PleiadesActivity extends AppCompatActivity {
         translationSpeakerTextView.setText(script);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (isOpeningSkipped)
-                    startGame();
-                else {
-                    DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_START_PLEIADES);
-                    defaultDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_START_PLEIADES));
-                }
+        handler.postDelayed(() -> {
+            if (isOpeningSkipped)
+                startGame();
+            else {
+                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_START_PLEIADES);
+                defaultDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_START_PLEIADES));
             }
         }, readCharDelay * script.length());
     }
@@ -908,40 +793,36 @@ public class PleiadesActivity extends AppCompatActivity {
 
         // initialize button touch listener
         Button button = findViewById(R.id.button_pleiades);
-        button.setOnTouchListener(new View.OnTouchListener() {
+        button.setOnTouchListener((v, event) -> {
+            // motion event
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    // play ripple effect
+                    v.setPressed(true);
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // motion event
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        // play ripple effect
-                        v.setPressed(true);
+                    // play click sound
+                    v.playSoundEffect(android.view.SoundEffectConstants.CLICK);
 
-                        // play click sound
-                        v.playSoundEffect(android.view.SoundEffectConstants.CLICK);
+                    // set is button touched
+                    isButtonTouched = true;
 
-                        // set is button touched
-                        isButtonTouched = true;
+                    // animate head up
+                    animateHeadUp();
 
-                        // animate head up
-                        animateHeadUp();
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    // stop ripple effect
+                    v.setPressed(false);
 
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        // stop ripple effect
-                        v.setPressed(false);
+                    // set is button touched
+                    isButtonTouched = false;
 
-                        // set is button touched
-                        isButtonTouched = false;
+                    // animate heap down
+                    animateHeadDown();
 
-                        // animate heap down
-                        animateHeadDown();
-
-                        return true;
-                }
-                return false;
+                    return true;
             }
+            return false;
         });
     }
 
@@ -961,15 +842,12 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorGameY = ValueAnimator.ofFloat(from, to);
         valueAnimatorGameY.setDuration(duration);
         valueAnimatorGameY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorGameY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
+        valueAnimatorGameY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
 
-                // catch pleione
-                if (isAlcyoneStand)
-                    catchPleione();
-            }
+            // catch pleione
+            if (isAlcyoneStand)
+                catchPleione();
         });
         valueAnimatorGameY.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -1005,15 +883,12 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorGameY = ValueAnimator.ofFloat(from, to);
         valueAnimatorGameY.setDuration(duration);
         valueAnimatorGameY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorGameY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
+        valueAnimatorGameY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
 
-                // catch pleione
-                if (isAlcyoneStand)
-                    catchPleione();
-            }
+            // catch pleione
+            if (isAlcyoneStand)
+                catchPleione();
         });
         valueAnimatorGameY.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -1047,16 +922,13 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorGameX = ValueAnimator.ofFloat(from, to);
         valueAnimatorGameX.setDuration(duration);
         valueAnimatorGameX.setInterpolator(new LinearInterpolator());
-        valueAnimatorGameX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                giftImageView.setX((Float) animation.getAnimatedValue());
-                pleioneView.setX((Float) animation.getAnimatedValue());
+        valueAnimatorGameX.addUpdateListener(animation -> {
+            giftImageView.setX((Float) animation.getAnimatedValue());
+            pleioneView.setX((Float) animation.getAnimatedValue());
 
-                // catch pleione
-                if (isAlcyoneStand)
-                    catchPleione();
-            }
+            // catch pleione
+            if (isAlcyoneStand)
+                catchPleione();
         });
         valueAnimatorGameX.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -1096,15 +968,12 @@ public class PleiadesActivity extends AppCompatActivity {
                 long delay = randomValue * defaultAnimationDelay; // 1 ~ 3 seconds
 
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isPleioneCaught)
-                            return;
+                handler.postDelayed(() -> {
+                    if (isPleioneCaught)
+                        return;
 
-                        // animate alcyone rotate again
-                        animateAlcyoneRotateAgain();
-                    }
+                    // animate alcyone rotate again
+                    animateAlcyoneRotateAgain();
                 }, delay);
             }
 
@@ -1156,13 +1025,8 @@ public class PleiadesActivity extends AppCompatActivity {
             cancelGame();
 
             Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // read catch script
-                    readCatchScript();
-                }
-            }, longAnimationDelay);
+            // read catch script
+            handler.postDelayed(this::readCatchScript, longAnimationDelay);
         }
     }
 
@@ -1179,12 +1043,9 @@ public class PleiadesActivity extends AppCompatActivity {
         setTextDelayedVisible(translationSpeakerTextView, translatedScript, readCharDelay);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // finish game
-                finishGame(false);
-            }
+        handler.postDelayed(() -> {
+            // finish game
+            finishGame(false);
         }, duration + shortAnimationDelay);
     }
 
@@ -1222,30 +1083,24 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorX = ValueAnimator.ofFloat(0, distance);
         valueAnimatorX.setDuration(duration);
         valueAnimatorX.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (Float) animation.getAnimatedValue();
+        valueAnimatorX.addUpdateListener(animation -> {
+            float animatedValue = (Float) animation.getAnimatedValue();
 
-                pleioneView.setX(pleioneFrom - animatedValue);
-                giftImageView.setX(giftFrom - animatedValue);
-                refrigeratorImageView.setX(refrigeratorFrom - animatedValue);
-                bedLowerImageView.setX(bedLowerFrom - animatedValue);
-                bedUpperImageView.setX(bedUpperFrom - animatedValue);
-                bedPillarLeftImageView.setX(bedPillarLeftFrom - animatedValue);
-                bedPillarRightImageView.setX(bedPillarRightFrom - animatedValue);
-            }
+            pleioneView.setX(pleioneFrom - animatedValue);
+            giftImageView.setX(giftFrom - animatedValue);
+            refrigeratorImageView.setX(refrigeratorFrom - animatedValue);
+            bedLowerImageView.setX(bedLowerFrom - animatedValue);
+            bedUpperImageView.setX(bedUpperFrom - animatedValue);
+            bedPillarLeftImageView.setX(bedPillarLeftFrom - animatedValue);
+            bedPillarRightImageView.setX(bedPillarRightFrom - animatedValue);
         });
         valueAnimatorX.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate gift long jump up to refrigerator
-                        animateGiftLongJumpUpToRefrigerator();
-                    }
+                handler.postDelayed(() -> {
+                    // animate gift long jump up to refrigerator
+                    animateGiftLongJumpUpToRefrigerator();
                 }, shortAnimationDelay);
             }
         });
@@ -1275,19 +1130,13 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-                giftImageView.setX((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            pleioneView.setX((Float) animation.getAnimatedValue());
+            giftImageView.setX((Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-                giftImageView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
+            giftImageView.setY((Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -1327,19 +1176,13 @@ public class PleiadesActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setX((Float) animation.getAnimatedValue());
-                giftImageView.setX((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            pleioneView.setX((Float) animation.getAnimatedValue());
+            giftImageView.setX((Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-                giftImageView.setY((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            pleioneView.setY((Float) animation.getAnimatedValue());
+            giftImageView.setY((Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -1353,15 +1196,12 @@ public class PleiadesActivity extends AppCompatActivity {
                 // case arrival
                 if (toX == toXMax) {
                     Handler handler = new Handler(Looper.getMainLooper());
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // cnahge pleione face
-                            pleioneFaceImageView.setImageResource(R.drawable.image_face_sparkle);
+                    handler.postDelayed(() -> {
+                        // change pleione face
+                        pleioneFaceImageView.setImageResource(R.drawable.image_face_sparkle);
 
-                            // animate pleione jump up
-                            animatePleioneJumpUp();
-                        }
+                        // animate pleione jump up
+                        animatePleioneJumpUp();
                     }, defaultAnimationDelay);
                 } else
                     animateGiftLongJumpUpToRefrigerator();
@@ -1389,12 +1229,7 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -1422,22 +1257,12 @@ public class PleiadesActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                pleioneView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> pleioneView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        finishGame(true);
-                    }
-                }, shortAnimationDelay);
+                handler.postDelayed(() -> finishGame(true), shortAnimationDelay);
             }
         });
 
@@ -1486,43 +1311,34 @@ public class PleiadesActivity extends AppCompatActivity {
 
     private void setTextDelayed(final TextView speakerTextView, final CharSequence message, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (speakerTextView != null) {
-                    if (!isOpeningSkipped)
-                        speakerTextView.setVisibility(View.VISIBLE);
-                    speakerTextView.setText(message);
-                }
+        handler.postDelayed(() -> {
+            if (speakerTextView != null) {
+                if (!isOpeningSkipped)
+                    speakerTextView.setVisibility(View.VISIBLE);
+                speakerTextView.setText(message);
             }
         }, delay);
     }
 
     private void setTextDelayedVisible(final TextView speakerTextView, final CharSequence message, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (speakerTextView != null) {
-                    speakerTextView.setVisibility(View.VISIBLE);
-                    speakerTextView.setText(message);
-                }
+        handler.postDelayed(() -> {
+            if (speakerTextView != null) {
+                speakerTextView.setVisibility(View.VISIBLE);
+                speakerTextView.setText(message);
             }
         }, delay);
     }
 
     private void setFaceDelayed(final boolean isAlcyone, final int faceCode, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (isAlcyone) {
-                    if (alcyoneFaceImageView != null)
-                        alcyoneFaceImageView.setImageResource(getFaceResourceId(faceCode));
-                } else {
-                    if (pleioneFaceImageView != null)
-                        pleioneFaceImageView.setImageResource(getFaceResourceId(faceCode));
-                }
+        handler.postDelayed(() -> {
+            if (isAlcyone) {
+                if (alcyoneFaceImageView != null)
+                    alcyoneFaceImageView.setImageResource(getFaceResourceId(faceCode));
+            } else {
+                if (pleioneFaceImageView != null)
+                    pleioneFaceImageView.setImageResource(getFaceResourceId(faceCode));
             }
         }, delay);
     }
@@ -1551,15 +1367,10 @@ public class PleiadesActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void cancelGame() {
         // remove touch listener
-        findViewById(R.id.button_pleiades).setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
+        findViewById(R.id.button_pleiades).setOnTouchListener((v, event) -> false);
 
         if (valueAnimatorGameX != null) {
             valueAnimatorGameX.pause();

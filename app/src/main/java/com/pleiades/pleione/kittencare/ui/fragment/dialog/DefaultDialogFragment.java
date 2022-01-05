@@ -207,8 +207,6 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
     public void onStart() {
         super.onStart();
 
-//        int margin = getResources().getDimensionPixelSize(R.dimen.margin_dialog_default);
-//        int width = (new DeviceController(context)).getWidthMax() - margin;
         int width = (int) ((new DeviceController(context)).getWidthMax() * 0.85);
         int height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -216,14 +214,11 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
         if (dialog != null) {
             dialog.getWindow().setLayout(width, height);
 
-            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialogInterface) {
-                    if (type == DIALOG_TYPE_ESCAPE) {
-                        Activity parentActivity = getActivity();
-                        if (parentActivity != null)
-                            parentActivity.finish();
-                    }
+            dialog.setOnDismissListener(dialogInterface -> {
+                if (type == DIALOG_TYPE_ESCAPE) {
+                    Activity parentActivity = getActivity();
+                    if (parentActivity != null)
+                        parentActivity.finish();
                 }
             });
         }
@@ -372,8 +367,9 @@ public class DefaultDialogFragment extends androidx.fragment.app.DialogFragment 
                     StringTokenizer stringTokenizer = new StringTokenizer(parentActivity.getClass().getName(), ".");
                     while (stringTokenizer.hasMoreTokens())
                         activityName = stringTokenizer.nextToken();
-                    if (activityName.equals("HappinessTutorialActivity"))
-                        parentActivity.onBackPressed();
+                    if (activityName != null)
+                        if (activityName.equals("HappinessTutorialActivity"))
+                            parentActivity.onBackPressed();
                 }
             }
 

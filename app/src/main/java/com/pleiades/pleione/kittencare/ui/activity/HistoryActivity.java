@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     private int filterPosition = 0;
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,15 +93,12 @@ public class HistoryActivity extends AppCompatActivity {
         // initialize swipe refresh layout
         final SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipe_history);
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(context, R.color.color_accent));
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // initialize history array list
-                initializeHistoryArrayList();
-                historyRecyclerAdapter.notifyDataSetChanged();
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            // initialize history array list
+            initializeHistoryArrayList();
+            historyRecyclerAdapter.notifyDataSetChanged();
 
-                swipeRefreshLayout.setRefreshing(false);
-            }
+            swipeRefreshLayout.setRefreshing(false);
         });
     }
 
@@ -144,6 +143,7 @@ public class HistoryActivity extends AppCompatActivity {
         historyArrayList = filteredHistoryArrayList;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onResume() {
         super.onResume();
@@ -159,6 +159,7 @@ public class HistoryActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -171,28 +172,25 @@ public class HistoryActivity extends AppCompatActivity {
             Context themeContext = new ContextThemeWrapper(context, R.style.AppTheme);
             PopupMenu popupMenu = new PopupMenu(themeContext, findViewById(R.id.action_filter_history));
             popupMenu.inflate(R.menu.menu_history_filter);
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    int id = item.getItemId();
+            popupMenu.setOnMenuItemClickListener(item1 -> {
+                int id1 = item1.getItemId();
 
-                    if (id == R.id.action_history_all)
-                        filterPosition = FILTER_POSITION_HISTORY_ALL;
-                    else if (id == R.id.action_history_item)
-                        filterPosition = FILTER_POSITION_HISTORY_ITEM;
-                    else if (id == R.id.action_history_costume)
-                        filterPosition = FILTER_POSITION_HISTORY_COSTUME;
-                    else if (id == R.id.action_history_state)
-                        filterPosition = FILTER_POSITION_HISTORY_STATE;
+                if (id1 == R.id.action_history_all)
+                    filterPosition = FILTER_POSITION_HISTORY_ALL;
+                else if (id1 == R.id.action_history_item)
+                    filterPosition = FILTER_POSITION_HISTORY_ITEM;
+                else if (id1 == R.id.action_history_costume)
+                    filterPosition = FILTER_POSITION_HISTORY_COSTUME;
+                else if (id1 == R.id.action_history_state)
+                    filterPosition = FILTER_POSITION_HISTORY_STATE;
 
-                    // initialize history array list
-                    initializeHistoryArrayList();
-                    historyRecyclerAdapter.notifyDataSetChanged();
+                // initialize history array list
+                initializeHistoryArrayList();
+                historyRecyclerAdapter.notifyDataSetChanged();
 
-                    // check item
-                    item.setChecked(true);
-                    return true;
-                }
+                // check item
+                item1.setChecked(true);
+                return true;
             });
 
             // initialize checked item

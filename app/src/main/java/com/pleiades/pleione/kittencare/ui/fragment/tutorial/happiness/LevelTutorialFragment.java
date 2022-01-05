@@ -66,13 +66,10 @@ public class LevelTutorialFragment extends Fragment {
         progressValueAnimator = ValueAnimator.ofFloat(0, 100);
         progressValueAnimator.setDuration(1000);
         progressValueAnimator.setInterpolator(new AccelerateInterpolator());
-        progressValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float progress = (float) animation.getAnimatedValue();
-                experienceProgressBar.setProgress((int) progress);
-                experienceProgressTextView.setText(String.format(Locale.getDefault(), "%.2f %%", progress));
-            }
+        progressValueAnimator.addUpdateListener(animation -> {
+            float progress = (float) animation.getAnimatedValue();
+            experienceProgressBar.setProgress((int) progress);
+            experienceProgressTextView.setText(String.format(Locale.getDefault(), "%.2f %%", progress));
         });
         progressValueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -94,13 +91,10 @@ public class LevelTutorialFragment extends Fragment {
         progressValueAnimator = ValueAnimator.ofInt(100, 0);
         progressValueAnimator.setDuration(500);
         progressValueAnimator.setInterpolator(new DecelerateInterpolator());
-        progressValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int progress = (int) animation.getAnimatedValue();
-                experienceProgressBar.setProgress(progress);
-                happinessProgressBar.setProgress(100 - (progress * 6 / 10));
-            }
+        progressValueAnimator.addUpdateListener(animation -> {
+            int progress = (int) animation.getAnimatedValue();
+            experienceProgressBar.setProgress(progress);
+            happinessProgressBar.setProgress(100 - (progress * 6 / 10));
         });
         progressValueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override

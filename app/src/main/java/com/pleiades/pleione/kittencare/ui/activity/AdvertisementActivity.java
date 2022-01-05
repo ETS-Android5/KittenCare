@@ -103,62 +103,56 @@ public class AdvertisementActivity extends AppCompatActivity {
 
         // initialize ad button
         button = findViewById(R.id.button_advertisement);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // case random box rewarded ad is not loaded
-                if (AdvertisementController.randomBoxRewardedAd == null) {
-                    // load rewarded ad
-                    AdvertisementController.loadRandomBoxRewardedAd(activity, true);
+        button.setOnClickListener(view -> {
+            // case random box rewarded ad is not loaded
+            if (AdvertisementController.randomBoxRewardedAd == null) {
+                // load rewarded ad
+                AdvertisementController.loadRandomBoxRewardedAd(activity, true);
 
-                    // show error toast
-                    String message = getString(R.string.toast_error_load) + "\n" + getString(R.string.toast_try_later);
-                    new ToastController(activity).showToast(message, Toast.LENGTH_SHORT);
-                }
-                // case random box rewarded ad is loaded
-                else {
-                    // show random box rewarded ad
-                    AdvertisementController.randomBoxRewardedAd.show(activity, new OnUserEarnedRewardListener() {
-                        @Override
-                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                            SharedPreferences.Editor editor = prefs.edit();
-                            PrefsController prefsController = new PrefsController(activity);
+                // show error toast
+                String message = getString(R.string.toast_error_load) + "\n" + getString(R.string.toast_try_later);
+                new ToastController(activity).showToast(message, Toast.LENGTH_SHORT);
+            }
+            // case random box rewarded ad is loaded
+            else {
+                // show random box rewarded ad
+                AdvertisementController.randomBoxRewardedAd.show(activity, rewardItem -> {
+                    SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    PrefsController prefsController = new PrefsController(activity);
 
-                            // apply reward earned count
-                            editor.putInt(KEY_REWARD_EARNED_COUNT, prefs.getInt(KEY_REWARD_EARNED_COUNT, 0) + 1);
-                            editor.apply();
+                    // apply reward earned count
+                    editor.putInt(KEY_REWARD_EARNED_COUNT, prefs.getInt(KEY_REWARD_EARNED_COUNT, 0) + 1);
+                    editor.apply();
 
-                            // unlock gift costume
-                            if (prefs.getInt(KEY_REWARD_EARNED_COUNT, 0) == 10) {
-                                editor.putBoolean(KEY_COSTUME_GIFT, true);
-                                editor.apply();
+                    // unlock gift costume
+                    if (prefs.getInt(KEY_REWARD_EARNED_COUNT, 0) == 10) {
+                        editor.putBoolean(KEY_COSTUME_GIFT, true);
+                        editor.apply();
 
-                                new PrefsController(activity).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_GIFT);
-                            }
+                        new PrefsController(activity).addHistoryPrefs(HISTORY_TYPE_COSTUME_FOUND, COSTUME_CODE_GIFT);
+                    }
 
-                            // case costume reward
-                            if ((new Random()).nextInt(RANDOM_BOUND_REWARD) == 0) {
-                                rewardType = REWARD_TYPE_ADVERTISEMENT_COSTUME;
-                                rewardReference = prefsController.unlockRandomRewardCostumePrefs();
+                    // case costume reward
+                    if ((new Random()).nextInt(RANDOM_BOUND_REWARD) == 0) {
+                        rewardType = REWARD_TYPE_ADVERTISEMENT_COSTUME;
+                        rewardReference = prefsController.unlockRandomRewardCostumePrefs();
 
-                                // case all paid costumes unlocked
-                                if (rewardReference == -1) {
-                                    rewardType = REWARD_TYPE_ADVERTISEMENT_ITEM;
-                                    rewardReference = prefsController.addRandomItemPrefs(REWARD_TYPE_ADVERTISEMENT_ITEM);
-                                }
-                            }
-                            // case item reward
-                            else {
-                                rewardType = REWARD_TYPE_ADVERTISEMENT_ITEM;
-                                rewardReference = prefsController.addRandomItemPrefs(REWARD_TYPE_ADVERTISEMENT_ITEM);
-                            }
-
-                            // set is earned true
-                            isEarned = true;
+                        // case all paid costumes unlocked
+                        if (rewardReference == -1) {
+                            rewardType = REWARD_TYPE_ADVERTISEMENT_ITEM;
+                            rewardReference = prefsController.addRandomItemPrefs(REWARD_TYPE_ADVERTISEMENT_ITEM);
                         }
-                    });
-                }
+                    }
+                    // case item reward
+                    else {
+                        rewardType = REWARD_TYPE_ADVERTISEMENT_ITEM;
+                        rewardReference = prefsController.addRandomItemPrefs(REWARD_TYPE_ADVERTISEMENT_ITEM);
+                    }
+
+                    // set is earned true
+                    isEarned = true;
+                });
             }
         });
     }
@@ -192,12 +186,7 @@ public class AdvertisementActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                boxImageView.setX((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> boxImageView.setX((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -241,12 +230,7 @@ public class AdvertisementActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(boxOriginPositionY, boxOriginPositionY - shiverDistance);
         valueAnimator.setDuration(calculateDurationGravity(activity, shiverDistance, false));
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                boxImageView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> boxImageView.setY((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -285,12 +269,7 @@ public class AdvertisementActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(boxOriginPositionY - shiverDistance, boxOriginPositionY);
         valueAnimator.setDuration(calculateDurationGravity(activity, shiverDistance, false));
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                boxImageView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> boxImageView.setY((Float) animation.getAnimatedValue()));
 
         // start animation
         valueAnimator.start();

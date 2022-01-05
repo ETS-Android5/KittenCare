@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,21 +58,18 @@ public class PawTutorialFragment extends Fragment {
                         kittenPawImageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
-        kittenPawImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
+        kittenPawImageView.setOnClickListener(view -> {
+            SharedPreferences prefs = context.getSharedPreferences(PREFS, MODE_PRIVATE);
 
-                // case is tutorial completed
-                if (prefs.getBoolean(KEY_IS_TUTORIAL_COMPLETED, false)) {
-                    Activity parentActivity = getActivity();
-                    if (parentActivity != null)
-                        parentActivity.onBackPressed();
-                } else {
-                    // show complete tutorial dialog
-                    DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_COMPLETE_TUTORIAL);
-                    defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_COMPLETE_TUTORIAL));
-                }
+            // case is tutorial completed
+            if (prefs.getBoolean(KEY_IS_TUTORIAL_COMPLETED, false)) {
+                Activity parentActivity = getActivity();
+                if (parentActivity != null)
+                    parentActivity.onBackPressed();
+            } else {
+                // show complete tutorial dialog
+                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_COMPLETE_TUTORIAL);
+                defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_COMPLETE_TUTORIAL));
             }
         });
 
@@ -83,11 +81,9 @@ public class PawTutorialFragment extends Fragment {
         super.onResume();
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        handler.postDelayed(() -> {
+            if (kittenPawOriginPositionY != 0.0f)
                 animateKittenPawJumpUp();
-            }
         }, DELAY_DEFAULT);
     }
 
@@ -101,12 +97,7 @@ public class PawTutorialFragment extends Fragment {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(kittenPawOriginPositionY, kittenPawOriginPositionY - DEFAULT_JUMP_DISTANCE);
         valueAnimator.setDuration(calculateDurationGravity(context, DEFAULT_JUMP_DISTANCE, false));
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenPawImageView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenPawImageView.setY((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -122,12 +113,7 @@ public class PawTutorialFragment extends Fragment {
         final ValueAnimator valueAnimator = ValueAnimator.ofFloat(kittenPawOriginPositionY - DEFAULT_JUMP_DISTANCE, kittenPawOriginPositionY);
         valueAnimator.setDuration(calculateDurationGravity(context, DEFAULT_JUMP_DISTANCE, false));
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenPawImageView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenPawImageView.setY((Float) animation.getAnimatedValue()));
 
         // start animation
         valueAnimator.start();

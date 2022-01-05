@@ -243,12 +243,7 @@ public class KittenService extends Service {
         registerReceiver(new BroadcastReceiver() {
             public void onReceive(Context context, Intent intent) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        initializeKitten();
-                    }
-                }, DELAY_UNLOCK_SCREEN);
+                handler.postDelayed(() -> initializeKitten(), DELAY_UNLOCK_SCREEN);
             }
         }, new IntentFilter(Intent.ACTION_USER_PRESENT));
 

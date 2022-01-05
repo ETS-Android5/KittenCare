@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.fragment.home;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -115,12 +116,9 @@ public class GameFragment extends Fragment {
 
         // initialize ad button
         Button button = rootView.findViewById(R.id.button_game);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_TICKET);
-                defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_TICKET));
-            }
+        button.setOnClickListener(view -> {
+            DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_TICKET);
+            defaultDialogFragment.show(((FragmentActivity) context).getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_TICKET));
         });
 
         return rootView;
@@ -128,23 +126,17 @@ public class GameFragment extends Fragment {
 
     private void changeLeftFace(final Game game, final int faceCode, int delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (game.leftFaceImageView != null)
-                    game.leftFaceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (game.leftFaceImageView != null)
+                game.leftFaceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 
     private void changeRightFace(final Game game, final int faceCode, int delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (game.rightFaceImageView != null)
-                    game.rightFaceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (game.rightFaceImageView != null)
+                game.rightFaceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 
@@ -163,6 +155,7 @@ public class GameFragment extends Fragment {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onResume() {
         super.onResume();
@@ -291,21 +284,18 @@ public class GameFragment extends Fragment {
             Context themeContext = new ContextThemeWrapper(context, R.style.AppTheme);
             PopupMenu popupMenu = new PopupMenu(themeContext, parentActivity.findViewById(R.id.action_select_difficulty_game));
             popupMenu.inflate(R.menu.menu_game_out_adjust_difficulty);
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    int id = item.getItemId();
+            popupMenu.setOnMenuItemClickListener(item1 -> {
+                int id1 = item1.getItemId();
 
-                    if (id == R.id.action_adjust_difficulty_easy)
-                        editor.putBoolean(KEY_IS_GAME_DIFFICULTY_HARD, false);
-                    else if (id == R.id.action_adjust_difficulty_hard)
-                        editor.putBoolean(KEY_IS_GAME_DIFFICULTY_HARD, true);
-                    editor.apply();
+                if (id1 == R.id.action_adjust_difficulty_easy)
+                    editor.putBoolean(KEY_IS_GAME_DIFFICULTY_HARD, false);
+                else if (id1 == R.id.action_adjust_difficulty_hard)
+                    editor.putBoolean(KEY_IS_GAME_DIFFICULTY_HARD, true);
+                editor.apply();
 
-                    // check item
-                    item.setChecked(true);
-                    return true;
-                }
+                // check item
+                item1.setChecked(true);
+                return true;
             });
 
             // initialize checked item

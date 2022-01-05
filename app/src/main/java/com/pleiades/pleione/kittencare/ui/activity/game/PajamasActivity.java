@@ -188,12 +188,7 @@ public class PajamasActivity extends AppCompatActivity {
 
         // animate bed left
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                animateBedLeft();
-            }
-        }, DELAY_GAME_ANIMATION_SHORT + (2 * DELAY_GAME_ANIMATION_LONG));
+        handler.postDelayed(this::animateBedLeft, DELAY_GAME_ANIMATION_SHORT + (2 * DELAY_GAME_ANIMATION_LONG));
     }
 
     private void readSleepScript(long delay) {
@@ -201,12 +196,9 @@ public class PajamasActivity extends AppCompatActivity {
 
         // read script char sequence
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 1; i <= script.length(); i++)
-                    setTextDelayed(bedSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR_SLOW);
-            }
+        handler.postDelayed(() -> {
+            for (int i = 1; i <= script.length(); i++)
+                setTextDelayed(bedSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR_SLOW);
         }, delay);
     }
 
@@ -239,14 +231,11 @@ public class PajamasActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimatorX.setDuration(duration);
         valueAnimatorX.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float movedDistance = from - (Float) animation.getAnimatedValue();
+        valueAnimatorX.addUpdateListener(animation -> {
+            float movedDistance = from - (Float) animation.getAnimatedValue();
 
-                bedImageView.setX((Float) animation.getAnimatedValue());
-                bedSpeakerTextView.setX(bedSpeakerFrom - movedDistance);
-            }
+            bedImageView.setX((Float) animation.getAnimatedValue());
+            bedSpeakerTextView.setX(bedSpeakerFrom - movedDistance);
         });
         valueAnimatorX.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -288,28 +277,20 @@ public class PajamasActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimatorX.setDuration(duration);
         valueAnimatorX.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float movedDistance = from - (Float) animation.getAnimatedValue();
+        valueAnimatorX.addUpdateListener(animation -> {
+            float movedDistance = from - (Float) animation.getAnimatedValue();
 
-                bedImageView.setX((Float) animation.getAnimatedValue());
-                floorSpeakerTextView.setX(floorSpeakerFrom - movedDistance);
-                bedSpeakerTextView.setX(bedSpeakerFrom - movedDistance);
-                rightKittenView.setX(rightKittenFrom - movedDistance);
-                rightSpeakerTextView.setX(rightSpeakerFrom - movedDistance);
-            }
+            bedImageView.setX((Float) animation.getAnimatedValue());
+            floorSpeakerTextView.setX(floorSpeakerFrom - movedDistance);
+            bedSpeakerTextView.setX(bedSpeakerFrom - movedDistance);
+            rightKittenView.setX(rightKittenFrom - movedDistance);
+            rightSpeakerTextView.setX(rightSpeakerFrom - movedDistance);
         });
         valueAnimatorX.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animateRightKittenJumpUp(3);
-                    }
-                }, DELAY_GAME_ANIMATION_DEFAULT);
+                handler.postDelayed(() -> animateRightKittenJumpUp(3), DELAY_GAME_ANIMATION_DEFAULT);
             }
         });
 
@@ -338,12 +319,7 @@ public class PajamasActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> rightKittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -374,12 +350,7 @@ public class PajamasActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> rightKittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -398,17 +369,14 @@ public class PajamasActivity extends AppCompatActivity {
                 floorSpeakerTextView.setVisibility(View.VISIBLE);
 
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        floorSpeakerTextView.setVisibility(View.INVISIBLE);
+                handler.postDelayed(() -> {
+                    floorSpeakerTextView.setVisibility(View.INVISIBLE);
 
-                        if (repeatCount == 1) {
-                            rightFaceImageView.setImageResource(R.drawable.image_face_sparkle);
-                            animateRightKittenJumpUp();
-                        } else
-                            animateRightKittenJumpUp(repeatCount - 1);
-                    }
+                    if (repeatCount == 1) {
+                        rightFaceImageView.setImageResource(R.drawable.image_face_sparkle);
+                        animateRightKittenJumpUp();
+                    } else
+                        animateRightKittenJumpUp(repeatCount - 1);
                 }, (repeatCount == 1) ? 2 * DELAY_GAME_ANIMATION_DEFAULT : DELAY_GAME_ANIMATION_DEFAULT);
             }
         });
@@ -438,12 +406,7 @@ public class PajamasActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> rightKittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -474,22 +437,12 @@ public class PajamasActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(from, to);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                rightKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> rightKittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animateLeftKittenLongJumpUp();
-                    }
-                }, 2 * DELAY_GAME_ANIMATION_DEFAULT);
+                handler.postDelayed(() -> animateLeftKittenLongJumpUp(), 2 * DELAY_GAME_ANIMATION_DEFAULT);
             }
         });
 
@@ -522,21 +475,13 @@ public class PajamasActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float movedDistanceX = (Float) animation.getAnimatedValue() - fromX;
+        valueAnimatorX.addUpdateListener(animation -> {
+            float movedDistanceX = (Float) animation.getAnimatedValue() - fromX;
 
-                leftKittenView.setX((Float) animation.getAnimatedValue());
-                leftSpeakerTextView.setX(leftSpeakerFromX + movedDistanceX);
-            }
+            leftKittenView.setX((Float) animation.getAnimatedValue());
+            leftSpeakerTextView.setX(leftSpeakerFromX + movedDistanceX);
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> leftKittenView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -578,21 +523,13 @@ public class PajamasActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(fromX, toX);
         valueAnimatorY = ValueAnimator.ofFloat(fromY, toY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float movedDistanceX = (Float) animation.getAnimatedValue() - fromX;
+        valueAnimatorX.addUpdateListener(animation -> {
+            float movedDistanceX = (Float) animation.getAnimatedValue() - fromX;
 
-                leftKittenView.setX((Float) animation.getAnimatedValue());
-                leftSpeakerTextView.setX(leftSpeakerFromX + movedDistanceX);
-            }
+            leftKittenView.setX((Float) animation.getAnimatedValue());
+            leftSpeakerTextView.setX(leftSpeakerFromX + movedDistanceX);
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorY.addUpdateListener(animation -> leftKittenView.setY((Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -634,12 +571,7 @@ public class PajamasActivity extends AppCompatActivity {
             // change face before last script
             if (i == (leftSize + rightSize - 1)) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        rightFaceImageView.setImageResource(R.drawable.image_face_angry);
-                    }
-                }, totalDuration);
+                handler.postDelayed(() -> rightFaceImageView.setImageResource(R.drawable.image_face_angry), totalDuration);
             }
 
             // calculate total duration
@@ -648,12 +580,7 @@ public class PajamasActivity extends AppCompatActivity {
             // alternate layout after last script
             if (i == (leftSize + rightSize - 1)) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        alternateLayout();
-                    }
-                }, totalDuration + DELAY_GAME_ANIMATION_SHORT);
+                handler.postDelayed(this::alternateLayout, totalDuration + DELAY_GAME_ANIMATION_SHORT);
             }
 
             // change direction
@@ -663,33 +590,30 @@ public class PajamasActivity extends AppCompatActivity {
 
     private void readFightScript(final boolean isLeft, final CharSequence script, final CharSequence translatedScript, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // case opening finished
-                if (isOpeningFinished)
-                    return;
+        handler.postDelayed(() -> {
+            // case opening finished
+            if (isOpeningFinished)
+                return;
 
-                leftSpeakerTextView.setText("");
-                rightSpeakerTextView.setText("");
+            leftSpeakerTextView.setText("");
+            rightSpeakerTextView.setText("");
 
-                if (isLeft) {
-                    rightSpeakerTextView.setVisibility(View.INVISIBLE);
+            if (isLeft) {
+                rightSpeakerTextView.setVisibility(View.INVISIBLE);
 
-                    // read script
-                    for (int i = 1; i <= script.length(); i++)
-                        setTextDelayed(leftSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
-                } else {
-                    leftSpeakerTextView.setVisibility(View.INVISIBLE);
+                // read script
+                for (int i = 1; i <= script.length(); i++)
+                    setTextDelayed(leftSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
+            } else {
+                leftSpeakerTextView.setVisibility(View.INVISIBLE);
 
-                    // read script
-                    for (int i = 1; i <= script.length(); i++)
-                        setTextDelayed(rightSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
-                }
-
-                // read translated script
-                setTextDelayed(translationSpeakerTextView, translatedScript, DELAY_GAME_READ_CHAR);
+                // read script
+                for (int i = 1; i <= script.length(); i++)
+                    setTextDelayed(rightSpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
             }
+
+            // read translated script
+            setTextDelayed(translationSpeakerTextView, translatedScript, DELAY_GAME_READ_CHAR);
         }, delay);
     }
 
@@ -724,12 +648,7 @@ public class PajamasActivity extends AppCompatActivity {
 
         // animate game objects appear
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                animateGameObjectsAppear();
-            }
-        }, duration);
+        handler.postDelayed(this::animateGameObjectsAppear, duration);
     }
 
     private void animateGameObjectsAppear() {
@@ -773,13 +692,10 @@ public class PajamasActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new LinearInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (Float) animation.getAnimatedValue();
-                playerHPTextView.setY(playerHPFromY - animatedValue);
-                enemyHPTextView.setY(enemyHPFromY + animatedValue);
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            float animatedValue = (Float) animation.getAnimatedValue();
+            playerHPTextView.setY(playerHPFromY - animatedValue);
+            enemyHPTextView.setY(enemyHPFromY + animatedValue);
         });
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -808,51 +724,47 @@ public class PajamasActivity extends AppCompatActivity {
     public void startGame() {
         // initialize button touch listener
         Button button = findViewById(R.id.button_pajamas);
-        button.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // case button is locked
-                if (isPlayerButtonLocked)
-                    return false;
-
-                // motion event
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        // play ripple effect
-                        v.setPressed(true);
-
-                        // play click sound
-                        v.playSoundEffect(android.view.SoundEffectConstants.CLICK);
-
-                        // animate player progress bar
-                        animatePlayerProgressBar();
-
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        // prevent first turn lock error (action down is not called)
-                        if (valueAnimatorProgress == null)
-                            return false;
-
-                        // stop ripple effect
-                        v.setPressed(false);
-
-                        // lock button
-                        isPlayerButtonLocked = true;
-
-                        // cancel animator
-                        cancelProgressAnimator();
-
-                        // calculate damage
-                        int progress = (10 * playerProgressBar.getProgress()) / playerProgressBar.getWidth();
-
-                        // animate enemy ttakji shiver
-                        animateEnemyTtakjiShiver(DIRECTION_TO_LEFT, progress);
-
-                        return true;
-                }
+        button.setOnTouchListener((v, event) -> {
+            // case button is locked
+            if (isPlayerButtonLocked)
                 return false;
+
+            // motion event
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    // play ripple effect
+                    v.setPressed(true);
+
+                    // play click sound
+                    v.playSoundEffect(android.view.SoundEffectConstants.CLICK);
+
+                    // animate player progress bar
+                    animatePlayerProgressBar();
+
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    // prevent first turn lock error (action down is not called)
+                    if (valueAnimatorProgress == null)
+                        return false;
+
+                    // stop ripple effect
+                    v.setPressed(false);
+
+                    // lock button
+                    isPlayerButtonLocked = true;
+
+                    // cancel animator
+                    cancelProgressAnimator();
+
+                    // calculate damage
+                    int progress = (10 * playerProgressBar.getProgress()) / playerProgressBar.getWidth();
+
+                    // animate enemy ttakji shiver
+                    animateEnemyTtakjiShiver(DIRECTION_TO_LEFT, progress);
+
+                    return true;
             }
+            return false;
         });
     }
 
@@ -872,17 +784,14 @@ public class PajamasActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimatorProgress.setDuration(duration);
         valueAnimatorProgress.setInterpolator(new LinearInterpolator());
-        valueAnimatorProgress.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (isPlayerButtonLocked)
-                    return;
+        valueAnimatorProgress.addUpdateListener(animation -> {
+            if (isPlayerButtonLocked)
+                return;
 
-                playerProgressBar.setMax(maxProgress);
-                float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
-                int progress = (int) animatedValue; // convert float to int
-                playerProgressBar.setProgress(progress);
-            }
+            playerProgressBar.setMax(maxProgress);
+            float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
+            int progress = (int) animatedValue; // convert float to int
+            playerProgressBar.setProgress(progress);
         });
         valueAnimatorProgress.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -986,25 +895,17 @@ public class PajamasActivity extends AppCompatActivity {
         final String translatedScript = enemyScenario.getTranslatedScript(scriptIndex);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // read script
-                for (int i = 1; i <= script.length(); i++)
-                    setTextDelayed(enemySpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
+        handler.postDelayed(() -> {
+            // read script
+            for (int i = 1; i <= script.length(); i++)
+                setTextDelayed(enemySpeakerTextView, script.subSequence(0, i), i * DELAY_GAME_READ_CHAR);
 
-                // read translated script
-                setTextDelayed(translationSpeakerTextView, translatedScript, DELAY_GAME_READ_CHAR);
+            // read translated script
+            setTextDelayed(translationSpeakerTextView, translatedScript, DELAY_GAME_READ_CHAR);
 
-                // change turn to enemy
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        playEnemyTurn();
-                    }
-                }, enemyScenario.getDuration(scriptIndex));
-            }
+            // change turn to enemy
+            Handler handler1 = new Handler(Looper.getMainLooper());
+            handler1.postDelayed(this::playEnemyTurn, enemyScenario.getDuration(scriptIndex));
         }, DELAY_GAME_ANIMATION_SHORT);
     }
 
@@ -1021,15 +922,12 @@ public class PajamasActivity extends AppCompatActivity {
         final int randomIterator = random.nextInt(5);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // unlock enemy button
-                isEnemyButtonLocked = false;
+        handler.postDelayed(() -> {
+            // unlock enemy button
+            isEnemyButtonLocked = false;
 
-                // animate enemy progress bar
-                animateEnemyProgressBar(randomIterator, randomDamage);
-            }
+            // animate enemy progress bar
+            animateEnemyProgressBar(randomIterator, randomDamage);
         }, DELAY_GAME_ANIMATION_DEFAULT);
     }
 
@@ -1049,28 +947,25 @@ public class PajamasActivity extends AppCompatActivity {
         // set value animator attributes
         valueAnimatorProgress.setDuration(duration);
         valueAnimatorProgress.setInterpolator(new LinearInterpolator());
-        valueAnimatorProgress.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (isEnemyButtonLocked)
-                    return;
+        valueAnimatorProgress.addUpdateListener(animation -> {
+            if (isEnemyButtonLocked)
+                return;
 
-                enemyProgressBar.setMax(maxProgress);
-                float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
-                int progress = (int) animatedValue; // convert float to int
-                enemyProgressBar.setProgress(progress);
+            enemyProgressBar.setMax(maxProgress);
+            float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
+            int progress = (int) animatedValue; // convert float to int
+            enemyProgressBar.setProgress(progress);
 
-                int progressDamage = (10 * enemyProgressBar.getProgress()) / enemyProgressBar.getWidth();
-                if (repeatCount == 0 && damage == progressDamage) {
-                    // lock enemy button
-                    isEnemyButtonLocked = true;
+            int progressDamage = (10 * enemyProgressBar.getProgress()) / enemyProgressBar.getWidth();
+            if (repeatCount == 0 && damage == progressDamage) {
+                // lock enemy button
+                isEnemyButtonLocked = true;
 
-                    // cancel animator
-                    cancelProgressAnimator();
+                // cancel animator
+                cancelProgressAnimator();
 
-                    // animate player ttakji shiver
-                    animatePlayerTtakjiShiver(DIRECTION_TO_RIGHT, damage);
-                }
+                // animate player ttakji shiver
+                animatePlayerTtakjiShiver(DIRECTION_TO_RIGHT, damage);
             }
         });
         valueAnimatorProgress.addListener(new AnimatorListenerAdapter() {
@@ -1174,16 +1069,13 @@ public class PajamasActivity extends AppCompatActivity {
             final long delay = isSlow ? DELAY_GAME_READ_CHAR_SLOW : DELAY_GAME_READ_CHAR;
 
             Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // read script
-                    for (int j = 1; j <= script.length(); j++)
-                        setTextDelayed(enemySpeakerTextView, script.subSequence(0, j), j * delay);
+            handler.postDelayed(() -> {
+                // read script
+                for (int j = 1; j <= script.length(); j++)
+                    setTextDelayed(enemySpeakerTextView, script.subSequence(0, j), j * delay);
 
-                    // read translated script
-                    setTextDelayed(translationSpeakerTextView, translatedScript, delay);
-                }
+                // read translated script
+                setTextDelayed(translationSpeakerTextView, translatedScript, delay);
             }, totalDuration);
 
             // calculate total duration
@@ -1192,22 +1084,19 @@ public class PajamasActivity extends AppCompatActivity {
 
         // result
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // case player win
-                if (enemyHP == 0) {
-                    SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                    final boolean isGameDifficultyHard = prefs.getBoolean(KEY_IS_GAME_DIFFICULTY_HARD, false);
-                    int gameRewardItemCode = new PrefsController(context).addRandomItemPrefs(isGameDifficultyHard ? REWARD_TYPE_GAME_ITEM_HARD : REWARD_TYPE_GAME_ITEM_EASY);
-                    DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_WIN_PAJAMAS);
-                    defaultDialogFragment.show(getSupportFragmentManager(), Converter.getItemName(context, gameRewardItemCode));
-                }
-                // case enemy win
-                else {
-                    setResult(-1);
-                    finish();
-                }
+        handler.postDelayed(() -> {
+            // case player win
+            if (enemyHP == 0) {
+                SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                final boolean isGameDifficultyHard = prefs.getBoolean(KEY_IS_GAME_DIFFICULTY_HARD, false);
+                int gameRewardItemCode = new PrefsController(context).addRandomItemPrefs(isGameDifficultyHard ? REWARD_TYPE_GAME_ITEM_HARD : REWARD_TYPE_GAME_ITEM_EASY);
+                DefaultDialogFragment defaultDialogFragment = new DefaultDialogFragment(DIALOG_TYPE_WIN_PAJAMAS);
+                defaultDialogFragment.show(getSupportFragmentManager(), Converter.getItemName(context, gameRewardItemCode));
+            }
+            // case enemy win
+            else {
+                setResult(-1);
+                finish();
             }
         }, totalDuration + DELAY_GAME_ANIMATION_SHORT);
     }
@@ -1223,13 +1112,10 @@ public class PajamasActivity extends AppCompatActivity {
 
     private void setTextDelayed(final TextView speakerTextView, final CharSequence message, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (speakerTextView != null) {
-                    speakerTextView.setVisibility(View.VISIBLE);
-                    speakerTextView.setText(message);
-                }
+        handler.postDelayed(() -> {
+            if (speakerTextView != null) {
+                speakerTextView.setVisibility(View.VISIBLE);
+                speakerTextView.setText(message);
             }
         }, delay);
     }

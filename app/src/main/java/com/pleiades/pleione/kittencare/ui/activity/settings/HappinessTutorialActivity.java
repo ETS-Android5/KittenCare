@@ -19,7 +19,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.pleiades.pleione.kittencare.R;
 import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
@@ -82,38 +85,26 @@ public class HappinessTutorialActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
 
         // initialize view pager
-        final ViewPager viewPager = findViewById(R.id.pager_happiness_tutorial);
-        HappinessTutorialFragmentPagerAdapter contentsPagerAdapter = new HappinessTutorialFragmentPagerAdapter(getSupportFragmentManager(), 7);
+        final ViewPager2 viewPager = findViewById(R.id.pager_happiness_tutorial);
+        HappinessTutorialFragmentStateAdapter contentsPagerAdapter = new HappinessTutorialFragmentStateAdapter(getSupportFragmentManager(), getLifecycle());
         viewPager.setAdapter(contentsPagerAdapter);
 
         // initialize right image button
         final ImageButton rightImageButton = findViewById(R.id.next_happiness_tutorial);
         rightImageButton.setVisibility(View.VISIBLE);
-        rightImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-            }
-        });
+        rightImageButton.setOnClickListener(view -> viewPager.setCurrentItem(viewPager.getCurrentItem() + 1));
 
         // initialize left image button
         final ImageButton leftImageButton = findViewById(R.id.prev_happiness_tutorial);
         leftImageButton.setVisibility(View.INVISIBLE);
-        leftImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-            }
-        });
+        leftImageButton.setOnClickListener(view -> viewPager.setCurrentItem(viewPager.getCurrentItem() - 1));
 
         // set page change listener
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
                 // set visibility
                 if (position == 0) {
                     leftImageButton.setVisibility(View.INVISIBLE);
@@ -125,10 +116,6 @@ public class HappinessTutorialActivity extends AppCompatActivity {
                     leftImageButton.setVisibility(View.VISIBLE);
                     rightImageButton.setVisibility(View.VISIBLE);
                 }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
             }
         });
     }
@@ -219,13 +206,10 @@ public class HappinessTutorialActivity extends AppCompatActivity {
 
     private void changeKittenFace(final int faceCode, int delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (ImageView faceImageView : kittenFaceImageViewList) {
-                    if (faceImageView != null)
-                        faceImageView.setImageResource(getFaceResourceId(faceCode));
-                }
+        handler.postDelayed(() -> {
+            for (ImageView faceImageView : kittenFaceImageViewList) {
+                if (faceImageView != null)
+                    faceImageView.setImageResource(getFaceResourceId(faceCode));
             }
         }, delay);
     }
@@ -299,17 +283,15 @@ public class HappinessTutorialActivity extends AppCompatActivity {
         }
     }
 
-    private static class HappinessTutorialFragmentPagerAdapter extends FragmentStatePagerAdapter {
-        private final int pageCount;
+    private static class HappinessTutorialFragmentStateAdapter extends FragmentStateAdapter {
 
-        HappinessTutorialFragmentPagerAdapter(FragmentManager manager, int pageCount) {
-            super(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            this.pageCount = pageCount;
+        public HappinessTutorialFragmentStateAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+            super(fragmentManager, lifecycle);
         }
 
         @NonNull
         @Override
-        public Fragment getItem(int position) {
+        public Fragment createFragment(int position) {
             switch (position) {
                 case 0:
                     return new HappinessTutorialFragment();
@@ -329,8 +311,8 @@ public class HappinessTutorialActivity extends AppCompatActivity {
         }
 
         @Override
-        public int getCount() {
-            return pageCount;
+        public int getItemCount() {
+            return 7;
         }
     }
 }

@@ -95,8 +95,6 @@ public class InputDialogFragment extends androidx.fragment.app.DialogFragment {
     public void onStart() {
         super.onStart();
 
-//        int margin = getResources().getDimensionPixelSize(R.dimen.margin_dialog_default);
-//        int width = (new DeviceController(context)).getWidthMax() - margin;
         int width = (int) ((new DeviceController(context)).getWidthMax() * 0.85);
         int height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -106,18 +104,10 @@ public class InputDialogFragment extends androidx.fragment.app.DialogFragment {
 
             // request focus
             inputEditText = dialog.findViewById(R.id.edit_dialog_input);
-            inputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    inputEditText.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                            inputMethodManager.showSoftInput(inputEditText, InputMethodManager.SHOW_IMPLICIT);
-                        }
-                    });
-                }
-            });
+            inputEditText.setOnFocusChangeListener((v, hasFocus) -> inputEditText.post(() -> {
+                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.showSoftInput(inputEditText, InputMethodManager.SHOW_IMPLICIT);
+            }));
             inputEditText.requestFocus();
         }
     }

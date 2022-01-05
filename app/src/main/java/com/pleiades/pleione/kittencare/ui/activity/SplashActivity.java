@@ -33,6 +33,8 @@ import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_PLEIONE_DOLL;
 import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_SCRATCHER;
 import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_TOWER;
 import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ALCHEMIST;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SEER;
 import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
 import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
@@ -99,6 +101,8 @@ public class SplashActivity extends AppCompatActivity {
         editor.putInt(KEY_GAME_TICKET_PAJAMAS, TICKET_MAX);
         editor.putInt(KEY_GAME_TICKET_PLEIADES, TICKET_MAX);
         editor.putInt(KEY_GAME_TICKET_DINOSAUR, TICKET_MAX);
+        editor.putBoolean(KEY_COSTUME_ALCHEMIST, true);
+        editor.putBoolean(KEY_COSTUME_SEER, true);
         editor.remove(KEY_BUFF);
         editor.apply();
     }

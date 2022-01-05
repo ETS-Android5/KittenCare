@@ -9,7 +9,7 @@
         android:id="@+id/appbar_tutorial"
         layout="@layout/include_appbar_sub" />
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager_tutorial"
         android:layout_width="match_parent"
         android:layout_height="0dp"

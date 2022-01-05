@@ -356,12 +356,7 @@ public class AlchemyActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(from, to);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                kittenView.setY((Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimator.addUpdateListener(animation -> kittenView.setY((Float) animation.getAnimatedValue()));
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -413,24 +408,18 @@ public class AlchemyActivity extends AppCompatActivity {
 
     private void changeAlchemistFace(final int faceCode, int delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (faceImageView != null)
-                    faceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (faceImageView != null)
+                faceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 
     private void setTextDelayed(final TextView textView, final CharSequence charSequence, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(textView != null){
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setText(charSequence);
-                }
+        handler.postDelayed(() -> {
+            if(textView != null){
+                textView.setVisibility(View.VISIBLE);
+                textView.setText(charSequence);
             }
         }, delay);
     }

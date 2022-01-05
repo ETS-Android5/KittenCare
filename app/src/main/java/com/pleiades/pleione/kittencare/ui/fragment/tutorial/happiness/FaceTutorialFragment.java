@@ -134,12 +134,9 @@ public class FaceTutorialFragment extends Fragment {
         leftValueAnimator = ValueAnimator.ofFloat(from, to);
         leftValueAnimator.setDuration(duration);
         leftValueAnimator.setInterpolator(new DecelerateInterpolator());
-        leftValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set kitten x
-                leftKittenView.setX((Float) animation.getAnimatedValue());
-            }
+        leftValueAnimator.addUpdateListener(animation -> {
+            // set kitten x
+            leftKittenView.setX((Float) animation.getAnimatedValue());
         });
         leftValueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -173,12 +170,9 @@ public class FaceTutorialFragment extends Fragment {
         leftValueAnimator = ValueAnimator.ofFloat(from, to);
         leftValueAnimator.setDuration(duration);
         leftValueAnimator.setInterpolator(new DecelerateInterpolator());
-        leftValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set kitten y
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-            }
+        leftValueAnimator.addUpdateListener(animation -> {
+            // set kitten y
+            leftKittenView.setY((Float) animation.getAnimatedValue());
         });
         leftValueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -209,26 +203,10 @@ public class FaceTutorialFragment extends Fragment {
         leftValueAnimator = ValueAnimator.ofFloat(from, to);
         leftValueAnimator.setDuration(duration);
         leftValueAnimator.setInterpolator(new AccelerateInterpolator());
-        leftValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set kitten y
-                leftKittenView.setY((Float) animation.getAnimatedValue());
-            }
+        leftValueAnimator.addUpdateListener(animation -> {
+            // set kitten y
+            leftKittenView.setY((Float) animation.getAnimatedValue());
         });
-//        leftValueAnimator.addListener(new AnimatorListenerAdapter() {
-//            @Override
-//            public void onAnimationEnd(Animator animation) {
-//                Handler handler = new Handler(Looper.getMainLooper());
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        if (leftFaceImageView != null)
-//                            leftFaceImageView.setImageResource(Converter.getFaceResourceId(FACE_CODE_DEFAULT));
-//                    }
-//                }, DELAY_FACE_MAINTAIN);
-//            }
-//        });
 
         // start animation
         leftValueAnimator.start();
@@ -312,12 +290,9 @@ public class FaceTutorialFragment extends Fragment {
 
     public void changeKittenFace(final int faceCode, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (rightFaceImageView != null)
-                    rightFaceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (rightFaceImageView != null)
+                rightFaceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 

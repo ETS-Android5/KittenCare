@@ -49,14 +49,11 @@ public class HappinessTutorialFragment extends Fragment {
         progressValueAnimator = ValueAnimator.ofInt(0, 100);
         progressValueAnimator.setDuration(1000);
         progressValueAnimator.setInterpolator(new AccelerateInterpolator());
-        progressValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int progress = (int) animation.getAnimatedValue();
-                happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, progress >= 50 ? R.drawable.drawable_progress : R.drawable.drawable_progress_blue));
-                happinessProgressBar.setProgress(progress);
-                happinessProgressTextView.setText(String.format(Locale.getDefault(), "%02d/100", progress));
-            }
+        progressValueAnimator.addUpdateListener(animation -> {
+            int progress = (int) animation.getAnimatedValue();
+            happinessProgressBar.setProgressDrawable(AppCompatResources.getDrawable(context, progress >= 50 ? R.drawable.drawable_progress : R.drawable.drawable_progress_blue));
+            happinessProgressBar.setProgress(progress);
+            happinessProgressTextView.setText(String.format(Locale.getDefault(), "%02d/100", progress));
         });
 
         // start progress value animtor

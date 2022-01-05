@@ -105,25 +105,22 @@ public class MainActivity extends AppCompatActivity implements BillingProcessor.
         }
         // case ticket rewarded ad is loaded
         else {
-            AdvertisementController.ticketRewardedAd.show(activity, new OnUserEarnedRewardListener() {
-                @Override
-                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    // initialize game ticket array list
-                    ArrayList<GameTicket> gameTicketArrayList = new ArrayList<>();
-                    gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_PAJAMAS));
-                    gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_PLEIADES));
-                    gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_DINOSAUR));
+            AdvertisementController.ticketRewardedAd.show(activity, rewardItem -> {
+                // initialize game ticket array list
+                ArrayList<GameTicket> gameTicketArrayList = new ArrayList<>();
+                gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_PAJAMAS));
+                gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_PLEIADES));
+                gameTicketArrayList.add(new GameTicket(KEY_GAME_TICKET_DINOSAUR));
 
-                    // initialize minimum index
-                    int minimumIndex = 0;
-                    for (int i = 0; i < gameTicketArrayList.size(); i++) {
-                        if (gameTicketArrayList.get(i).count < gameTicketArrayList.get(minimumIndex).count)
-                            minimumIndex = i;
-                    }
-
-                    // add game ticket
-                    gameTicketArrayList.get(minimumIndex).addGameTicket();
+                // initialize minimum index
+                int minimumIndex = 0;
+                for (int i = 0; i < gameTicketArrayList.size(); i++) {
+                    if (gameTicketArrayList.get(i).count < gameTicketArrayList.get(minimumIndex).count)
+                        minimumIndex = i;
                 }
+
+                // add game ticket
+                gameTicketArrayList.get(minimumIndex).addGameTicket();
             });
         }
     }

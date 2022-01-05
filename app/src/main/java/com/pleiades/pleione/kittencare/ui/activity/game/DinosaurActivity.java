@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -175,16 +176,13 @@ public class DinosaurActivity extends AppCompatActivity {
         sunflowerFaceImageView.setImageResource(R.drawable.image_face_surprised);
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // case layout is not loaded yet
-                if (dinoView.getX() == 0) {
-                    startStory();
-                } else {
-                    // animate kittens long jump up right
-                    animateKittensLongJumpUpRight();
-                }
+        handler.postDelayed(() -> {
+            // case layout is not loaded yet
+            if (dinoView.getX() == 0) {
+                startStory();
+            } else {
+                // animate kittens long jump up right
+                animateKittensLongJumpUpRight();
             }
         }, shortAnimationDelay);
     }
@@ -208,21 +206,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 3)
-                    dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 3)
+                dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 3)
-                    dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 3)
+                dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -261,21 +253,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 3)
-                    dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 3)
+                dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 3)
-                    dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 3)
+                dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -299,12 +285,9 @@ public class DinosaurActivity extends AppCompatActivity {
                     animationCount = 0;
 
                     Handler handler = new Handler(Looper.getMainLooper());
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // animate kittens long jump up left
-                            animateKittensLongJumpUpLeft();
-                        }
+                    handler.postDelayed(() -> {
+                        // animate kittens long jump up left
+                        animateKittensLongJumpUpLeft();
                     }, longAnimationDelay);
                 } else {
                     // animate kittens long jump up right
@@ -336,21 +319,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 2)
-                    dinoView.setX(fromDinoX - (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 2)
+                dinoView.setX(fromDinoX - (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX - (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 2)
-                    dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 2)
+                dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -389,21 +366,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 2)
-                    dinoView.setX(fromDinoX - (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 2)
+                dinoView.setX(fromDinoX - (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX - (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 2)
-                    dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 2)
+                dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -427,12 +398,9 @@ public class DinosaurActivity extends AppCompatActivity {
                     animationCount = 0;
 
                     Handler handler = new Handler(Looper.getMainLooper());
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            // animate kittens long jump up right again
-                            animateKittensLongJumpUpRightAgain();
-                        }
+                    handler.postDelayed(() -> {
+                        // animate kittens long jump up right again
+                        animateKittensLongJumpUpRightAgain();
                     }, longAnimationDelay);
                 } else {
                     // animate kittens long jump up left
@@ -468,21 +436,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 1)
-                    dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 1)
+                dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 1)
-                    dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 1)
+                dinoView.setY(fromDinoY - (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY - (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -529,21 +491,15 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 1)
-                    dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
-                sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            if (animationCount >= 1)
+                dinoView.setX(fromDinoX + (Float) animation.getAnimatedValue());
+            sunflowerView.setX(fromSunflowerX + (Float) animation.getAnimatedValue());
         });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (animationCount >= 1)
-                    dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
-                sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            if (animationCount >= 1)
+                dinoView.setY(fromDinoY + (Float) animation.getAnimatedValue());
+            sunflowerView.setY(fromSunflowerY + (Float) animation.getAnimatedValue());
         });
 
         // initialize animator set
@@ -602,12 +558,9 @@ public class DinosaurActivity extends AppCompatActivity {
         valueAnimatorCloud = ValueAnimator.ofFloat(from, to);
         valueAnimatorCloud.setDuration(duration);
         valueAnimatorCloud.setInterpolator(new LinearInterpolator());
-        valueAnimatorCloud.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set cloud x
-                cloudImageView.setX((Float) animation.getAnimatedValue());
-            }
+        valueAnimatorCloud.addUpdateListener(animation -> {
+            // set cloud x
+            cloudImageView.setX((Float) animation.getAnimatedValue());
         });
         valueAnimatorCloud.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -643,16 +596,13 @@ public class DinosaurActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new DecelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set dino y
-                if (isDinoUp)
-                    dinoView.setY(from - (Float) animation.getAnimatedValue());
+        valueAnimatorY.addUpdateListener(animation -> {
+            // set dino y
+            if (isDinoUp)
+                dinoView.setY(from - (Float) animation.getAnimatedValue());
 
-                // set sunflower y
-                sunflowerView.setY(from - (Float) animation.getAnimatedValue());
-            }
+            // set sunflower y
+            sunflowerView.setY(from - (Float) animation.getAnimatedValue());
         });
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -701,14 +651,11 @@ public class DinosaurActivity extends AppCompatActivity {
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
         valueAnimatorY.setDuration(duration);
         valueAnimatorY.setInterpolator(new AccelerateInterpolator());
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set kittens y
-                if (isDinoUp)
-                    dinoView.setY(from + (Float) animation.getAnimatedValue());
-                sunflowerView.setY(from + (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorY.addUpdateListener(animation -> {
+            // set kittens y
+            if (isDinoUp)
+                dinoView.setY(from + (Float) animation.getAnimatedValue());
+            sunflowerView.setY(from + (Float) animation.getAnimatedValue());
         });
         valueAnimatorY.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -766,42 +713,33 @@ public class DinosaurActivity extends AppCompatActivity {
         Handler handler = new Handler(Looper.getMainLooper());
 
         // read dino chase script
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 1; i <= dinoScript.length(); i++)
-                    setTextDelayed(dinoSpeakerTextView, dinoScript.subSequence(0, i), i * readCharDelay);
-                setTextDelayed(translationSpeakerTextView, translatedDinoScript, readCharDelay);
-            }
+        handler.postDelayed(() -> {
+            for (int i = 1; i <= dinoScript.length(); i++)
+                setTextDelayed(dinoSpeakerTextView, dinoScript.subSequence(0, i), i * readCharDelay);
+            setTextDelayed(translationSpeakerTextView, translatedDinoScript, readCharDelay);
         }, isOpeningSkipped ? 0 : totalDuration);
 
         // add total duration
         totalDuration += dinoDuration;
 
         // read sunflower chase script
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                dinoSpeakerTextView.setVisibility(View.INVISIBLE);
+        handler.postDelayed(() -> {
+            dinoSpeakerTextView.setVisibility(View.INVISIBLE);
 
-                for (int i = 1; i <= sunflowerScript.length(); i++)
-                    setTextDelayed(sunflowerSpeakerTextView, sunflowerScript.subSequence(0, i), i * readCharDelay);
-                setTextDelayed(translationSpeakerTextView, translatedSunflowerScript, readCharDelay);
-            }
+            for (int i = 1; i <= sunflowerScript.length(); i++)
+                setTextDelayed(sunflowerSpeakerTextView, sunflowerScript.subSequence(0, i), i * readCharDelay);
+            setTextDelayed(translationSpeakerTextView, translatedSunflowerScript, readCharDelay);
         }, isOpeningSkipped ? 0 : totalDuration);
 
         // add total duration
         totalDuration += sunflowerDuration;
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                sunflowerSpeakerTextView.setVisibility(View.INVISIBLE);
-                translationSpeakerTextView.setVisibility(View.INVISIBLE);
+        handler.postDelayed(() -> {
+            sunflowerSpeakerTextView.setVisibility(View.INVISIBLE);
+            translationSpeakerTextView.setVisibility(View.INVISIBLE);
 
-                // animate game objects appear
-                animateGameObjectsAppear();
-            }
+            // animate game objects appear
+            animateGameObjectsAppear();
         }, isOpeningSkipped ? 0 : totalDuration);
     }
 
@@ -845,36 +783,33 @@ public class DinosaurActivity extends AppCompatActivity {
 
         // initialize button touch listener
         Button button = findViewById(R.id.button_dinosaur);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isDinoFalling || (successCount == 20))
-                    return;
+        button.setOnClickListener(v -> {
+            if (isDinoFalling || (successCount == 20))
+                return;
 
-                // cancel animator progress
-                cancelAnimatorProgress();
+            // cancel animator progress
+            cancelAnimatorProgress();
 
-                // initialize progress
-                int progressX = progressBar.getProgress() + (int) progressBar.getX();
-                if (progressX >= targetRangeMin && progressX <= targetRangeMax) {
-                    // count success
-                    successCount++;
+            // initialize progress
+            int progressX = progressBar.getProgress() + (int) progressBar.getX();
+            if (progressX >= targetRangeMin && progressX <= targetRangeMax) {
+                // count success
+                successCount++;
 
-                    // case success
-                    if (successCount == 20) {
-                        // set is dino succeed true
-                        isDinoSucceed = true;
+                // case success
+                if (successCount == 20) {
+                    // set is dino succeed true
+                    isDinoSucceed = true;
 
-                        // animate game objects disappear
-                        animateGameObjectsDisappear(true);
-                    } else {
-                        // animate progress bar
-                        animateProgressBar(); // initialize progress bar animation
-                    }
+                    // animate game objects disappear
+                    animateGameObjectsDisappear(true);
                 } else {
-                    // set is dino falling true
-                    isDinoFalling = true;
+                    // animate progress bar
+                    animateProgressBar(); // initialize progress bar animation
                 }
+            } else {
+                // set is dino falling true
+                isDinoFalling = true;
             }
         });
 
@@ -912,13 +847,10 @@ public class DinosaurActivity extends AppCompatActivity {
         valueAnimatorProgress = ValueAnimator.ofFloat(0, distance);
         valueAnimatorProgress.setDuration(duration);
         valueAnimatorProgress.setInterpolator(new LinearInterpolator());
-        valueAnimatorProgress.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // initialize progress
-                float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
-                progressBar.setProgress((int) animatedValue);
-            }
+        valueAnimatorProgress.addUpdateListener(animation -> {
+            // initialize progress
+            float animatedValue = (Float) animation.getAnimatedValue(); // convert Float to float
+            progressBar.setProgress((int) animatedValue);
         });
         valueAnimatorProgress.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -974,12 +906,9 @@ public class DinosaurActivity extends AppCompatActivity {
         valueAnimatorX = ValueAnimator.ofFloat(0, distance);
         valueAnimatorX.setDuration(duration);
         valueAnimatorX.setInterpolator(new LinearInterpolator());
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set dino x
-                dinoView.setX(from - (Float) animation.getAnimatedValue());
-            }
+        valueAnimatorX.addUpdateListener(animation -> {
+            // set dino x
+            dinoView.setX(from - (Float) animation.getAnimatedValue());
         });
         valueAnimatorX.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -1010,18 +939,8 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                sunflowerView.setX(fromX + (Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                sunflowerView.setY(fromY - (Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> sunflowerView.setX(fromX + (Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> sunflowerView.setY(fromY - (Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -1057,18 +976,8 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                sunflowerView.setX(fromX + (Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                sunflowerView.setY(fromY + (Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> sunflowerView.setX(fromX + (Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> sunflowerView.setY(fromY + (Float) animation.getAnimatedValue()));
 
         // initialize animator set
         animatorSet = new AnimatorSet();
@@ -1107,18 +1016,8 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         ValueAnimator valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                dinoView.setX(fromX + (Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                dinoView.setY(fromY - (Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> dinoView.setX(fromX + (Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> dinoView.setY(fromY - (Float) animation.getAnimatedValue()));
 
         // initialize animator set
         AnimatorSet animatorSet = new AnimatorSet();
@@ -1154,18 +1053,8 @@ public class DinosaurActivity extends AppCompatActivity {
         // initialize value animator x, y
         ValueAnimator valueAnimatorX = ValueAnimator.ofFloat(0, distanceX);
         ValueAnimator valueAnimatorY = ValueAnimator.ofFloat(0, distanceY);
-        valueAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                dinoView.setX(fromX + (Float) animation.getAnimatedValue());
-            }
-        });
-        valueAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                dinoView.setY(fromY + (Float) animation.getAnimatedValue());
-            }
-        });
+        valueAnimatorX.addUpdateListener(animation -> dinoView.setX(fromX + (Float) animation.getAnimatedValue()));
+        valueAnimatorY.addUpdateListener(animation -> dinoView.setY(fromY + (Float) animation.getAnimatedValue()));
 
         // initialize animator set
         AnimatorSet animatorSet = new AnimatorSet();
@@ -1176,18 +1065,15 @@ public class DinosaurActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // change face default
-                        dinoFaceImageView.setImageResource(getFaceResourceId(FACE_CODE_SURPRISED));
-                        setFaceDelayed(FACE_CODE_MEOW_1, 40);
-                        setFaceDelayed(FACE_CODE_MEOW_2, 80);
-                        setFaceDelayed(FACE_CODE_DEFAULT, 120);
+                handler.postDelayed(() -> {
+                    // change face default
+                    dinoFaceImageView.setImageResource(getFaceResourceId(FACE_CODE_SURPRISED));
+                    setFaceDelayed(FACE_CODE_MEOW_1, 40);
+                    setFaceDelayed(FACE_CODE_MEOW_2, 80);
+                    setFaceDelayed(FACE_CODE_DEFAULT, 120);
 
-                        // animate dino sniff
-                        animateDinoSniff();
-                    }
+                    // animate dino sniff
+                    animateDinoSniff();
                 }, defaultAnimationDelay);
             }
         });
@@ -1205,32 +1091,24 @@ public class DinosaurActivity extends AppCompatActivity {
         long duration = calculateDuration(4 * dinoView.getHeight());
 
         // initialize rotate object animator
-        final ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(dinoView, "rotation", 0, SNIFF_ANGLE_RIGHT);
+        @SuppressLint("Recycle") final ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(dinoView, "rotation", 0, SNIFF_ANGLE_RIGHT);
         objectAnimator.setDuration(duration);
         objectAnimator.setInterpolator(new AccelerateInterpolator());
         objectAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // animate dino sniff back
-                        animateDinoSniffBack();
-                    }
+                handler.postDelayed(() -> {
+                    // animate dino sniff back
+                    animateDinoSniffBack();
                 }, defaultAnimationDelay);
             }
         });
 
 
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // start kitten animation
-                objectAnimator.start();
-            }
-        }, defaultAnimationDelay);
+        // start kitten animation
+        handler.postDelayed(objectAnimator::start, defaultAnimationDelay);
     }
 
     private void animateDinoSniffBack() {
@@ -1245,15 +1123,12 @@ public class DinosaurActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // set dino face sparkle
-                        dinoFaceImageView.setImageResource(R.drawable.image_face_sparkle);
+                handler.postDelayed(() -> {
+                    // set dino face sparkle
+                    dinoFaceImageView.setImageResource(R.drawable.image_face_sparkle);
 
-                        // animate dino jump up
-                        animateDinoJumpUp();
-                    }
+                    // animate dino jump up
+                    animateDinoJumpUp();
                 }, defaultAnimationDelay);
             }
         });
@@ -1275,12 +1150,9 @@ public class DinosaurActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, distance);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set dino y
-                dinoView.setY(from - (Float) animation.getAnimatedValue());
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            // set dino y
+            dinoView.setY(from - (Float) animation.getAnimatedValue());
         });
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -1307,23 +1179,15 @@ public class DinosaurActivity extends AppCompatActivity {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, distance);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new AccelerateInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // set dino y
-                dinoView.setY(from + (Float) animation.getAnimatedValue());
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            // set dino y
+            dinoView.setY(from + (Float) animation.getAnimatedValue());
         });
         valueAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        finishGame(true);
-                    }
-                }, shortAnimationDelay);
+                handler.postDelayed(() -> finishGame(true), shortAnimationDelay);
             }
         });
 
@@ -1382,13 +1246,10 @@ public class DinosaurActivity extends AppCompatActivity {
 
                 // read script
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (int j = 1; j <= script.length(); j++)
-                            setTextDelayed(sunflowerSpeakerTextView, script.subSequence(0, j), j * readCharDelay);
-                        setTextDelayed(translationSpeakerTextView, translatedScript, readCharDelay);
-                    }
+                handler.postDelayed(() -> {
+                    for (int j = 1; j <= script.length(); j++)
+                        setTextDelayed(sunflowerSpeakerTextView, script.subSequence(0, j), j * readCharDelay);
+                    setTextDelayed(translationSpeakerTextView, translatedScript, readCharDelay);
                 }, totalDuration);
 
                 // calculate total duration
@@ -1397,12 +1258,9 @@ public class DinosaurActivity extends AppCompatActivity {
 
             // finish activity
             Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    setResult(-1);
-                    finish();
-                }
+            handler.postDelayed(() -> {
+                setResult(-1);
+                finish();
             }, totalDuration + shortAnimationDelay);
         }
     }
@@ -1433,26 +1291,20 @@ public class DinosaurActivity extends AppCompatActivity {
 
     private void setTextDelayed(final TextView speakerTextView, final CharSequence message, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (speakerTextView != null) {
-                    if (isOpeningFinished || !isOpeningSkipped)
-                        speakerTextView.setVisibility(View.VISIBLE);
-                    speakerTextView.setText(message);
-                }
+        handler.postDelayed(() -> {
+            if (speakerTextView != null) {
+                if (isOpeningFinished || !isOpeningSkipped)
+                    speakerTextView.setVisibility(View.VISIBLE);
+                speakerTextView.setText(message);
             }
         }, delay);
     }
 
     private void setFaceDelayed(final int faceCode, long delay) {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (dinoFaceImageView != null)
-                    dinoFaceImageView.setImageResource(getFaceResourceId(faceCode));
-            }
+        handler.postDelayed(() -> {
+            if (dinoFaceImageView != null)
+                dinoFaceImageView.setImageResource(getFaceResourceId(faceCode));
         }, delay);
     }
 

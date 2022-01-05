@@ -122,20 +122,17 @@ public class DetailActivity extends AppCompatActivity {
                 arrowImageView = itemView.findViewById(R.id.arrow_recycler_setting_switch);
 
                 // set item view on click listener
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // initialize position
-                        int position = getBindingAdapterPosition();
-                        if (position == RecyclerView.NO_POSITION)
-                            return;
+                itemView.setOnClickListener(v -> {
+                    // initialize position
+                    int position = getBindingAdapterPosition();
+                    if (position == RecyclerView.NO_POSITION)
+                        return;
 
-                        if (position == DETAIL_POSITION_RENAME) {
-                            InputDialogFragment inputDialogFragment = new InputDialogFragment(DIALOG_TYPE_RENAME);
-                            inputDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_RENAME));
-                        } else if (position == DETAIL_POSITION_MODIFY_COORDINATES) {
-                            new ToastController(context).showToast(getString(R.string.toast_todo), Toast.LENGTH_SHORT);
-                        }
+                    if (position == DETAIL_POSITION_RENAME) {
+                        InputDialogFragment inputDialogFragment = new InputDialogFragment(DIALOG_TYPE_RENAME);
+                        inputDialogFragment.show(getSupportFragmentManager(), Integer.toString(DIALOG_TYPE_RENAME));
+                    } else if (position == DETAIL_POSITION_MODIFY_COORDINATES) {
+                        new ToastController(context).showToast(getString(R.string.toast_todo), Toast.LENGTH_SHORT);
                     }
                 });
             }
@@ -143,13 +140,13 @@ public class DetailActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public DetailSettingsRecyclerAdapter.DetailSettingsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public DetailSettingsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(context).inflate(R.layout.recycler_setting_switch, parent, false);
             return new DetailSettingsViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull DetailSettingsRecyclerAdapter.DetailSettingsViewHolder holder, final int position) {
+        public void onBindViewHolder(@NonNull DetailSettingsViewHolder holder, int position) {
             final SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
             final SharedPreferences.Editor editor = prefs.edit();
             DetailSetting detailSetting = detailSettingArrayList.get(position);
@@ -167,25 +164,22 @@ public class DetailActivity extends AppCompatActivity {
             }
 
             // set switch check change listener
-            holder.switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isCheckLocked)
-                        return;
+            holder.switchCompat.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (isCheckLocked)
+                    return;
 
-                    if (position == DETAIL_POSITION_RECOGNIZE_KEYBOARD) {
-                        editor.putBoolean(KEY_IS_RECOGNIZING_KEYBOARD, isChecked);
-                        editor.apply();
+                if (position == DETAIL_POSITION_RECOGNIZE_KEYBOARD) {
+                    editor.putBoolean(KEY_IS_RECOGNIZING_KEYBOARD, isChecked);
+                    editor.apply();
 
-                        // restart kitten service
-                        if (KittenService.kittenView != null) {
-                            context.stopService(new Intent(context, KittenService.class));
-                            context.startService(new Intent(context, KittenService.class));
-                        }
-                    } else if (position == DETAIL_POSITION_DRESS_RANDOM_COSTUME) {
-                        editor.putBoolean(KEY_IS_DRESS_RANDOMLY, isChecked);
-                        editor.apply();
+                    // restart kitten service
+                    if (KittenService.kittenView != null) {
+                        context.stopService(new Intent(context, KittenService.class));
+                        context.startService(new Intent(context, KittenService.class));
                     }
+                } else if (position == DETAIL_POSITION_DRESS_RANDOM_COSTUME) {
+                    editor.putBoolean(KEY_IS_DRESS_RANDOMLY, isChecked);
+                    editor.apply();
                 }
             });
 
