@@ -1,5 +1,16 @@
 package com.pleiades.pleione.kittencare.ui.activity;
 
+import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_PAID;
+import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_COSTUME_FOUND;
+import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
+import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
+import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
+import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PLEIADES;
+import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
+import static com.pleiades.pleione.kittencare.Config.KEY_LAST_LAUNCH_DAY;
+import static com.pleiades.pleione.kittencare.Config.PREFS;
+import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,8 +31,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pleiades.pleione.kittencare.Converter;
 import com.pleiades.pleione.kittencare.R;
@@ -34,17 +43,6 @@ import com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
-
-import static com.pleiades.pleione.kittencare.Config.COSTUME_TYPE_PAID;
-import static com.pleiades.pleione.kittencare.Config.HISTORY_TYPE_COSTUME_FOUND;
-import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
-import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_DINOSAUR;
-import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PAJAMAS;
-import static com.pleiades.pleione.kittencare.Config.KEY_GAME_TICKET_PLEIADES;
-import static com.pleiades.pleione.kittencare.Config.KEY_IS_TUTORIAL_COMPLETED;
-import static com.pleiades.pleione.kittencare.Config.KEY_LAST_LAUNCH_DAY;
-import static com.pleiades.pleione.kittencare.Config.PREFS;
-import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
 
 // TODO update game
 public class MainActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {

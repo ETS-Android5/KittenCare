@@ -1,40 +1,5 @@
 package com.pleiades.pleione.kittencare.ui.activity.settings;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.lifecycle.Lifecycle;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.pleiades.pleione.kittencare.R;
-import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ShowTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
-import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import static com.pleiades.pleione.kittencare.Config.DELAY_FACE_MAINTAIN;
 import static com.pleiades.pleione.kittencare.Config.DIALOG_TYPE_SKIP_TUTORIAL;
 import static com.pleiades.pleione.kittencare.Config.FACE_CODE_BLINK_1;
@@ -54,6 +19,39 @@ import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.TUTORIAL_TYPE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Converter.getFaceResourceId;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.pleiades.pleione.kittencare.R;
+import com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment;
+import com.pleiades.pleione.kittencare.ui.fragment.tutorial.ShowTutorialFragment;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TutorialActivity extends AppCompatActivity {
     private Timer timer;

@@ -73,7 +73,6 @@
     </style>
 
     <!-- dialog -->
-    <!-- TODO delete? -->
     <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="buttonStyle">@style/DialogButtonStyle</item>
         <item name="android:windowTitleStyle">@style/DialogTitleStyle</item>

@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -133,7 +134,10 @@ public class KittenService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // TODO implement
             // deprecation
-            kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0);
+            kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> {
+                systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
+                Log.d("test", systemNavigationHide ? "nav hide" : "nav shown");
+            });
         } else {
             kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0);
         }
@@ -306,9 +310,8 @@ public class KittenService extends Service {
                         if (systemNavigationHide)
                             kittenLayoutParams.y = kittenLayoutParams.y + viewHeight / 2;
                     } else {
-                        kittenLayoutParams.y = kittenLayoutParams.y - viewWidth / 2;
                         if (systemNavigationHide)
-                            kittenLayoutParams.x = kittenLayoutParams.x + viewHeight / 2;
+                            kittenLayoutParams.x = kittenLayoutParams.x - viewWidth / 2;
                     }
 
                     // keyboard gap

@@ -1,5 +1,6 @@
 package com.pleiades.pleione.kittencare.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -46,6 +47,7 @@ import static com.pleiades.pleione.kittencare.Config.LEVEL_MAX;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
 import static com.pleiades.pleione.kittencare.Config.TICKET_MAX;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     private Activity activity;
 
