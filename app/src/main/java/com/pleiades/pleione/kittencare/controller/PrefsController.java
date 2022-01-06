@@ -11,6 +11,7 @@ import com.pleiades.pleione.kittencare.object.Costume;
 import com.pleiades.pleione.kittencare.object.History;
 import com.pleiades.pleione.kittencare.object.Item;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -79,7 +80,16 @@ import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_SCRATCHER;
 import static com.pleiades.pleione.kittencare.Config.ITEM_CODE_TOWER;
 import static com.pleiades.pleione.kittencare.Config.ITEM_TYPE_CONSUMPTION;
 import static com.pleiades.pleione.kittencare.Config.KEY_BUFF;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ALCHEMIST;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_ASTRONAUT;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_BEE;
 import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_CHOCO;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_DINOSAUR;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_MAGICIAN;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_MAID;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_PENGUIN;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SEER;
+import static com.pleiades.pleione.kittencare.Config.KEY_COSTUME_SUNFLOWER;
 import static com.pleiades.pleione.kittencare.Config.KEY_EXPERIENCE;
 import static com.pleiades.pleione.kittencare.Config.KEY_HAPPINESS;
 import static com.pleiades.pleione.kittencare.Config.KEY_HISTORY_ARRAY_LIST;
@@ -205,6 +215,22 @@ public class PrefsController {
         addCostume(costumeArrayList, COSTUME_CODE_SEER, COSTUME_TYPE_PAID);
 
         return costumeArrayList;
+    }
+
+    public ArrayList<String> getPaidCostumeKeyArrayList() {
+        ArrayList<String> paidCostumeKeyArrayList = new ArrayList<>();
+
+        paidCostumeKeyArrayList.add(KEY_COSTUME_DINOSAUR);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_BEE);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_PENGUIN);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_SUNFLOWER);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_MAGICIAN);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_ASTRONAUT);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_MAID);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_ALCHEMIST);
+        paidCostumeKeyArrayList.add(KEY_COSTUME_SEER);
+
+        return paidCostumeKeyArrayList;
     }
 
     public ArrayList<Costume> getUnlockedCostumeArrayList() {

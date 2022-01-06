@@ -8,8 +8,8 @@ android {
         applicationId "com.pleiades.pleione.kittencare"
         minSdkVersion 23
         targetSdkVersion 32
-        versionCode 32
-        versionName "1.9.1"
+        versionCode 34
+        versionName "2.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,7 +39,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.8'
 
     // in app billing
-    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+    implementation 'com.android.billingclient:billing:4.0.0'
+    implementation 'com.android.billingclient:billing-ktx:4.0.0'
+    implementation 'com.google.android.gms:play-services-base:18.0.1'
 
     // google ads
     implementation 'com.google.android.gms:play-services-ads:20.5.0'

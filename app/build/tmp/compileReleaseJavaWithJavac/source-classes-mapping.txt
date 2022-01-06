@@ -5,7 +5,6 @@ com/pleiades/pleione/kittencare/BuildConfig.java
 com/pleiades/pleione/kittencare/ui/fragment/dialog/InputDialogFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.dialog.InputDialogFragment
  com.pleiades.pleione.kittencare.ui.fragment.dialog.InputDialogFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.dialog.InputDialogFragment$1$1
  com.pleiades.pleione.kittencare.ui.fragment.dialog.InputDialogFragment$onNegativeClickListener
  com.pleiades.pleione.kittencare.ui.fragment.dialog.InputDialogFragment$onPositiveClickListener
 com/pleiades/pleione/kittencare/ui/fragment/dialog/DefaultDialogFragment.java
@@ -13,26 +12,21 @@ com/pleiades/pleione/kittencare/ui/fragment/dialog/DefaultDialogFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment$1
  com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment$onNegativeClickListener
  com.pleiades.pleione.kittencare.ui.fragment.dialog.DefaultDialogFragment$onPositiveClickListener
-com/pleiades/pleione/kittencare/object/Costume.java
- com.pleiades.pleione.kittencare.object.Costume
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/ShowTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.ShowTutorialFragment
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.ShowTutorialFragment$1
-com/pleiades/pleione/kittencare/Converter.java
- com.pleiades.pleione.kittencare.Converter
+com/pleiades/pleione/kittencare/object/Costume.java
+ com.pleiades.pleione.kittencare.object.Costume
 com/pleiades/pleione/kittencare/ui/activity/settings/DetailActivity.java
  com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity
  com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$1
  com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$DetailSetting
  com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$DetailSettingsRecyclerAdapter
- com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$DetailSettingsRecyclerAdapter$1
  com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$DetailSettingsRecyclerAdapter$DetailSettingsViewHolder
- com.pleiades.pleione.kittencare.ui.activity.settings.DetailActivity$DetailSettingsRecyclerAdapter$DetailSettingsViewHolder$1
+com/pleiades/pleione/kittencare/Converter.java
+ com.pleiades.pleione.kittencare.Converter
 com/pleiades/pleione/kittencare/ui/fragment/home/StatusFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment
  com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment$3
  com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment$HistoryRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.fragment.home.StatusFragment$HistoryRecyclerAdapter$HistoryViewHolder
 com/pleiades/pleione/kittencare/ui/activity/game/PleiadesActivity.java
@@ -40,12 +34,9 @@ com/pleiades/pleione/kittencare/ui/activity/game/PleiadesActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$1
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$10
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$11
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$11$1
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$12
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$13
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$13$1
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$14
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$14$1
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$15
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$16
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$17
@@ -58,55 +49,10 @@ com/pleiades/pleione/kittencare/ui/activity/game/PleiadesActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$23
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$24
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$25
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$26
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$26$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$27
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$28
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$29
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$3
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$30
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$31
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$32
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$32$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$33
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$34
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$35
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$36
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$37
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$38
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$39
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$4
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$40
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$41
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$42
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$43
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$44
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$45
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$45$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$46
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$47
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$48
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$49
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$5
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$50
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$50$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$51
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$52
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$53
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$54
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$55
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$56
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$56$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$57
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$58
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$59
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$6
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$60
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$60$1
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$61
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$62
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$63
- com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$64
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$7
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$8
  com.pleiades.pleione.kittencare.ui.activity.game.PleiadesActivity$9
@@ -118,44 +64,15 @@ com/pleiades/pleione/kittencare/ui/activity/game/PajamasActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$1
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$10
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$10$1
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$11
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$12
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$13
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$14
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$14$1
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$15
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$16
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$17
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$18
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$19
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$2
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$20
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$21
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$22
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$23
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$24
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$25
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$26
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$27
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$28
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$29
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$3
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$30
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$31
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$32
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$32$1
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$33
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$34
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$35
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$36
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$37
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$38
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$39
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$4
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$5
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$6
- com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$6$1
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$7
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$8
  com.pleiades.pleione.kittencare.ui.activity.game.PajamasActivity$9
@@ -165,41 +82,32 @@ com/pleiades/pleione/kittencare/ui/activity/settings/HappinessTutorialActivity.j
  com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity
  com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$1
  com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$2
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$3
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$4
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$5
- com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$HappinessTutorialFragmentPagerAdapter
+ com.pleiades.pleione.kittencare.ui.activity.settings.HappinessTutorialActivity$HappinessTutorialFragmentStateAdapter
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/LevelTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment$1
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.LevelTutorialFragment$4
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/HappinessTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.HappinessTutorialFragment$1
+com/pleiades/pleione/kittencare/ui/activity/settings/ApplicationActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity
+ com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$1
+ com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$ApplicationSettingsRecyclerAdapter
+ com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$ApplicationSettingsRecyclerAdapter$ApplicationSettingsViewHolder
 com/pleiades/pleione/kittencare/controller/AnimationController.java
  com.pleiades.pleione.kittencare.controller.AnimationController
  com.pleiades.pleione.kittencare.controller.AnimationController$1
  com.pleiades.pleione.kittencare.controller.AnimationController$10
  com.pleiades.pleione.kittencare.controller.AnimationController$11
  com.pleiades.pleione.kittencare.controller.AnimationController$12
- com.pleiades.pleione.kittencare.controller.AnimationController$12$1
  com.pleiades.pleione.kittencare.controller.AnimationController$13
- com.pleiades.pleione.kittencare.controller.AnimationController$13$1
  com.pleiades.pleione.kittencare.controller.AnimationController$14
  com.pleiades.pleione.kittencare.controller.AnimationController$15
- com.pleiades.pleione.kittencare.controller.AnimationController$15$1
  com.pleiades.pleione.kittencare.controller.AnimationController$16
- com.pleiades.pleione.kittencare.controller.AnimationController$16$1
  com.pleiades.pleione.kittencare.controller.AnimationController$17
  com.pleiades.pleione.kittencare.controller.AnimationController$18
  com.pleiades.pleione.kittencare.controller.AnimationController$19
- com.pleiades.pleione.kittencare.controller.AnimationController$19$1
  com.pleiades.pleione.kittencare.controller.AnimationController$2
- com.pleiades.pleione.kittencare.controller.AnimationController$20
- com.pleiades.pleione.kittencare.controller.AnimationController$21
- com.pleiades.pleione.kittencare.controller.AnimationController$22
  com.pleiades.pleione.kittencare.controller.AnimationController$3
  com.pleiades.pleione.kittencare.controller.AnimationController$4
  com.pleiades.pleione.kittencare.controller.AnimationController$5
@@ -209,41 +117,20 @@ com/pleiades/pleione/kittencare/controller/AnimationController.java
  com.pleiades.pleione.kittencare.controller.AnimationController$9
  com.pleiades.pleione.kittencare.controller.AnimationController$ActionUnlockAnimatorEndListenerAdapter
  com.pleiades.pleione.kittencare.controller.AnimationController$KittenPositionAnimatorUpdateListener
-com/pleiades/pleione/kittencare/ui/activity/settings/ApplicationActivity.java
- com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity
- com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$1
- com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$ApplicationSettingsRecyclerAdapter
- com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$ApplicationSettingsRecyclerAdapter$ApplicationSettingsViewHolder
- com.pleiades.pleione.kittencare.ui.activity.settings.ApplicationActivity$ApplicationSettingsRecyclerAdapter$ApplicationSettingsViewHolder$1
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/PawTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$1
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$4
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$5
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.PawTutorialFragment$6
 com/pleiades/pleione/kittencare/object/Item.java
  com.pleiades.pleione.kittencare.object.Item
 com/pleiades/pleione/kittencare/ui/fragment/home/GameFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment
  com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$4
- com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$5
  com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$Game
  com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$GamesRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$GamesRecyclerAdapter$GamesViewHolder
- com.pleiades.pleione.kittencare.ui.fragment.home.GameFragment$GamesRecyclerAdapter$GamesViewHolder$1
 com/pleiades/pleione/kittencare/controller/ToastController.java
  com.pleiades.pleione.kittencare.controller.ToastController
-com/pleiades/pleione/kittencare/controller/AdvertisementController.java
- com.pleiades.pleione.kittencare.controller.AdvertisementController
- com.pleiades.pleione.kittencare.controller.AdvertisementController$1
- com.pleiades.pleione.kittencare.controller.AdvertisementController$2
- com.pleiades.pleione.kittencare.controller.AdvertisementController$3
- com.pleiades.pleione.kittencare.controller.AdvertisementController$4
 com/pleiades/pleione/kittencare/ui/activity/game/DinosaurActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$1
@@ -251,7 +138,6 @@ com/pleiades/pleione/kittencare/ui/activity/game/DinosaurActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$11
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$12
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$13
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$13$1
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$14
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$15
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$16
@@ -261,86 +147,52 @@ com/pleiades/pleione/kittencare/ui/activity/game/DinosaurActivity.java
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$2
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$20
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$21
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$22
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$23
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$24
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$25
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$26
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$27
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$28
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$29
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$3
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$30
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$31
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$32
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$33
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$34
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$35
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$36
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$37
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$38
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$39
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$4
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$40
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$41
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$42
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$43
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$44
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$45
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$46
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$46$1
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$47
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$47$1
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$48
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$49
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$49$1
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$5
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$50
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$51
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$52
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$53
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$53$1
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$54
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$55
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$56
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$57
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$58
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$6
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$7
- com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$7$1
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$8
  com.pleiades.pleione.kittencare.ui.activity.game.DinosaurActivity$9
+com/pleiades/pleione/kittencare/controller/AdvertisementController.java
+ com.pleiades.pleione.kittencare.controller.AdvertisementController
+ com.pleiades.pleione.kittencare.controller.AdvertisementController$1
+ com.pleiades.pleione.kittencare.controller.AdvertisementController$2
+ com.pleiades.pleione.kittencare.controller.AdvertisementController$3
+ com.pleiades.pleione.kittencare.controller.AdvertisementController$4
+com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/ExperienceTutorialFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment$1
 com/pleiades/pleione/kittencare/ui/activity/settings/TutorialActivity.java
  com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity
  com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$1
  com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$2
- com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$3
- com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$4
- com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$5
- com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$TutorialFragmentPagerAdapter
-com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/ExperienceTutorialFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.ExperienceTutorialFragment$1
-com/pleiades/pleione/kittencare/controller/PrefsController.java
- com.pleiades.pleione.kittencare.controller.PrefsController
- com.pleiades.pleione.kittencare.controller.PrefsController$1
- com.pleiades.pleione.kittencare.controller.PrefsController$2
- com.pleiades.pleione.kittencare.controller.PrefsController$3
+ com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$TutorialFragmentStateAdapter
+com/pleiades/pleione/kittencare/ui/activity/MainActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.MainActivity
+ com.pleiades.pleione.kittencare.ui.activity.MainActivity$GameTicket
 com/pleiades/pleione/kittencare/KittenService.java
  com.pleiades.pleione.kittencare.KittenService
  com.pleiades.pleione.kittencare.KittenService$1
  com.pleiades.pleione.kittencare.KittenService$2
  com.pleiades.pleione.kittencare.KittenService$3
- com.pleiades.pleione.kittencare.KittenService$4
- com.pleiades.pleione.kittencare.KittenService$5
- com.pleiades.pleione.kittencare.KittenService$5$1
  com.pleiades.pleione.kittencare.KittenService$KittenOnTouchListener
-com/pleiades/pleione/kittencare/ui/activity/MainActivity.java
- com.pleiades.pleione.kittencare.ui.activity.MainActivity
- com.pleiades.pleione.kittencare.ui.activity.MainActivity$1
- com.pleiades.pleione.kittencare.ui.activity.MainActivity$GameTicket
+com/pleiades/pleione/kittencare/controller/PrefsController.java
+ com.pleiades.pleione.kittencare.controller.PrefsController
+ com.pleiades.pleione.kittencare.controller.PrefsController$1
+ com.pleiades.pleione.kittencare.controller.PrefsController$2
+ com.pleiades.pleione.kittencare.controller.PrefsController$3
 com/pleiades/pleione/kittencare/Config.java
  com.pleiades.pleione.kittencare.Config
+com/pleiades/pleione/kittencare/ui/fragment/tutorial/ImageTutorialFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment
+com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/FaceTutorialFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$1
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$2
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$3
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$4
+ com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$5
 com/pleiades/pleione/kittencare/ui/fragment/SettingsFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment
  com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment$1
@@ -351,101 +203,56 @@ com/pleiades/pleione/kittencare/ui/fragment/SettingsFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment$6
  com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment$GeneralSettingsRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment$GeneralSettingsRecyclerAdapter$GeneralSettingsViewHolder
- com.pleiades.pleione.kittencare.ui.fragment.SettingsFragment$GeneralSettingsRecyclerAdapter$GeneralSettingsViewHolder$1
-com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/FaceTutorialFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$4
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$5
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$6
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$7
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$8
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.FaceTutorialFragment$9
-com/pleiades/pleione/kittencare/ui/fragment/tutorial/ImageTutorialFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.ImageTutorialFragment
-com/pleiades/pleione/kittencare/controller/DeviceController.java
- com.pleiades.pleione.kittencare.controller.DeviceController
 com/pleiades/pleione/kittencare/object/History.java
  com.pleiades.pleione.kittencare.object.History
+com/pleiades/pleione/kittencare/controller/DeviceController.java
+ com.pleiades.pleione.kittencare.controller.DeviceController
 com/pleiades/pleione/kittencare/ui/activity/charm/DivinationActivity.java
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$1
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$10
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$11
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$12
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$13
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$2
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$3
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$4
  com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$5
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$6
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$7
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$8
- com.pleiades.pleione.kittencare.ui.activity.charm.DivinationActivity$9
-com/pleiades/pleione/kittencare/ui/fragment/home/HomeFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.home.HomeFragment
- com.pleiades.pleione.kittencare.ui.fragment.home.HomeFragment$MainPagerAdapter
 com/pleiades/pleione/kittencare/ui/fragment/tutorial/happiness/DailyTutorialFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$1
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$2$1
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$3$1
  com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$4
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$5
- com.pleiades.pleione.kittencare.ui.fragment.tutorial.happiness.DailyTutorialFragment$6
-com/pleiades/pleione/kittencare/ui/activity/HistoryActivity.java
- com.pleiades.pleione.kittencare.ui.activity.HistoryActivity
- com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$1
- com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$2
- com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter
- com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter$HistoryViewHolder
+com/pleiades/pleione/kittencare/ui/fragment/home/HomeFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.home.HomeFragment
+ com.pleiades.pleione.kittencare.ui.fragment.home.HomeFragment$MainPagerAdapter
+com/pleiades/pleione/kittencare/ui/fragment/ItemFragment.java
+ com.pleiades.pleione.kittencare.ui.fragment.ItemFragment
+ com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$1
+ com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter
+ com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter$ItemsViewHolder
 com/pleiades/pleione/kittencare/ui/fragment/CostumeFragment.java
  com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment
  com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$1
  com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter
  com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder
- com.pleiades.pleione.kittencare.ui.fragment.CostumeFragment$CostumesRecyclerAdapter$CostumesViewHolder$1
-com/pleiades/pleione/kittencare/ui/fragment/ItemFragment.java
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$1
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$2
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$3
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter$ItemsViewHolder
- com.pleiades.pleione.kittencare.ui.fragment.ItemFragment$ItemsRecyclerAdapter$ItemsViewHolder$1
+com/pleiades/pleione/kittencare/ui/activity/HistoryActivity.java
+ com.pleiades.pleione.kittencare.ui.activity.HistoryActivity
+ com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter
+ com.pleiades.pleione.kittencare.ui.activity.HistoryActivity$HistoryRecyclerAdapter$HistoryViewHolder
 com/pleiades/pleione/kittencare/controller/NotificationController.java
  com.pleiades.pleione.kittencare.controller.NotificationController
 com/pleiades/pleione/kittencare/ui/activity/AdvertisementActivity.java
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$1
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$2$1
  com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$3
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$4
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$5
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$6
- com.pleiades.pleione.kittencare.ui.activity.AdvertisementActivity$7
 com/pleiades/pleione/kittencare/ui/activity/EscapeActivity.java
  com.pleiades.pleione.kittencare.ui.activity.EscapeActivity
 com/pleiades/pleione/kittencare/ui/activity/charm/AlchemyActivity.java
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$1
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$10
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$11
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$12
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$13
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$14
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$2
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$3
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$4
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$5
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$6$1
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$7$1
  com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$8
- com.pleiades.pleione.kittencare.ui.activity.charm.AlchemyActivity$9
