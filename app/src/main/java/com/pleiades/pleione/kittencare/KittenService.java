@@ -1,38 +1,5 @@
 package com.pleiades.pleione.kittencare;
 
-import android.annotation.SuppressLint;
-import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.PixelFormat;
-import android.os.Build;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
-import com.pleiades.pleione.kittencare.controller.AnimationController;
-import com.pleiades.pleione.kittencare.controller.DeviceController;
-import com.pleiades.pleione.kittencare.controller.NotificationController;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import static com.pleiades.pleione.kittencare.Config.COSTUME_CODE_DEFAULT;
 import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_HEIGHT;
 import static com.pleiades.pleione.kittencare.Config.DEFAULT_MAGNET_PERCENTAGE_WIDTH;
@@ -47,6 +14,39 @@ import static com.pleiades.pleione.kittencare.Config.KEY_WEARING_COSTUME;
 import static com.pleiades.pleione.kittencare.Config.NOTIFICATION_ID_FOREGROUND;
 import static com.pleiades.pleione.kittencare.Config.PERIOD_EXPLORE;
 import static com.pleiades.pleione.kittencare.Config.PREFS;
+
+import android.annotation.SuppressLint;
+import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.graphics.PixelFormat;
+import android.os.Build;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowInsets;
+import android.view.WindowManager;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.pleiades.pleione.kittencare.controller.AnimationController;
+import com.pleiades.pleione.kittencare.controller.DeviceController;
+import com.pleiades.pleione.kittencare.controller.NotificationController;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class KittenService extends Service {
     private Context context;
@@ -132,11 +132,9 @@ public class KittenService extends Service {
 
         // set on system ui visibility change listener
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // TODO implement
-            // deprecation
-            kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> {
-                systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0;
-                Log.d("test", systemNavigationHide ? "nav hide" : "nav shown");
+            kittenLayout.setOnApplyWindowInsetsListener((view, windowInsets) -> {
+                systemNavigationHide = !windowInsets.isVisible(WindowInsets.Type.navigationBars());
+                return windowInsets;
             });
         } else {
             kittenLayout.setOnSystemUiVisibilityChangeListener(visibility -> systemNavigationHide = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) != 0);
