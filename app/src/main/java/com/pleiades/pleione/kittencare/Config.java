@@ -40,7 +40,7 @@ public class Config {
     // url
     public static final String URL_ALCYONE = "https://play.google.com/store/apps/details?id=com.pleiades.pleione.alcyone";
     public static final String URL_KITTEN = "https://play.google.com/store/apps/details?id=com.pleiades.pleione.kittencare";
-    public static final String URL_CLUSTER_PLEIADES = "https://play.google.com/store/apps/developer?id=Pleione+Pleiades";
+    public static final String URL_CLUSTER_PLEIADES = "https://play.google.com/store/apps/dev?id=5328728822471795130";
 
     // dialog
     public static final int DIALOG_TYPE_OVERLAY = 0;

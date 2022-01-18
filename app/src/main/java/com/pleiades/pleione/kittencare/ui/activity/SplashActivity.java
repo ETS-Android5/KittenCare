@@ -66,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
         updateAppVersion();
 
         // set developer mode
-//        setDeveloperMode();
+        setDeveloperMode();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
