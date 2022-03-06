@@ -16,3 +16,4 @@
 local.properties
 *.aab
 *.apk
+app/src/main/res/values/strings_sensitive.xml
