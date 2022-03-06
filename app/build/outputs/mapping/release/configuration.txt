@@ -151,6 +151,7 @@
 -keep class androidx.work.impl.diagnostics.DiagnosticsReceiver { <init>(); }
 -keep class androidx.work.impl.foreground.SystemForegroundService { <init>(); }
 -keep class androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver { <init>(); }
+-keep class com.android.billingclient.api.ProxyBillingActivity { <init>(); }
 -keep class com.google.android.gms.ads.AdActivity { <init>(); }
 -keep class com.google.android.gms.ads.AdService { <init>(); }
 -keep class com.google.android.gms.ads.MobileAdsInitProvider { <init>(); }
@@ -409,6 +410,22 @@
     public boolean isLayoutSuppressed();
 }
 # End of content from C:\Users\speed\.gradle\caches\transforms-3\8e303aa94dfd93885ed8afd48730127b\transformed\recyclerview-1.2.1\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\67081ca3d18801d00e7bd02a383b5cbc\transformed\jetified-billing-ktx-4.0.0\proguard.txt
+# See https://discuss.gradle.org/t/meta-inf-version-duplicate-error-when-using-proguard/31380
+-dontwarn module-info
+
+-dontwarn java.lang.instrument.ClassFileTransformer
+-dontwarn sun.misc.SignalHandler
+-dontwarn java.lang.instrument.Instrumentation
+-dontwarn sun.misc.Signal
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\67081ca3d18801d00e7bd02a383b5cbc\transformed\jetified-billing-ktx-4.0.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\51571749757796f36bca10fddc5983e6\transformed\jetified-billing-4.0.0\proguard.txt
+# Keep the AIDL interface
+-keep class com.android.vending.billing.** { *; }
+
+-dontwarn javax.annotation.**
+-dontwarn org.checkerframework.**
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\51571749757796f36bca10fddc5983e6\transformed\jetified-billing-4.0.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\26231192827c1b536b2c76196fd812a1\transformed\jetified-play-services-ads-20.5.0\proguard.txt
 -keep public class com.google.android.gms.ads.internal.ClientApi {
   <init>();
@@ -468,6 +485,19 @@
 
 
 # End of content from C:\Users\speed\.gradle\caches\transforms-3\26231192827c1b536b2c76196fd812a1\transformed\jetified-play-services-ads-20.5.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\bae1d6d19b4561ae25afe8e3a943ab2f\transformed\jetified-play-services-base-18.0.1\proguard.txt
+# b/35135904 Ensure that proguard will not strip the mResultGuardian.
+-keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
+  com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
+}
+
+
+
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\bae1d6d19b4561ae25afe8e3a943ab2f\transformed\jetified-play-services-base-18.0.1\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\ffe1aa74e7511a64137147a44f2db927\transformed\jetified-play-services-tasks-18.0.1\proguard.txt
+
+
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\ffe1aa74e7511a64137147a44f2db927\transformed\jetified-play-services-tasks-18.0.1\proguard.txt
 # The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\63905c5caa8a7f1fa2e8ad4cc89364ec\transformed\jetified-play-services-ads-lite-20.5.0\proguard.txt
 # Keep implementations of the AdMob mediation adapter interfaces. Adapters for
 # third party ad networks implement these interfaces and are invoked by the
@@ -523,13 +553,6 @@
 }
 
 # End of content from C:\Users\speed\.gradle\caches\transforms-3\776e24b7d39b844147471e57279997c8\transformed\jetified-play-services-measurement-sdk-api-18.0.3\proguard.txt
-# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\5e4c27813075f46f7b40cd42f4eec0a7\transformed\jetified-play-services-base-17.6.0\proguard.txt
-# b/35135904 Ensure that proguard will not strip the mResultGuardian.
--keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
-  com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
-}
-
-# End of content from C:\Users\speed\.gradle\caches\transforms-3\5e4c27813075f46f7b40cd42f4eec0a7\transformed\jetified-play-services-base-17.6.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\b42f706d807a1f3b29ae6a68455e480d\transformed\jetified-play-services-measurement-base-18.0.3\proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
@@ -539,7 +562,25 @@
 }
 
 # End of content from C:\Users\speed\.gradle\caches\transforms-3\b42f706d807a1f3b29ae6a68455e480d\transformed\jetified-play-services-measurement-base-18.0.3\proguard.txt
-# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\af4cf4ab24dddf0c38a4d771357e0ec0\transformed\jetified-play-services-basement-17.6.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\e6d400ba5c8d05501ff6f03a459292e6\transformed\jetified-play-services-basement-18.0.0\proguard.txt
+# Needed when building against pre-Marshmallow SDK.
+-dontwarn android.security.NetworkSecurityPolicy
+
+# Needed when building against Marshmallow SDK.
+-dontwarn android.app.Notification
+
+# Protobuf has references not on the Android boot classpath
+-dontwarn sun.misc.Unsafe
+-dontwarn libcore.io.Memory
+
+# Internal Google annotations for generating Proguard keep rules.
+-dontwarn com.google.android.apps.common.proguard.UsedBy*
+
+# Annotations referenced by the SDK but whose definitions are contained in
+# non-required dependencies.
+-dontwarn javax.annotation.**
+-dontwarn org.checkerframework.**
+
 # Proguard flags for consumers of the Google Play services SDK
 # https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project
 
@@ -558,12 +599,12 @@
 
 # Keep the classes/members we need for client functionality.
 -keep @interface android.support.annotation.Keep
--keep @android.support.annotation.Keep class *
+-keep @androidx.annotation.Keep class *
 -keepclasseswithmembers class * {
-  @android.support.annotation.Keep <fields>;
+  @androidx.annotation.Keep <fields>;
 }
 -keepclasseswithmembers class * {
-  @android.support.annotation.Keep <methods>;
+  @androidx.annotation.Keep <methods>;
 }
 
 # Keep androidX equivalent of above android.support to allow Jetification.
@@ -590,25 +631,9 @@
   public <methods>;
 }
 
-# Needed when building against pre-Marshmallow SDK.
--dontwarn android.security.NetworkSecurityPolicy
 
-# Needed when building against Marshmallow SDK.
--dontwarn android.app.Notification
 
-# Protobuf has references not on the Android boot classpath
--dontwarn sun.misc.Unsafe
--dontwarn libcore.io.Memory
-
-# Internal Google annotations for generating Proguard keep rules.
--dontwarn com.google.android.apps.common.proguard.UsedBy*
-
-# Annotations referenced by the SDK but whose definitions are contained in
-# non-required dependencies.
--dontwarn javax.annotation.**
--dontwarn org.checkerframework.**
-
-# End of content from C:\Users\speed\.gradle\caches\transforms-3\af4cf4ab24dddf0c38a4d771357e0ec0\transformed\jetified-play-services-basement-17.6.0\proguard.txt
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\e6d400ba5c8d05501ff6f03a459292e6\transformed\jetified-play-services-basement-18.0.0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\3fa0452599eafa04f96460f5edb0e212\transformed\fragment-1.3.6\proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
@@ -868,6 +893,23 @@
 -dontwarn kotlin.annotation.Target
 
 # End of content from C:\Users\speed\.gradle\caches\transforms-3\b521f32a8ca2115704fce9eaa65230c1\transformed\jetified-annotation-experimental-1.1.0\proguard.txt
+# The proguard configuration file for the following section is C:\Users\speed\.gradle\caches\transforms-3\b2ce657c5afb8667c82008654aed1697\transformed\rules\lib\META-INF\proguard\coroutines.pro
+# ServiceLoader support
+-keepnames class kotlinx.coroutines.internal.MainDispatcherFactory {}
+-keepnames class kotlinx.coroutines.CoroutineExceptionHandler {}
+
+# Most of volatile fields are updated with AFU and should not be mangled
+-keepclassmembernames class kotlinx.** {
+    volatile <fields>;
+}
+
+# Same story for the standard library's SafeContinuation that also uses AtomicReferenceFieldUpdater
+-keepclassmembernames class kotlin.coroutines.SafeContinuation {
+    volatile <fields>;
+}
+
+
+# End of content from C:\Users\speed\.gradle\caches\transforms-3\b2ce657c5afb8667c82008654aed1697\transformed\rules\lib\META-INF\proguard\coroutines.pro
 # The proguard configuration file for the following section is <unknown>
 -ignorewarnings
 # End of content from <unknown>

@@ -170,6 +170,7 @@ com/pleiades/pleione/kittencare/ui/activity/settings/TutorialActivity.java
  com.pleiades.pleione.kittencare.ui.activity.settings.TutorialActivity$TutorialFragmentStateAdapter
 com/pleiades/pleione/kittencare/ui/activity/MainActivity.java
  com.pleiades.pleione.kittencare.ui.activity.MainActivity
+ com.pleiades.pleione.kittencare.ui.activity.MainActivity$1
  com.pleiades.pleione.kittencare.ui.activity.MainActivity$GameTicket
 com/pleiades/pleione/kittencare/KittenService.java
  com.pleiades.pleione.kittencare.KittenService
