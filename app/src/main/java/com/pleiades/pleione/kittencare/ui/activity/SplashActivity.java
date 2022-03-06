@@ -65,8 +65,8 @@ public class SplashActivity extends AppCompatActivity {
         // update app version
         updateAppVersion();
 
-        // set developer mode
-        setDeveloperMode();
+        // set test mode
+//        setTestMode();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -75,7 +75,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     // TODO delete
-    private void setDeveloperMode() {
+    private void setTestMode() {
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
