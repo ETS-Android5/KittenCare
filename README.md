@@ -100,7 +100,7 @@ The types of history are as follows.
 - Costume Get
 
 - Buff Get  
-The <a href="#Divination">divination</a> buff.
+The <a href="#Divination">Divination</a> buff.
 
 - Update Reward  
 The application update reward.
@@ -156,11 +156,11 @@ Create items or obtain buffs by using charm items!
 The types of charm item are as follows.
 
 - Crystal Ball  
-Use <a href="#Divination">divination</a> to predict today's fortune!
+Use <a href="#Divination">Divination</a> to predict today's fortune!
 Seer costume is required to use division!
 
 - Philosopher's Stone  
-Use <a href="#Alchemy">alchemy</a> to reconstruct an item!
+Use <a href="#Alchemy">Alchemy</a> to reconstruct an item!
 Alchemist costume is required to use alchemy!
 
 #### Toy
@@ -176,3 +176,117 @@ The types of toy item are as follows.
 
 - Tower
 10% more items to find!
+<br><br>
+
+### Costumes
+<img src="https://user-images.githubusercontent.com/81938036/157405889-2c88d51e-45d3-4351-8363-77b2632a63fa.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157405898-5d3d54a3-bcb2-4c2b-9f43-a4543fd2f6ff.png" width="256">
+
+#### Basic
+The types of basic costume are as follows.
+
+- Pajamas  
+Reach level 5 to unlock!
+
+- Sweater  
+Reach level 10 to unlock!
+
+- Shirts  
+Reach level 20 to unlock!
+
+- Blazer  
+Reach level 30 to unlock!
+
+- Uniform  
+Reach level 40 to unlock!
+
+- Hanbok  
+Reach level 50 to unlock!
+
+- Fleece  
+Reach level 60 to unlock!
+
+- Hoodie  
+Reach level 70 to unlock!
+
+- Jacket  
+Reach level 80 to unlock!
+
+- Coat  
+Reach level 90 to unlock!
+
+#### Special
+The types of special costume are as follows.
+
+- Alcyone  
+Install an app to unlock Alcyone costume!
+
+- Pleione  
+Write a review to unlock Pleione costume!
+
+- Sailor  
+I won\'t forgive you in the name of justice!  
+Rename the kitten to unlock Sailor costume!
+
+- Game  
+Win the <a href="#Mini-Games">Mini Games</a> 30 times to unlock!
+
+- Gift  
+Watch ads 10 time to unlock Gift costume!
+
+- Choco  
+Use all ice creams once to unlock Choco costume!
+
+- 2021  
+Share Kitten Care to unlock 2021 costume!
+
+#### Paid
+Paid costumes can also be obtained from random boxes!
+
+The types of paid costume are as follows.
+
+- Dinosaur
+- Bee
+- Penguin
+- Sunflower
+- Magician
+- Astronaut
+- Maid
+- Alchemist
+- Seer
+<br><br>
+
+### Settings
+<img src="https://user-images.githubusercontent.com/81938036/157408091-725cf879-c782-4828-9d8a-96ce909a9a44.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157408096-5a20f26b-7acd-48e9-ab6c-1e158c0eb395.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157408098-21279110-0c56-41c2-9053-4a738aa9a5dd.png" width="256">
+
+#### Kitten Configs
+Change the kitten's configurations!
+
+- Wall Width Ratio  
+Set the range of screen width that kitten recognizes as walls to attach her!
+
+- Wall Height Ratio  
+Set the range of screen height that kitten recognizes as walls to attach her!
+
+- Jump Height  
+Set the height of the kitten's jump!
+
+- Jump Distance  
+Set the distance of the kitten's jump!
+
+- Vertical Position to Appear  
+Set the screen vertical position when the kitten appears!
+
+- Animator Duration Scale  
+Set the duration scale of the animator the the kitten animates!
+
+#### Application
+Check out the application's overall settings, such as sharing Kitten Care or checking for updates!
+
+#### Detail Kitten Settings
+Change the kitten's detail settings!
+
+- Dress a Random Costume  
+Whenever the kitten appears, wear the cosumtes randomly among she has!
+
+- Recognize the Keyboard  
+The kitten recognizes the keyboard, so while the keyboard is being shown, she rises on the keyboard!
