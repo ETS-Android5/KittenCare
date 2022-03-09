@@ -37,6 +37,8 @@ Android Application for Kitten Care Game
     - <a href="#I-am-a-scary-herbivorous-dino">I'm a scary herbivorous dino!</a>
 - <a href="#Others">Others</a>
   - <a href="#Happiness">Happiness</a>
+  - <a href="#Alchemy">Alchemy</a>
+  - <a href="#Divination">Divination</a>
 <br><br>
 
 ## About
@@ -89,3 +91,88 @@ For a detailed description of Happiness, see <a href="#Happiness">Here</a>!
 #### Recent History
 Check out the recent histories!  
 By clicking the unfold button, we can check more records through History Activity.
+
+The types of history are as follows.
+
+- Item Get
+- Item Use
+- Level Up
+- Costume Get
+
+- Buff Get  
+The <a href="#Divination">divination</a> buff.
+
+- Update Reward  
+The application update reward.
+
+- Exploring Start  
+The kitten started exploring for the first time.
+<br><br>
+
+### Items
+<img src="https://user-images.githubusercontent.com/81938036/157401555-e251c233-57f4-49ca-86ab-2f7fb419a66f.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157401561-b11f8ea0-7cac-48e3-aef2-ddc543f6108f.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157401564-c78cc280-756f-47d1-9e97-7bb84fd3c69e.png" width="256">
+
+#### Consumption
+Grow the kitten by using consumption items!
+
+The types of consumption item are as follows.
+
+- Mint Ice Cream  
+★ Increases EXP by 30!
+
+- Melon Ice Cream  
+★★ Increases EXP by 50!
+
+- Cherry Ice Cream  
+★★★ Increases EXP by 100!
+
+- Chocolate Ice Cream  
+★★★★ Increases EXP by 200!
+
+- Green Tea Ice Cream  
+★★★★★ Increases EXP by 300!
+
+- Mint Cake  
+★ Increases EXP by 5 %
+
+- Melon Cake  
+★★ Increases EXP by 10 %
+
+- Cherry Cake  
+★★★ Increases EXP by 20 %
+
+- Chocoloate Cake  
+★★★★ Increases EXP by 30 %
+
+- Green Tea Cake  
+★★★★★ Increases EXP by 50 %
+
+- Ice Cream Cake  
+★★★★★★ Increases Level by 1!
+
+#### Charm
+Create items or obtain buffs by using charm items!
+
+The types of charm item are as follows.
+
+- Crystal Ball  
+Use <a href="#Divination">divination</a> to predict today's fortune!
+Seer costume is required to use division!
+
+- Philosopher's Stone  
+Use <a href="#Alchemy">alchemy</a> to reconstruct an item!
+Alchemist costume is required to use alchemy!
+
+#### Toy
+Apply passives by having toy items!
+
+The types of toy item are as follows.
+
+- Pleione Doll  
+15 % more EXP gained from items!
+
+- Scratcher  
+10 % more EXP gained from items!
+
+- Tower
+10% more items to find!
