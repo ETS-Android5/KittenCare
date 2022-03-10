@@ -321,7 +321,7 @@ Two tickets are charged every midnight, and we can choose the level of difficult
 
 <img src="https://user-images.githubusercontent.com/81938036/157605571-64053859-6715-4f41-a28d-fcb6d4c15fd9.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605573-16ce243c-09fb-4aab-9cf4-87139e2f4eb6.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605575-c4e918e5-0db4-46c6-a93b-0aed69ddb9fd.png" width="256">
 
-Check out the tutorial pages about happiness!
+Check out this tutorial pages about happiness!
 
 ### Alchemy
 ### Divination
