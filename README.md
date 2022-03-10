@@ -290,3 +290,38 @@ Whenever the kitten appears, wear the cosumtes randomly among she has!
 
 - Recognize the Keyboard  
 The kitten recognizes the keyboard, so while the keyboard is being shown, she rises on the keyboard!
+<br><br>
+
+### Mini Games
+<img src="https://user-images.githubusercontent.com/81938036/157597885-7cdb998b-8082-4da7-a73e-813774b7a021.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157597893-e8526211-f4f9-4946-9e02-eb5ff1f20062.png" width="256">
+
+Win the mini game and get the item!  
+Two tickets are charged every midnight, and we can choose the level of difficulty!
+
+#### I want to sleep quietly!
+<img src="https://user-images.githubusercontent.com/81938036/157600716-acbe5f4f-b4be-431d-8b2b-f35b79cc1aee.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600719-e4f989c2-c819-4164-a728-0c84c2b7f2f5.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600721-e66494aa-983e-4b87-ba67-ac83aae14267.png" width="256">
+
+<img src="https://user-images.githubusercontent.com/81938036/157600725-b4bc21c8-954b-4834-a15c-3846ed100037.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600727-7e622e4e-7d52-41e9-8ad6-80dcd37f919d.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600728-7402000b-e268-41b2-9359-ea113389adcf.png" width="256">
+
+<img src="https://user-images.githubusercontent.com/81938036/157600731-bd7abb3f-54fa-41a8-91c9-4cb37db71689.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600732-3c8731a9-2808-4f53-ad67-7b896c5ba5d6.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157600735-64aa513c-6873-4df8-babd-a2d128ac1c0f.png" width="256">
+
+#### Late-night refrigerator raid!
+<img src="https://user-images.githubusercontent.com/81938036/157601845-f75ff1c0-06b7-47c1-8378-fce0f82e7356.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601848-b7b9de04-3041-48dc-92e9-96e048932958.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601851-edda86e6-7df3-421b-9894-312749cfe041.png" width="256">
+
+<img src="https://user-images.githubusercontent.com/81938036/157601852-9908d562-0d1f-4994-b33a-156fb9c38f68.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601855-22bfc922-a7c9-4331-bfe1-95c959fd42d5.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601857-b071572d-76d5-4140-8592-a08b6b3dccef.png" width="256">
+
+<img src="https://user-images.githubusercontent.com/81938036/157601862-3d851b65-4ac6-4635-b14a-e893eb9baeaa.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601865-d4f422df-c527-4142-9d2b-4884faa6a192.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157601867-1511c372-0dcb-4922-88d7-da5cf60c5668.png" width="256">
+
+#### I'm a scary herbivorous dino!
+<img src="https://user-images.githubusercontent.com/81938036/157604624-e3bd059f-56e6-4d0b-8233-09225bc21892.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157604627-43b1c8b2-e480-4233-ac75-765d0a8ad1e8.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157604628-fbe95074-1990-46b8-85f7-4f0d90ec74d2.png" width="256">
+
+## Others
+### Happiness
+<img src="https://user-images.githubusercontent.com/81938036/157605559-f5522097-8279-48fe-8ac6-631797a65f79.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605566-e64eacbd-4105-4ee0-91af-80fbb01f7b80.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605569-84c599a6-986d-4057-8b55-7b68e2fcd9de.png" width="256">
+
+<img src="https://user-images.githubusercontent.com/81938036/157605571-64053859-6715-4f41-a28d-fcb6d4c15fd9.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605573-16ce243c-09fb-4aab-9cf4-87139e2f4eb6.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605575-c4e918e5-0db4-46c6-a93b-0aed69ddb9fd.png" width="256">
+
+Check out the tutorial pages about happiness!
+
+### Alchemy
+### Divination
