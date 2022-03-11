@@ -314,6 +314,7 @@ Two tickets are charged every midnight, and we can choose the level of difficult
 
 #### I'm a scary herbivorous dino!
 <img src="https://user-images.githubusercontent.com/81938036/157604624-e3bd059f-56e6-4d0b-8233-09225bc21892.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157604627-43b1c8b2-e480-4233-ac75-765d0a8ad1e8.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157604628-fbe95074-1990-46b8-85f7-4f0d90ec74d2.png" width="256">
+<br><br>
 
 ## Others
 ### Happiness
@@ -322,6 +323,18 @@ Two tickets are charged every midnight, and we can choose the level of difficult
 <img src="https://user-images.githubusercontent.com/81938036/157605571-64053859-6715-4f41-a28d-fcb6d4c15fd9.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605573-16ce243c-09fb-4aab-9cf4-87139e2f4eb6.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157605575-c4e918e5-0db4-46c6-a93b-0aed69ddb9fd.png" width="256">
 
 Check out this tutorial pages about happiness!
+<br><br>
 
 ### Alchemy
+<img src="https://user-images.githubusercontent.com/81938036/157813479-5d64c883-4790-470c-a094-920de5759787.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157813481-89443dec-0c61-4231-bbf1-aec0eb719eaf.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157813483-b102cbb0-cba1-4308-bb6b-9f25315e22c7.png" width="256">
+
+Deconstruct same ice creams up to 5!  
+The success rate depends on the number of materials!  
+We can get a same-flavored cake if success!
+<br><br>
+
 ### Divination
+<img src="https://user-images.githubusercontent.com/81938036/157814241-eff20eb5-2cbe-4fe4-a957-78ed03ac9ac5.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157814242-f2216e98-2b92-49da-b567-64d1420cc485.png" width="256"> <img src="https://user-images.githubusercontent.com/81938036/157814244-cbc8a00a-537a-4794-a89e-124c9461b07a.png" width="256">
+
+Get buff randomly!  
+The effect of the buff lasts until midnight!
